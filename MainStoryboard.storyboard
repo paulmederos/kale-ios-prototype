@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3hz-dn-a3x">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
+    </dependencies>
+    <scenes>
+        <!--Share View Controller - Share Meal-->
+        <scene sceneID="cVA-vb-OFS">
+            <objects>
+                <viewController id="wwK-FM-Oom" customClass="ShareViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7kK-x6-GGT">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Share Meal" id="ODo-FA-KJi">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="P5v-tB-CUy">
+                            <color key="tintColor" red="0.17629740490000001" green="0.64854364809999998" blue="0.13663905300000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="cancelShare:" destination="wwK-FM-Oom" id="aq0-cf-nXV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mXn-jB-zq5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1524" y="584"/>
+        </scene>
+        <!--Profile Navigation Controller - Profile-->
+        <scene sceneID="hna-M7-Z2p">
+            <objects>
+                <navigationController title="Profile" definesPresentationContext="YES" id="Vov-Xq-VQb" customClass="KAProfileNavigationController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" id="ZY1-hE-U5y"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nAD-jV-4qE" customClass="KAMainNavigationBar">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="hUL-kx-kLm" kind="relationship" relationship="rootViewController" id="z1g-mq-Xyc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kMD-0P-N9N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3" y="584"/>
+        </scene>
+        <!--View Controller - Profile-->
+        <scene sceneID="5jA-06-xvc">
+            <objects>
+                <viewController title="Profile" id="hUL-kx-kLm" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jWX-YO-TmS">
+                        <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Profile" id="gnu-sA-SWM">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="rxf-Ys-MtQ">
+                            <color key="tintColor" red="0.17629740490000001" green="0.64854364809999998" blue="0.13663905300000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="leB-yM-6vf" kind="modal" id="K2q-Jq-6eA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KF4-2h-8j0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="433" y="584"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="swe-TY-1a7">
+            <objects>
+                <tabBarController definesPresentationContext="YES" id="3hz-dn-a3x" sceneMemberID="viewController">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Vqs-R1-FoO" customClass="KATabBar">
+                        <rect key="frame" x="129" y="330" width="163" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="kUt-dc-h0p" kind="relationship" relationship="viewControllers" id="F0y-Vx-EFz"/>
+                        <segue destination="Vov-Xq-VQb" kind="relationship" relationship="viewControllers" id="tZi-bt-3xd"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zXP-JN-ZNk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-522" y="-129"/>
+        </scene>
+        <!--Feed Table View Controller - Global Feed-->
+        <scene sceneID="0TR-jZ-8uO">
+            <objects>
+                <tableViewController title="Global Feed" id="3Ir-rB-txd" customClass="KAFeedTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="rUL-lM-RBD">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="meal" id="3s2-9t-Hre">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <segue destination="ZH5-rv-daH" kind="push" id="tYX-y1-JYo"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Global Feed" id="VD4-bi-VRl">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="4UQ-Dg-6VU">
+                            <color key="tintColor" red="0.17629740487745638" green="0.64854364809782616" blue="0.1366390529603366" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="leB-yM-6vf" kind="modal" id="h1T-r3-X7k"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iAV-pL-0wf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="427" y="-129"/>
+        </scene>
+        <!--Meal View Controller - View Meal-->
+        <scene sceneID="Jlz-W8-upl">
+            <objects>
+                <viewController title="View Meal" id="ZH5-rv-daH" customClass="KAMealViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qj3-R1-5fM">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="KMG-BI-Sd3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="klR-ak-hPX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="851" y="-129"/>
+        </scene>
+        <!--Feed Navigation Controller - Global Feed-->
+        <scene sceneID="P8f-vw-NRz">
+            <objects>
+                <navigationController title="Global Feed" definesPresentationContext="YES" id="kUt-dc-h0p" customClass="KAFeedNavigationController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" id="XOW-yi-XUE"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gc8-Qc-52h" customClass="KAMainNavigationBar">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="vhK-4I-DIV">
+                        <rect key="frame" x="0.0" y="416" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="3Ir-rB-txd" kind="relationship" relationship="rootViewController" id="qbk-mB-qT5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cs5-RZ-RFJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3" y="-129"/>
+        </scene>
+        <!--Share Navigation Controller - Item-->
+        <scene sceneID="wSS-6O-qgN">
+            <objects>
+                <navigationController id="leB-yM-6vf" customClass="KAShareNavigationController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="XUC-QW-1AH"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="v2T-xh-va8" customClass="KAMainNavigationBar">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wwK-FM-Oom" kind="relationship" relationship="rootViewController" id="yU1-eV-fMy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wes-OU-haQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="998" y="584"/>
+        </scene>
+    </scenes>
+    <classes>
+        <class className="KAFeedNavigationController" superclassName="UINavigationController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/KAFeedNavigationController.h"/>
+        </class>
+        <class className="KAFeedTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/KAFeedTableViewController.h"/>
+        </class>
+        <class className="KAMainNavigationBar" superclassName="UINavigationBar">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/KAMainNavigationBar.h"/>
+        </class>
+        <class className="KAMealViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/KAMealViewController.h"/>
+        </class>
+        <class className="KAProfileNavigationController" superclassName="UINavigationController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/KAProfileNavigationController.h"/>
+        </class>
+        <class className="KAShareNavigationController" superclassName="UINavigationController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/KAShareNavigationController.h"/>
+        </class>
+        <class className="KATabBar" superclassName="UITabBar">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/KATabBar.h"/>
+        </class>
+        <class className="ShareViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ShareViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelShare:"/>
+            </relationships>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="K2q-Jq-6eA"/>
+    </inferredMetricsTieBreakers>
+</document>

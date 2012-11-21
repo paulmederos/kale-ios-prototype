@@ -16,6 +16,33 @@
 		6A4E25B4165C443F00E727B1 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4E25B3165C443F00E727B1 /* Default.png */; };
 		6A4E25B6165C443F00E727B1 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4E25B5165C443F00E727B1 /* Default@2x.png */; };
 		6A4E25B8165C443F00E727B1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4E25B7165C443F00E727B1 /* Default-568h@2x.png */; };
+		6A4E25BF165C446700E727B1 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A4E25BE165C446700E727B1 /* MainStoryboard.storyboard */; };
+		6A4E25C6165C450600E727B1 /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4E25C5165C450600E727B1 /* ShareViewController.m */; };
+		6A4E25C9165C454500E727B1 /* KAProfileNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4E25C8165C454500E727B1 /* KAProfileNavigationController.m */; };
+		6A4E25CC165C456600E727B1 /* KAFeedNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4E25CB165C456600E727B1 /* KAFeedNavigationController.m */; };
+		6A4E25D5165C7B9500E727B1 /* KAMainNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4E25D4165C7B9500E727B1 /* KAMainNavigationBar.m */; };
+		6A4E25D8165C7C9800E727B1 /* KAFeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4E25D7165C7C9800E727B1 /* KAFeedTableViewController.m */; };
+		6A4E25DC165C7D7700E727B1 /* KAMealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4E25DB165C7D7700E727B1 /* KAMealViewController.m */; };
+		6A4E25E3165C827600E727B1 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4E25DD165C827600E727B1 /* Icon.png */; };
+		6A4E25E4165C827600E727B1 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4E25DE165C827600E727B1 /* Icon@2x.png */; };
+		6A4E25E5165C827600E727B1 /* nav-backbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4E25DF165C827600E727B1 /* nav-backbutton.png */; };
+		6A4E25E6165C827600E727B1 /* nav-backbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4E25E0165C827600E727B1 /* nav-backbutton@2x.png */; };
+		6A4E25E7165C827600E727B1 /* navigationbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4E25E1165C827600E727B1 /* navigationbar.png */; };
+		6A4E25E8165C827600E727B1 /* navigationbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4E25E2165C827600E727B1 /* navigationbar@2x.png */; };
+		6A4E25ED165C847F00E727B1 /* tabbar-background-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4E25E9165C847F00E727B1 /* tabbar-background-pressed.png */; };
+		6A4E25EE165C847F00E727B1 /* tabbar-background-pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4E25EA165C847F00E727B1 /* tabbar-background-pressed@2x.png */; };
+		6A4E25EF165C847F00E727B1 /* tabbar-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4E25EB165C847F00E727B1 /* tabbar-background.png */; };
+		6A4E25F0165C847F00E727B1 /* tabbar-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4E25EC165C847F00E727B1 /* tabbar-background@2x.png */; };
+		6A4E25F3165C84B200E727B1 /* KATabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4E25F2165C84B200E727B1 /* KATabBar.m */; };
+		6A4E25FC165C89A700E727B1 /* tabbar-global-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4E25F4165C89A700E727B1 /* tabbar-global-selected.png */; };
+		6A4E25FD165C89A700E727B1 /* tabbar-global-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4E25F5165C89A700E727B1 /* tabbar-global-selected@2x.png */; };
+		6A4E25FE165C89A700E727B1 /* tabbar-global.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4E25F6165C89A700E727B1 /* tabbar-global.png */; };
+		6A4E25FF165C89A700E727B1 /* tabbar-global@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4E25F7165C89A700E727B1 /* tabbar-global@2x.png */; };
+		6A4E2600165C89A700E727B1 /* tabbar-profile-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4E25F8165C89A700E727B1 /* tabbar-profile-selected.png */; };
+		6A4E2601165C89A700E727B1 /* tabbar-profile-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4E25F9165C89A700E727B1 /* tabbar-profile-selected@2x.png */; };
+		6A4E2602165C89A700E727B1 /* tabbar-profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4E25FA165C89A700E727B1 /* tabbar-profile.png */; };
+		6A4E2603165C89A700E727B1 /* tabbar-profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4E25FB165C89A700E727B1 /* tabbar-profile@2x.png */; };
+		6A4E2607165C8DD900E727B1 /* KAShareNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4E2606165C8DD900E727B1 /* KAShareNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +59,41 @@
 		6A4E25B3165C443F00E727B1 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		6A4E25B5165C443F00E727B1 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		6A4E25B7165C443F00E727B1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		6A4E25BE165C446700E727B1 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainStoryboard.storyboard; path = ../MainStoryboard.storyboard; sourceTree = "<group>"; };
+		6A4E25C4165C450600E727B1 /* ShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShareViewController.h; path = Source/ShareViewController.h; sourceTree = "<group>"; };
+		6A4E25C5165C450600E727B1 /* ShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShareViewController.m; path = Source/ShareViewController.m; sourceTree = "<group>"; };
+		6A4E25C7165C454500E727B1 /* KAProfileNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KAProfileNavigationController.h; path = Source/KAProfileNavigationController.h; sourceTree = "<group>"; };
+		6A4E25C8165C454500E727B1 /* KAProfileNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KAProfileNavigationController.m; path = Source/KAProfileNavigationController.m; sourceTree = "<group>"; };
+		6A4E25CA165C456600E727B1 /* KAFeedNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KAFeedNavigationController.h; path = Source/KAFeedNavigationController.h; sourceTree = "<group>"; };
+		6A4E25CB165C456600E727B1 /* KAFeedNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KAFeedNavigationController.m; path = Source/KAFeedNavigationController.m; sourceTree = "<group>"; };
+		6A4E25D3165C7B9500E727B1 /* KAMainNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KAMainNavigationBar.h; path = Source/KAMainNavigationBar.h; sourceTree = SOURCE_ROOT; };
+		6A4E25D4165C7B9500E727B1 /* KAMainNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KAMainNavigationBar.m; path = Source/KAMainNavigationBar.m; sourceTree = SOURCE_ROOT; };
+		6A4E25D6165C7C9800E727B1 /* KAFeedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KAFeedTableViewController.h; path = Source/KAFeedTableViewController.h; sourceTree = "<group>"; };
+		6A4E25D7165C7C9800E727B1 /* KAFeedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KAFeedTableViewController.m; path = Source/KAFeedTableViewController.m; sourceTree = "<group>"; };
+		6A4E25DA165C7D7700E727B1 /* KAMealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAMealViewController.h; sourceTree = "<group>"; };
+		6A4E25DB165C7D7700E727B1 /* KAMealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KAMealViewController.m; sourceTree = "<group>"; };
+		6A4E25DD165C827600E727B1 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/Icon.png; sourceTree = SOURCE_ROOT; };
+		6A4E25DE165C827600E727B1 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "Resources/Icon@2x.png"; sourceTree = SOURCE_ROOT; };
+		6A4E25DF165C827600E727B1 /* nav-backbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav-backbutton.png"; path = "Resources/nav-backbutton.png"; sourceTree = SOURCE_ROOT; };
+		6A4E25E0165C827600E727B1 /* nav-backbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav-backbutton@2x.png"; path = "Resources/nav-backbutton@2x.png"; sourceTree = SOURCE_ROOT; };
+		6A4E25E1165C827600E727B1 /* navigationbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = navigationbar.png; path = Resources/navigationbar.png; sourceTree = SOURCE_ROOT; };
+		6A4E25E2165C827600E727B1 /* navigationbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "navigationbar@2x.png"; path = "Resources/navigationbar@2x.png"; sourceTree = SOURCE_ROOT; };
+		6A4E25E9165C847F00E727B1 /* tabbar-background-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-background-pressed.png"; sourceTree = "<group>"; };
+		6A4E25EA165C847F00E727B1 /* tabbar-background-pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-background-pressed@2x.png"; sourceTree = "<group>"; };
+		6A4E25EB165C847F00E727B1 /* tabbar-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-background.png"; sourceTree = "<group>"; };
+		6A4E25EC165C847F00E727B1 /* tabbar-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-background@2x.png"; sourceTree = "<group>"; };
+		6A4E25F1165C84B200E727B1 /* KATabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KATabBar.h; path = Source/KATabBar.h; sourceTree = SOURCE_ROOT; };
+		6A4E25F2165C84B200E727B1 /* KATabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KATabBar.m; path = Source/KATabBar.m; sourceTree = SOURCE_ROOT; };
+		6A4E25F4165C89A700E727B1 /* tabbar-global-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-global-selected.png"; path = "Resources/tabbar-global-selected.png"; sourceTree = SOURCE_ROOT; };
+		6A4E25F5165C89A700E727B1 /* tabbar-global-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-global-selected@2x.png"; path = "Resources/tabbar-global-selected@2x.png"; sourceTree = SOURCE_ROOT; };
+		6A4E25F6165C89A700E727B1 /* tabbar-global.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-global.png"; path = "Resources/tabbar-global.png"; sourceTree = SOURCE_ROOT; };
+		6A4E25F7165C89A700E727B1 /* tabbar-global@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-global@2x.png"; path = "Resources/tabbar-global@2x.png"; sourceTree = SOURCE_ROOT; };
+		6A4E25F8165C89A700E727B1 /* tabbar-profile-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-profile-selected.png"; path = "Resources/tabbar-profile-selected.png"; sourceTree = SOURCE_ROOT; };
+		6A4E25F9165C89A700E727B1 /* tabbar-profile-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-profile-selected@2x.png"; path = "Resources/tabbar-profile-selected@2x.png"; sourceTree = SOURCE_ROOT; };
+		6A4E25FA165C89A700E727B1 /* tabbar-profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-profile.png"; path = "Resources/tabbar-profile.png"; sourceTree = SOURCE_ROOT; };
+		6A4E25FB165C89A700E727B1 /* tabbar-profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-profile@2x.png"; path = "Resources/tabbar-profile@2x.png"; sourceTree = SOURCE_ROOT; };
+		6A4E2605165C8DD900E727B1 /* KAShareNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KAShareNavigationController.h; path = Source/KAShareNavigationController.h; sourceTree = "<group>"; };
+		6A4E2606165C8DD900E727B1 /* KAShareNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KAShareNavigationController.m; path = Source/KAShareNavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +140,12 @@
 		6A4E25A7165C443F00E727B1 /* Kale */ = {
 			isa = PBXGroup;
 			children = (
+				6A4E25D2165C7B6B00E727B1 /* UI */,
+				6A4E25C3165C44C300E727B1 /* Controllers */,
+				6A4E25BE165C446700E727B1 /* MainStoryboard.storyboard */,
 				6A4E25B0165C443F00E727B1 /* KAAppDelegate.h */,
 				6A4E25B1165C443F00E727B1 /* KAAppDelegate.m */,
+				6A4E25D1165C46D100E727B1 /* Resources */,
 				6A4E25A8165C443F00E727B1 /* Supporting Files */,
 			);
 			path = Kale;
@@ -97,6 +163,78 @@
 				6A4E25B7165C443F00E727B1 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6A4E25C3165C44C300E727B1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6A4E2604165C8DAD00E727B1 /* Share Meal Process */,
+				6A4E25D9165C7CA500E727B1 /* Global Feed */,
+				6A4E25C7165C454500E727B1 /* KAProfileNavigationController.h */,
+				6A4E25C8165C454500E727B1 /* KAProfileNavigationController.m */,
+			);
+			name = Controllers;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		6A4E25D1165C46D100E727B1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6A4E25DD165C827600E727B1 /* Icon.png */,
+				6A4E25DE165C827600E727B1 /* Icon@2x.png */,
+				6A4E25DF165C827600E727B1 /* nav-backbutton.png */,
+				6A4E25E0165C827600E727B1 /* nav-backbutton@2x.png */,
+				6A4E25E1165C827600E727B1 /* navigationbar.png */,
+				6A4E25E2165C827600E727B1 /* navigationbar@2x.png */,
+				6A4E25E9165C847F00E727B1 /* tabbar-background-pressed.png */,
+				6A4E25EA165C847F00E727B1 /* tabbar-background-pressed@2x.png */,
+				6A4E25EB165C847F00E727B1 /* tabbar-background.png */,
+				6A4E25EC165C847F00E727B1 /* tabbar-background@2x.png */,
+				6A4E25F4165C89A700E727B1 /* tabbar-global-selected.png */,
+				6A4E25F5165C89A700E727B1 /* tabbar-global-selected@2x.png */,
+				6A4E25F6165C89A700E727B1 /* tabbar-global.png */,
+				6A4E25F7165C89A700E727B1 /* tabbar-global@2x.png */,
+				6A4E25F8165C89A700E727B1 /* tabbar-profile-selected.png */,
+				6A4E25F9165C89A700E727B1 /* tabbar-profile-selected@2x.png */,
+				6A4E25FA165C89A700E727B1 /* tabbar-profile.png */,
+				6A4E25FB165C89A700E727B1 /* tabbar-profile@2x.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		6A4E25D2165C7B6B00E727B1 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				6A4E25D3165C7B9500E727B1 /* KAMainNavigationBar.h */,
+				6A4E25D4165C7B9500E727B1 /* KAMainNavigationBar.m */,
+				6A4E25F1165C84B200E727B1 /* KATabBar.h */,
+				6A4E25F2165C84B200E727B1 /* KATabBar.m */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		6A4E25D9165C7CA500E727B1 /* Global Feed */ = {
+			isa = PBXGroup;
+			children = (
+				6A4E25CA165C456600E727B1 /* KAFeedNavigationController.h */,
+				6A4E25CB165C456600E727B1 /* KAFeedNavigationController.m */,
+				6A4E25D6165C7C9800E727B1 /* KAFeedTableViewController.h */,
+				6A4E25D7165C7C9800E727B1 /* KAFeedTableViewController.m */,
+				6A4E25DA165C7D7700E727B1 /* KAMealViewController.h */,
+				6A4E25DB165C7D7700E727B1 /* KAMealViewController.m */,
+			);
+			name = "Global Feed";
+			sourceTree = "<group>";
+		};
+		6A4E2604165C8DAD00E727B1 /* Share Meal Process */ = {
+			isa = PBXGroup;
+			children = (
+				6A4E25C4165C450600E727B1 /* ShareViewController.h */,
+				6A4E25C5165C450600E727B1 /* ShareViewController.m */,
+				6A4E2605165C8DD900E727B1 /* KAShareNavigationController.h */,
+				6A4E2606165C8DD900E727B1 /* KAShareNavigationController.m */,
+			);
+			name = "Share Meal Process";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,6 +293,25 @@
 				6A4E25B4165C443F00E727B1 /* Default.png in Resources */,
 				6A4E25B6165C443F00E727B1 /* Default@2x.png in Resources */,
 				6A4E25B8165C443F00E727B1 /* Default-568h@2x.png in Resources */,
+				6A4E25BF165C446700E727B1 /* MainStoryboard.storyboard in Resources */,
+				6A4E25E3165C827600E727B1 /* Icon.png in Resources */,
+				6A4E25E4165C827600E727B1 /* Icon@2x.png in Resources */,
+				6A4E25E5165C827600E727B1 /* nav-backbutton.png in Resources */,
+				6A4E25E6165C827600E727B1 /* nav-backbutton@2x.png in Resources */,
+				6A4E25E7165C827600E727B1 /* navigationbar.png in Resources */,
+				6A4E25E8165C827600E727B1 /* navigationbar@2x.png in Resources */,
+				6A4E25ED165C847F00E727B1 /* tabbar-background-pressed.png in Resources */,
+				6A4E25EE165C847F00E727B1 /* tabbar-background-pressed@2x.png in Resources */,
+				6A4E25EF165C847F00E727B1 /* tabbar-background.png in Resources */,
+				6A4E25F0165C847F00E727B1 /* tabbar-background@2x.png in Resources */,
+				6A4E25FC165C89A700E727B1 /* tabbar-global-selected.png in Resources */,
+				6A4E25FD165C89A700E727B1 /* tabbar-global-selected@2x.png in Resources */,
+				6A4E25FE165C89A700E727B1 /* tabbar-global.png in Resources */,
+				6A4E25FF165C89A700E727B1 /* tabbar-global@2x.png in Resources */,
+				6A4E2600165C89A700E727B1 /* tabbar-profile-selected.png in Resources */,
+				6A4E2601165C89A700E727B1 /* tabbar-profile-selected@2x.png in Resources */,
+				6A4E2602165C89A700E727B1 /* tabbar-profile.png in Resources */,
+				6A4E2603165C89A700E727B1 /* tabbar-profile@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,6 +324,14 @@
 			files = (
 				6A4E25AE165C443F00E727B1 /* main.m in Sources */,
 				6A4E25B2165C443F00E727B1 /* KAAppDelegate.m in Sources */,
+				6A4E25C6165C450600E727B1 /* ShareViewController.m in Sources */,
+				6A4E25C9165C454500E727B1 /* KAProfileNavigationController.m in Sources */,
+				6A4E25CC165C456600E727B1 /* KAFeedNavigationController.m in Sources */,
+				6A4E25D5165C7B9500E727B1 /* KAMainNavigationBar.m in Sources */,
+				6A4E25D8165C7C9800E727B1 /* KAFeedTableViewController.m in Sources */,
+				6A4E25DC165C7D7700E727B1 /* KAMealViewController.m in Sources */,
+				6A4E25F3165C84B200E727B1 /* KATabBar.m in Sources */,
+				6A4E2607165C8DD900E727B1 /* KAShareNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
