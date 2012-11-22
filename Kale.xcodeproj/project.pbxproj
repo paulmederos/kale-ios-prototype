@@ -43,6 +43,17 @@
 		6A4E2602165C89A700E727B1 /* tabbar-profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4E25FA165C89A700E727B1 /* tabbar-profile.png */; };
 		6A4E2603165C89A700E727B1 /* tabbar-profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4E25FB165C89A700E727B1 /* tabbar-profile@2x.png */; };
 		6A4E2607165C8DD900E727B1 /* KAShareNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4E2606165C8DD900E727B1 /* KAShareNavigationController.m */; };
+		6A4E261C165D58A900E727B1 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4E260A165D58A900E727B1 /* AFHTTPClient.m */; };
+		6A4E261D165D58A900E727B1 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4E260C165D58A900E727B1 /* AFHTTPRequestOperation.m */; };
+		6A4E261E165D58A900E727B1 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4E260E165D58A900E727B1 /* AFImageRequestOperation.m */; };
+		6A4E261F165D58A900E727B1 /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4E2610165D58A900E727B1 /* AFJSONRequestOperation.m */; };
+		6A4E2620165D58A900E727B1 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4E2612165D58A900E727B1 /* AFNetworkActivityIndicatorManager.m */; };
+		6A4E2621165D58A900E727B1 /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4E2615165D58A900E727B1 /* AFPropertyListRequestOperation.m */; };
+		6A4E2622165D58A900E727B1 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4E2617165D58A900E727B1 /* AFURLConnectionOperation.m */; };
+		6A4E2623165D58A900E727B1 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4E2619165D58A900E727B1 /* AFXMLRequestOperation.m */; };
+		6A4E2624165D58A900E727B1 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4E261B165D58A900E727B1 /* UIImageView+AFNetworking.m */; };
+		6A4E2628165D63B500E727B1 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4E2626165D628000E727B1 /* MBProgressHUD.m */; };
+		6A4E262B165D646F00E727B1 /* KAMeal.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4E262A165D646F00E727B1 /* KAMeal.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,8 +73,8 @@
 		6A4E25BE165C446700E727B1 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainStoryboard.storyboard; path = ../MainStoryboard.storyboard; sourceTree = "<group>"; };
 		6A4E25C4165C450600E727B1 /* ShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShareViewController.h; path = Source/ShareViewController.h; sourceTree = "<group>"; };
 		6A4E25C5165C450600E727B1 /* ShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShareViewController.m; path = Source/ShareViewController.m; sourceTree = "<group>"; };
-		6A4E25C7165C454500E727B1 /* KAProfileNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KAProfileNavigationController.h; path = Source/KAProfileNavigationController.h; sourceTree = "<group>"; };
-		6A4E25C8165C454500E727B1 /* KAProfileNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KAProfileNavigationController.m; path = Source/KAProfileNavigationController.m; sourceTree = "<group>"; };
+		6A4E25C7165C454500E727B1 /* KAProfileNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KAProfileNavigationController.h; path = ../Source/KAProfileNavigationController.h; sourceTree = "<group>"; };
+		6A4E25C8165C454500E727B1 /* KAProfileNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KAProfileNavigationController.m; path = ../Source/KAProfileNavigationController.m; sourceTree = "<group>"; };
 		6A4E25CA165C456600E727B1 /* KAFeedNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KAFeedNavigationController.h; path = Source/KAFeedNavigationController.h; sourceTree = "<group>"; };
 		6A4E25CB165C456600E727B1 /* KAFeedNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KAFeedNavigationController.m; path = Source/KAFeedNavigationController.m; sourceTree = "<group>"; };
 		6A4E25D3165C7B9500E727B1 /* KAMainNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KAMainNavigationBar.h; path = Source/KAMainNavigationBar.h; sourceTree = SOURCE_ROOT; };
@@ -94,6 +105,29 @@
 		6A4E25FB165C89A700E727B1 /* tabbar-profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabbar-profile@2x.png"; path = "Resources/tabbar-profile@2x.png"; sourceTree = SOURCE_ROOT; };
 		6A4E2605165C8DD900E727B1 /* KAShareNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KAShareNavigationController.h; path = Source/KAShareNavigationController.h; sourceTree = "<group>"; };
 		6A4E2606165C8DD900E727B1 /* KAShareNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KAShareNavigationController.m; path = Source/KAShareNavigationController.m; sourceTree = "<group>"; };
+		6A4E2609165D58A900E727B1 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
+		6A4E260A165D58A900E727B1 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
+		6A4E260B165D58A900E727B1 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		6A4E260C165D58A900E727B1 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		6A4E260D165D58A900E727B1 /* AFImageRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFImageRequestOperation.h; sourceTree = "<group>"; };
+		6A4E260E165D58A900E727B1 /* AFImageRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFImageRequestOperation.m; sourceTree = "<group>"; };
+		6A4E260F165D58A900E727B1 /* AFJSONRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFJSONRequestOperation.h; sourceTree = "<group>"; };
+		6A4E2610165D58A900E727B1 /* AFJSONRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFJSONRequestOperation.m; sourceTree = "<group>"; };
+		6A4E2611165D58A900E727B1 /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
+		6A4E2612165D58A900E727B1 /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
+		6A4E2613165D58A900E727B1 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		6A4E2614165D58A900E727B1 /* AFPropertyListRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPropertyListRequestOperation.h; sourceTree = "<group>"; };
+		6A4E2615165D58A900E727B1 /* AFPropertyListRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFPropertyListRequestOperation.m; sourceTree = "<group>"; };
+		6A4E2616165D58A900E727B1 /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		6A4E2617165D58A900E727B1 /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		6A4E2618165D58A900E727B1 /* AFXMLRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFXMLRequestOperation.h; sourceTree = "<group>"; };
+		6A4E2619165D58A900E727B1 /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
+		6A4E261A165D58A900E727B1 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
+		6A4E261B165D58A900E727B1 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		6A4E2625165D628000E727B1 /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		6A4E2626165D628000E727B1 /* MBProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		6A4E2629165D646E00E727B1 /* KAMeal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KAMeal.h; path = ../Source/KAMeal.h; sourceTree = "<group>"; };
+		6A4E262A165D646F00E727B1 /* KAMeal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KAMeal.m; path = ../Source/KAMeal.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +147,8 @@
 		6A4E2592165C443F00E727B1 = {
 			isa = PBXGroup;
 			children = (
+				6A4E2627165D628300E727B1 /* MBProgressHUD */,
+				6A4E2608165D58A900E727B1 /* AFNetworking */,
 				6A4E25A7165C443F00E727B1 /* Kale */,
 				6A4E25A0165C443F00E727B1 /* Frameworks */,
 				6A4E259E165C443F00E727B1 /* Products */,
@@ -140,7 +176,8 @@
 		6A4E25A7165C443F00E727B1 /* Kale */ = {
 			isa = PBXGroup;
 			children = (
-				6A4E25D2165C7B6B00E727B1 /* UI */,
+				6A4E262C165D647600E727B1 /* Models */,
+				6A4E25D2165C7B6B00E727B1 /* Views */,
 				6A4E25C3165C44C300E727B1 /* Controllers */,
 				6A4E25BE165C446700E727B1 /* MainStoryboard.storyboard */,
 				6A4E25B0165C443F00E727B1 /* KAAppDelegate.h */,
@@ -168,10 +205,9 @@
 		6A4E25C3165C44C300E727B1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				6A4E262D165D653800E727B1 /* Profile */,
 				6A4E2604165C8DAD00E727B1 /* Share Meal Process */,
 				6A4E25D9165C7CA500E727B1 /* Global Feed */,
-				6A4E25C7165C454500E727B1 /* KAProfileNavigationController.h */,
-				6A4E25C8165C454500E727B1 /* KAProfileNavigationController.m */,
 			);
 			name = Controllers;
 			path = ..;
@@ -202,7 +238,7 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		6A4E25D2165C7B6B00E727B1 /* UI */ = {
+		6A4E25D2165C7B6B00E727B1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				6A4E25D3165C7B9500E727B1 /* KAMainNavigationBar.h */,
@@ -210,7 +246,7 @@
 				6A4E25F1165C84B200E727B1 /* KATabBar.h */,
 				6A4E25F2165C84B200E727B1 /* KATabBar.m */,
 			);
-			name = UI;
+			name = Views;
 			sourceTree = "<group>";
 		};
 		6A4E25D9165C7CA500E727B1 /* Global Feed */ = {
@@ -235,6 +271,60 @@
 				6A4E2606165C8DD900E727B1 /* KAShareNavigationController.m */,
 			);
 			name = "Share Meal Process";
+			sourceTree = "<group>";
+		};
+		6A4E2608165D58A900E727B1 /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				6A4E2609165D58A900E727B1 /* AFHTTPClient.h */,
+				6A4E260A165D58A900E727B1 /* AFHTTPClient.m */,
+				6A4E260B165D58A900E727B1 /* AFHTTPRequestOperation.h */,
+				6A4E260C165D58A900E727B1 /* AFHTTPRequestOperation.m */,
+				6A4E260D165D58A900E727B1 /* AFImageRequestOperation.h */,
+				6A4E260E165D58A900E727B1 /* AFImageRequestOperation.m */,
+				6A4E260F165D58A900E727B1 /* AFJSONRequestOperation.h */,
+				6A4E2610165D58A900E727B1 /* AFJSONRequestOperation.m */,
+				6A4E2611165D58A900E727B1 /* AFNetworkActivityIndicatorManager.h */,
+				6A4E2612165D58A900E727B1 /* AFNetworkActivityIndicatorManager.m */,
+				6A4E2613165D58A900E727B1 /* AFNetworking.h */,
+				6A4E2614165D58A900E727B1 /* AFPropertyListRequestOperation.h */,
+				6A4E2615165D58A900E727B1 /* AFPropertyListRequestOperation.m */,
+				6A4E2616165D58A900E727B1 /* AFURLConnectionOperation.h */,
+				6A4E2617165D58A900E727B1 /* AFURLConnectionOperation.m */,
+				6A4E2618165D58A900E727B1 /* AFXMLRequestOperation.h */,
+				6A4E2619165D58A900E727B1 /* AFXMLRequestOperation.m */,
+				6A4E261A165D58A900E727B1 /* UIImageView+AFNetworking.h */,
+				6A4E261B165D58A900E727B1 /* UIImageView+AFNetworking.m */,
+			);
+			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		6A4E2627165D628300E727B1 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				6A4E2625165D628000E727B1 /* MBProgressHUD.h */,
+				6A4E2626165D628000E727B1 /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		6A4E262C165D647600E727B1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6A4E2629165D646E00E727B1 /* KAMeal.h */,
+				6A4E262A165D646F00E727B1 /* KAMeal.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		6A4E262D165D653800E727B1 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				6A4E25C7165C454500E727B1 /* KAProfileNavigationController.h */,
+				6A4E25C8165C454500E727B1 /* KAProfileNavigationController.m */,
+			);
+			name = Profile;
+			path = Kale;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,6 +422,17 @@
 				6A4E25DC165C7D7700E727B1 /* KAMealViewController.m in Sources */,
 				6A4E25F3165C84B200E727B1 /* KATabBar.m in Sources */,
 				6A4E2607165C8DD900E727B1 /* KAShareNavigationController.m in Sources */,
+				6A4E261C165D58A900E727B1 /* AFHTTPClient.m in Sources */,
+				6A4E261D165D58A900E727B1 /* AFHTTPRequestOperation.m in Sources */,
+				6A4E261E165D58A900E727B1 /* AFImageRequestOperation.m in Sources */,
+				6A4E261F165D58A900E727B1 /* AFJSONRequestOperation.m in Sources */,
+				6A4E2620165D58A900E727B1 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				6A4E2621165D58A900E727B1 /* AFPropertyListRequestOperation.m in Sources */,
+				6A4E2622165D58A900E727B1 /* AFURLConnectionOperation.m in Sources */,
+				6A4E2623165D58A900E727B1 /* AFXMLRequestOperation.m in Sources */,
+				6A4E2624165D58A900E727B1 /* UIImageView+AFNetworking.m in Sources */,
+				6A4E2628165D63B500E727B1 /* MBProgressHUD.m in Sources */,
+				6A4E262B165D646F00E727B1 /* KAMeal.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

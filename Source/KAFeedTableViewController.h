@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KAFeedTableViewController : UITableViewController
+
+@interface KAFeedTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, retain) NSArray *meals;
 
 @end

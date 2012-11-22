@@ -7,12 +7,15 @@
 //
 
 #import "KAMealViewController.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface KAMealViewController ()
 
 @end
 
 @implementation KAMealViewController
+
+@synthesize meal;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -23,10 +26,33 @@
     return self;
 }
 
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        
+    }
+    return self;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [titleLabel setText:[meal title]];
+    [usernameLabel setText:[meal ownerUsername]];
+    
+    [photo setImageWithURL:[NSURL URLWithString:[meal photoSquareURL]]
+          placeholderImage:[UIImage imageNamed:@"meal-default.png"]];
+    
+    [userAvatar setImageWithURL:[NSURL URLWithString:[meal ownerAvatarThumbURL]]
+                                    placeholderImage:[UIImage imageNamed:@"meal-default.png"]];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	// Do any additional setup after loading the view.    
 }
 
 - (void)didReceiveMemoryWarning
