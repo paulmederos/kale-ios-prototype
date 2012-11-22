@@ -54,6 +54,9 @@
 		6A4E2624165D58A900E727B1 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4E261B165D58A900E727B1 /* UIImageView+AFNetworking.m */; };
 		6A4E2628165D63B500E727B1 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4E2626165D628000E727B1 /* MBProgressHUD.m */; };
 		6A4E262B165D646F00E727B1 /* KAMeal.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4E262A165D646F00E727B1 /* KAMeal.m */; };
+		6AFE2C0E165E7EF700BB64A6 /* SSPullToRefreshDefaultContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFE2C09165E7EF700BB64A6 /* SSPullToRefreshDefaultContentView.m */; };
+		6AFE2C0F165E7EF700BB64A6 /* SSPullToRefreshSimpleContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFE2C0B165E7EF700BB64A6 /* SSPullToRefreshSimpleContentView.m */; };
+		6AFE2C10165E7EF700BB64A6 /* SSPullToRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFE2C0D165E7EF700BB64A6 /* SSPullToRefreshView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,6 +131,13 @@
 		6A4E2626165D628000E727B1 /* MBProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		6A4E2629165D646E00E727B1 /* KAMeal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KAMeal.h; path = ../Source/KAMeal.h; sourceTree = "<group>"; };
 		6A4E262A165D646F00E727B1 /* KAMeal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KAMeal.m; path = ../Source/KAMeal.m; sourceTree = "<group>"; };
+		6AFE2C07165E7EF700BB64A6 /* SSPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPullToRefresh.h; sourceTree = "<group>"; };
+		6AFE2C08165E7EF700BB64A6 /* SSPullToRefreshDefaultContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPullToRefreshDefaultContentView.h; sourceTree = "<group>"; };
+		6AFE2C09165E7EF700BB64A6 /* SSPullToRefreshDefaultContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPullToRefreshDefaultContentView.m; sourceTree = "<group>"; };
+		6AFE2C0A165E7EF700BB64A6 /* SSPullToRefreshSimpleContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPullToRefreshSimpleContentView.h; sourceTree = "<group>"; };
+		6AFE2C0B165E7EF700BB64A6 /* SSPullToRefreshSimpleContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPullToRefreshSimpleContentView.m; sourceTree = "<group>"; };
+		6AFE2C0C165E7EF700BB64A6 /* SSPullToRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPullToRefreshView.h; sourceTree = "<group>"; };
+		6AFE2C0D165E7EF700BB64A6 /* SSPullToRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPullToRefreshView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +157,7 @@
 		6A4E2592165C443F00E727B1 = {
 			isa = PBXGroup;
 			children = (
+				6AFE2C06165E7EF700BB64A6 /* SSPullToRefresh */,
 				6A4E2627165D628300E727B1 /* MBProgressHUD */,
 				6A4E2608165D58A900E727B1 /* AFNetworking */,
 				6A4E25A7165C443F00E727B1 /* Kale */,
@@ -327,6 +338,20 @@
 			path = Kale;
 			sourceTree = "<group>";
 		};
+		6AFE2C06165E7EF700BB64A6 /* SSPullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				6AFE2C07165E7EF700BB64A6 /* SSPullToRefresh.h */,
+				6AFE2C08165E7EF700BB64A6 /* SSPullToRefreshDefaultContentView.h */,
+				6AFE2C09165E7EF700BB64A6 /* SSPullToRefreshDefaultContentView.m */,
+				6AFE2C0A165E7EF700BB64A6 /* SSPullToRefreshSimpleContentView.h */,
+				6AFE2C0B165E7EF700BB64A6 /* SSPullToRefreshSimpleContentView.m */,
+				6AFE2C0C165E7EF700BB64A6 /* SSPullToRefreshView.h */,
+				6AFE2C0D165E7EF700BB64A6 /* SSPullToRefreshView.m */,
+			);
+			path = SSPullToRefresh;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -433,6 +458,9 @@
 				6A4E2624165D58A900E727B1 /* UIImageView+AFNetworking.m in Sources */,
 				6A4E2628165D63B500E727B1 /* MBProgressHUD.m in Sources */,
 				6A4E262B165D646F00E727B1 /* KAMeal.m in Sources */,
+				6AFE2C0E165E7EF700BB64A6 /* SSPullToRefreshDefaultContentView.m in Sources */,
+				6AFE2C0F165E7EF700BB64A6 /* SSPullToRefreshSimpleContentView.m in Sources */,
+				6AFE2C10165E7EF700BB64A6 /* SSPullToRefreshView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,6 +569,7 @@
 				6A4E25BD165C443F00E727B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

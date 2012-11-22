@@ -12,6 +12,7 @@
 #import "KAMeal.h"
 #import "KAMealViewController.h"
 
+
 @interface KAFeedTableViewController ()
 {
     
@@ -25,7 +26,8 @@
 @implementation KAFeedTableViewController
 
 @synthesize meals;
-
+@synthesize pullToRefreshView;
+@synthesize apiURL;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -38,8 +40,14 @@
 
 - (void)viewDidLoad
 {
+    apiURL = [NSURL URLWithString:@"http://kaleweb.herokuapp.com/api/v1/meals"];
     [super viewDidLoad];
-    [self getMealsFromURL];
+    self.pullToRefreshView = [[SSPullToRefreshView alloc]
+                              initWithScrollView:self.tableView
+                              delegate:self];
+    
+    [self initialURLRequest];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,21 +56,20 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)refreshData:(id)sender {
-    [self getMealsFromURL];
+-(void)initialURLRequest
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeIndeterminate;
+    hud.labelText = @"Loading";
+    [self getMealsFromURL:apiURL];
 }
 
-- (void)getMealsFromURL {
-    NSURL *url = [NSURL URLWithString:@"http://kaleweb.herokuapp.com/api/v1/meals"];
+- (void)getMealsFromURL:(NSURL *)url {
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-
     AFJSONRequestOperation *operation = [AFJSONRequestOperation
                                          JSONRequestOperationWithRequest:request
                                          success:^(NSURLRequest *request,
                                                    NSHTTPURLResponse *response, id json) {
-                                             
-                                             NSLog(@"%@", [json valueForKeyPath:@"title"]);
-                                             
                                              NSMutableArray *results = [NSMutableArray array];
                                              
                                              for (id mealDictionary in json) {
@@ -70,26 +77,31 @@
                                                  [results addObject:meal];
                                              }
                                              
-                                             NSLog(@"Settings meals array.");
                                              self.meals = results;
                                              [self.tableView reloadData];
                                              
+                                             [self.pullToRefreshView finishLoading];
                                              [MBProgressHUD hideHUDForView:self.view animated:YES];
                                              
                                          } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
                                              NSLog(@"%@", error);
-                                         }];
-    
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.mode = MBProgressHUDModeIndeterminate;
-    hud.labelText = @"Loading";
-    
+                                         }];    
     [operation start];
 }
 
 #pragma mark - Pull to Refresh
 
+- (BOOL)pullToRefreshViewShouldStartLoading:(SSPullToRefreshView *)view {
+    return YES;
+}
 
+- (void)pullToRefreshViewDidStartLoading:(SSPullToRefreshView *)view {
+    [self getMealsFromURL:apiURL];
+}
+
+- (void)pullToRefreshViewDidFinishLoading:(SSPullToRefreshView *)view {
+    
+}
 
 #pragma mark - Table view data source
 

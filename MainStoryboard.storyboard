@@ -70,7 +70,7 @@
         <scene sceneID="swe-TY-1a7">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="3hz-dn-a3x" sceneMemberID="viewController">
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Vqs-R1-FoO" customClass="KATabBar">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -118,12 +118,6 @@
                         </prototypes>
                     </tableView>
                     <navigationItem key="navigationItem" title="Global Feed" id="VD4-bi-VRl">
-                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="p79-dx-612">
-                            <color key="tintColor" red="0.17629740490000001" green="0.64854364809999998" blue="0.13663905300000001" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="refreshData:" destination="3Ir-rB-txd" id="8iW-YG-Wjh"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="4UQ-Dg-6VU">
                             <color key="tintColor" red="0.17629740487745638" green="0.64854364809782616" blue="0.1366390529603366" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -284,6 +278,9 @@
         </class>
         <class className="ShareViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ShareViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelShare:"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
