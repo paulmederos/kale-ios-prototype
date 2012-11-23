@@ -57,6 +57,7 @@
 		6AFE2C0E165E7EF700BB64A6 /* SSPullToRefreshDefaultContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFE2C09165E7EF700BB64A6 /* SSPullToRefreshDefaultContentView.m */; };
 		6AFE2C0F165E7EF700BB64A6 /* SSPullToRefreshSimpleContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFE2C0B165E7EF700BB64A6 /* SSPullToRefreshSimpleContentView.m */; };
 		6AFE2C10165E7EF700BB64A6 /* SSPullToRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFE2C0D165E7EF700BB64A6 /* SSPullToRefreshView.m */; };
+		6AFE2C141660130C00BB64A6 /* KALoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFE2C131660130C00BB64A6 /* KALoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -138,6 +139,8 @@
 		6AFE2C0B165E7EF700BB64A6 /* SSPullToRefreshSimpleContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPullToRefreshSimpleContentView.m; sourceTree = "<group>"; };
 		6AFE2C0C165E7EF700BB64A6 /* SSPullToRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPullToRefreshView.h; sourceTree = "<group>"; };
 		6AFE2C0D165E7EF700BB64A6 /* SSPullToRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPullToRefreshView.m; sourceTree = "<group>"; };
+		6AFE2C121660130B00BB64A6 /* KALoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KALoginViewController.h; path = Source/KALoginViewController.h; sourceTree = "<group>"; };
+		6AFE2C131660130C00BB64A6 /* KALoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KALoginViewController.m; path = Source/KALoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +222,7 @@
 				6A4E262D165D653800E727B1 /* Profile */,
 				6A4E2604165C8DAD00E727B1 /* Share Meal Process */,
 				6A4E25D9165C7CA500E727B1 /* Global Feed */,
+				6AFE2C151660131400BB64A6 /* Login */,
 			);
 			name = Controllers;
 			path = ..;
@@ -352,6 +356,15 @@
 			path = SSPullToRefresh;
 			sourceTree = "<group>";
 		};
+		6AFE2C151660131400BB64A6 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				6AFE2C121660130B00BB64A6 /* KALoginViewController.h */,
+				6AFE2C131660130C00BB64A6 /* KALoginViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -461,6 +474,7 @@
 				6AFE2C0E165E7EF700BB64A6 /* SSPullToRefreshDefaultContentView.m in Sources */,
 				6AFE2C0F165E7EF700BB64A6 /* SSPullToRefreshSimpleContentView.m in Sources */,
 				6AFE2C10165E7EF700BB64A6 /* SSPullToRefreshView.m in Sources */,
+				6AFE2C141660130C00BB64A6 /* KALoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
