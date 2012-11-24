@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KAProfileViewController : UIViewController
+@interface KAProfileViewController : UIViewController <UIActionSheetDelegate>
 {
 
     __weak IBOutlet UILabel *numberOfMeals;

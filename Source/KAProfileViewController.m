@@ -67,6 +67,23 @@
 
 -(IBAction)logout:(id)sender
 {
+    [[[UIActionSheet alloc] initWithTitle:nil
+                                 delegate:self
+                        cancelButtonTitle:@"Close"
+                   destructiveButtonTitle:@"Logout"
+                        otherButtonTitles:nil]
+     showInView:self.view];
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    switch (buttonIndex) {
+        case 0:
+            [self terminateUserSession]; break;
+    }
+}
+
+- (void)terminateUserSession
+{
     KACredentialStore *store = [[KACredentialStore alloc] init];
     [store clearSavedCredentials];
     [self dismissViewControllerAnimated:YES completion:nil];
