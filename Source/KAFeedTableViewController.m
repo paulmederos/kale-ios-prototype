@@ -45,7 +45,7 @@
                               initWithScrollView:self.tableView
                               delegate:self];
     
-    [self initialURLRequest];
+    [self initialDataRequest];
     
 }
 
@@ -55,7 +55,7 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)initialURLRequest
+-(void)initialDataRequest
 {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDModeIndeterminate;

@@ -37,6 +37,13 @@
     self.credentialStore = [[KACredentialStore alloc] init];
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    if ([self.credentialStore isLoggedIn]) {
+        [self performSegueWithIdentifier:@"loginSuccess" sender:self];
+    }
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -59,9 +66,7 @@
     NSLog(@"About to send to server...");
     
     // Send values to server
-    AuthAPIClient *client = [AuthAPIClient sharedClient];
-    
-    [client postPath:@"api/v1/auth/login"
+    [[AuthAPIClient sharedClient] postPath:@"api/v1/auth/login"
                                 parameters:params
                                    success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                    // If server returns auth token, set current user

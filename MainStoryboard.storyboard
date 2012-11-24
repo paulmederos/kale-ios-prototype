@@ -42,17 +42,66 @@
             </objects>
             <point key="canvasLocation" x="-3" y="584"/>
         </scene>
-        <!--View Controller - Profile-->
+        <!--Profile View Controller - Profile-->
         <scene sceneID="5jA-06-xvc">
             <objects>
-                <viewController title="Profile" id="hUL-kx-kLm" sceneMemberID="viewController">
+                <viewController title="Profile" id="hUL-kx-kLm" customClass="KAProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jWX-YO-TmS">
                         <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hxH-L0-EHz">
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" text="Meals" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P1w-80-diZ">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="RnL-F2-ihc"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.1564717293" green="0.1564717293" blue="0.1564717293" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T9M-86-MIt">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="8ge-Zb-iUy"/>
+                                            <constraint firstAttribute="width" constant="188" id="CZ4-XD-ER6"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <color key="textColor" red="0.1564717293" green="0.1564717293" blue="0.1564717293" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mvH-JT-aMN">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="84" id="Yag-Vw-4HW"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="T9M-86-MIt" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="3Wk-Bg-c47"/>
+                                    <constraint firstItem="T9M-86-MIt" firstAttribute="leading" secondItem="mvH-JT-aMN" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="JgB-lm-6A0"/>
+                                    <constraint firstItem="mvH-JT-aMN" firstAttribute="top" secondItem="hxH-L0-EHz" secondAttribute="top" constant="20" symbolic="YES" type="default" id="SCs-g9-fNM"/>
+                                    <constraint firstItem="T9M-86-MIt" firstAttribute="top" secondItem="hxH-L0-EHz" secondAttribute="top" constant="20" symbolic="YES" type="default" id="bew-DP-9bw"/>
+                                    <constraint firstAttribute="bottom" secondItem="mvH-JT-aMN" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="caG-0P-X8n"/>
+                                    <constraint firstItem="P1w-80-diZ" firstAttribute="leading" secondItem="mvH-JT-aMN" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="i1z-3C-ma1"/>
+                                    <constraint firstItem="P1w-80-diZ" firstAttribute="top" secondItem="hxH-L0-EHz" secondAttribute="top" constant="44" id="ifN-dv-uAy"/>
+                                    <constraint firstItem="mvH-JT-aMN" firstAttribute="centerY" secondItem="hxH-L0-EHz" secondAttribute="centerY" type="default" id="qOz-kw-90Y"/>
+                                    <constraint firstAttribute="trailing" secondItem="P1w-80-diZ" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="tUV-5k-Y1E"/>
+                                    <constraint firstItem="mvH-JT-aMN" firstAttribute="leading" secondItem="hxH-L0-EHz" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="zQb-FI-5sK"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="hxH-L0-EHz" secondAttribute="bottom" constant="336" id="F1m-Pr-biH"/>
+                            <constraint firstItem="hxH-L0-EHz" firstAttribute="trailing" secondItem="jWX-YO-TmS" secondAttribute="trailing" type="default" id="c4H-2V-lST"/>
+                            <constraint firstItem="hxH-L0-EHz" firstAttribute="leading" secondItem="jWX-YO-TmS" secondAttribute="leading" type="default" id="tqh-SP-Jl9"/>
+                            <constraint firstItem="hxH-L0-EHz" firstAttribute="top" secondItem="jWX-YO-TmS" secondAttribute="top" type="default" id="wBQ-eC-IHG"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Profile" id="gnu-sA-SWM">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="GCI-Gg-PzU">
+                            <color key="tintColor" red="0.22160489959999999" green="0.60000002379999995" blue="0.2447770004" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="rxf-Ys-MtQ">
                             <color key="tintColor" red="0.17629740490000001" green="0.64854364809999998" blue="0.13663905300000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -61,6 +110,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="numberOfMeals" destination="P1w-80-diZ" id="LGa-Wg-qLN"/>
+                        <outlet property="profilePhoto" destination="mvH-JT-aMN" id="eJ4-nI-T0u"/>
+                        <outlet property="username" destination="T9M-86-MIt" id="ULv-Wa-T2d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KF4-2h-8j0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -145,7 +199,7 @@
                         <outlet property="loginButton" destination="8fZ-ds-T2z" id="OOa-TF-e6u"/>
                         <outlet property="outputLabel" destination="Ioc-IZ-MNn" id="JOP-x5-f0F"/>
                         <outlet property="passwordField" destination="xsy-IX-Wpq" id="Bd9-cX-6XF"/>
-                        <segue destination="3hz-dn-a3x" kind="modal" identifier="loginSuccess" id="ArS-rW-fuR"/>
+                        <segue destination="3hz-dn-a3x" kind="modal" identifier="loginSuccess" modalTransitionStyle="crossDissolve" id="ArS-rW-fuR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ood-eX-vyO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -342,8 +396,6 @@
         <class className="KALoginViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/KALoginViewController.h"/>
             <relationships>
-                <relationship kind="action" name="login:"/>
-                <relationship kind="action" name="textFieldReturn:"/>
                 <relationship kind="outlet" name="emailField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="outputLabel" candidateClass="UILabel"/>
@@ -365,6 +417,15 @@
         <class className="KAProfileNavigationController" superclassName="UINavigationController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/KAProfileNavigationController.h"/>
         </class>
+        <class className="KAProfileViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/KAProfileViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="logout:"/>
+                <relationship kind="outlet" name="numberOfMeals" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="profilePhoto" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="username" candidateClass="UILabel"/>
+            </relationships>
+        </class>
         <class className="KAShareNavigationController" superclassName="UINavigationController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/KAShareNavigationController.h"/>
         </class>
@@ -384,6 +445,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="h1T-r3-X7k"/>
+        <segue reference="K2q-Jq-6eA"/>
     </inferredMetricsTieBreakers>
 </document>
