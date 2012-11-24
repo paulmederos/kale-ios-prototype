@@ -10,10 +10,10 @@
 
 @interface KALoginViewController : UIViewController
 {
-    __weak IBOutlet UITextField *emailField;
-    __weak IBOutlet UITextField *passwordField;
     __weak IBOutlet UIButton *loginButton;
-
 }
+@property (weak, nonatomic) IBOutlet UITextField *emailField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordField;
+@property (weak, nonatomic) IBOutlet UILabel *outputLabel;
 
 @end

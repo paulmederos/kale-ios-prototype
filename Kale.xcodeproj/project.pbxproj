@@ -58,6 +58,10 @@
 		6AFE2C0F165E7EF700BB64A6 /* SSPullToRefreshSimpleContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFE2C0B165E7EF700BB64A6 /* SSPullToRefreshSimpleContentView.m */; };
 		6AFE2C10165E7EF700BB64A6 /* SSPullToRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFE2C0D165E7EF700BB64A6 /* SSPullToRefreshView.m */; };
 		6AFE2C141660130C00BB64A6 /* KALoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFE2C131660130C00BB64A6 /* KALoginViewController.m */; };
+		6AFE2C1B1660446A00BB64A6 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFE2C191660446A00BB64A6 /* SSKeychain.m */; };
+		6AFE2C1E166044B600BB64A6 /* KACredentialStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFE2C1D166044B600BB64A6 /* KACredentialStore.m */; };
+		6AFE2C211660474300BB64A6 /* AuthAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFE2C201660474300BB64A6 /* AuthAPIClient.m */; };
+		6AFE2C231660538500BB64A6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AFE2C221660538500BB64A6 /* Security.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -141,6 +145,13 @@
 		6AFE2C0D165E7EF700BB64A6 /* SSPullToRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPullToRefreshView.m; sourceTree = "<group>"; };
 		6AFE2C121660130B00BB64A6 /* KALoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KALoginViewController.h; path = Source/KALoginViewController.h; sourceTree = "<group>"; };
 		6AFE2C131660130C00BB64A6 /* KALoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KALoginViewController.m; path = Source/KALoginViewController.m; sourceTree = "<group>"; };
+		6AFE2C181660446A00BB64A6 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
+		6AFE2C191660446A00BB64A6 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
+		6AFE2C1C166044B600BB64A6 /* KACredentialStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KACredentialStore.h; path = Source/KACredentialStore.h; sourceTree = "<group>"; };
+		6AFE2C1D166044B600BB64A6 /* KACredentialStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KACredentialStore.m; path = Source/KACredentialStore.m; sourceTree = "<group>"; };
+		6AFE2C1F1660474300BB64A6 /* AuthAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AuthAPIClient.h; path = Source/AuthAPIClient.h; sourceTree = "<group>"; };
+		6AFE2C201660474300BB64A6 /* AuthAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AuthAPIClient.m; path = Source/AuthAPIClient.m; sourceTree = "<group>"; };
+		6AFE2C221660538500BB64A6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +159,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AFE2C231660538500BB64A6 /* Security.framework in Frameworks */,
 				6A4E25A2165C443F00E727B1 /* UIKit.framework in Frameworks */,
 				6A4E25A4165C443F00E727B1 /* Foundation.framework in Frameworks */,
 				6A4E25A6165C443F00E727B1 /* CoreGraphics.framework in Frameworks */,
@@ -160,6 +172,7 @@
 		6A4E2592165C443F00E727B1 = {
 			isa = PBXGroup;
 			children = (
+				6AFE2C161660446A00BB64A6 /* SSKeychain */,
 				6AFE2C06165E7EF700BB64A6 /* SSPullToRefresh */,
 				6A4E2627165D628300E727B1 /* MBProgressHUD */,
 				6A4E2608165D58A900E727B1 /* AFNetworking */,
@@ -180,6 +193,7 @@
 		6A4E25A0165C443F00E727B1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6AFE2C221660538500BB64A6 /* Security.framework */,
 				6A4E25A1165C443F00E727B1 /* UIKit.framework */,
 				6A4E25A3165C443F00E727B1 /* Foundation.framework */,
 				6A4E25A5165C443F00E727B1 /* CoreGraphics.framework */,
@@ -361,8 +375,21 @@
 			children = (
 				6AFE2C121660130B00BB64A6 /* KALoginViewController.h */,
 				6AFE2C131660130C00BB64A6 /* KALoginViewController.m */,
+				6AFE2C1F1660474300BB64A6 /* AuthAPIClient.h */,
+				6AFE2C201660474300BB64A6 /* AuthAPIClient.m */,
+				6AFE2C1C166044B600BB64A6 /* KACredentialStore.h */,
+				6AFE2C1D166044B600BB64A6 /* KACredentialStore.m */,
 			);
 			name = Login;
+			sourceTree = "<group>";
+		};
+		6AFE2C161660446A00BB64A6 /* SSKeychain */ = {
+			isa = PBXGroup;
+			children = (
+				6AFE2C181660446A00BB64A6 /* SSKeychain.h */,
+				6AFE2C191660446A00BB64A6 /* SSKeychain.m */,
+			);
+			path = SSKeychain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -452,14 +479,9 @@
 			files = (
 				6A4E25AE165C443F00E727B1 /* main.m in Sources */,
 				6A4E25B2165C443F00E727B1 /* KAAppDelegate.m in Sources */,
-				6A4E25C6165C450600E727B1 /* ShareViewController.m in Sources */,
-				6A4E25C9165C454500E727B1 /* KAProfileNavigationController.m in Sources */,
-				6A4E25CC165C456600E727B1 /* KAFeedNavigationController.m in Sources */,
-				6A4E25D5165C7B9500E727B1 /* KAMainNavigationBar.m in Sources */,
-				6A4E25D8165C7C9800E727B1 /* KAFeedTableViewController.m in Sources */,
-				6A4E25DC165C7D7700E727B1 /* KAMealViewController.m in Sources */,
-				6A4E25F3165C84B200E727B1 /* KATabBar.m in Sources */,
-				6A4E2607165C8DD900E727B1 /* KAShareNavigationController.m in Sources */,
+				6AFE2C1B1660446A00BB64A6 /* SSKeychain.m in Sources */,
+				6AFE2C1E166044B600BB64A6 /* KACredentialStore.m in Sources */,
+				6AFE2C211660474300BB64A6 /* AuthAPIClient.m in Sources */,
 				6A4E261C165D58A900E727B1 /* AFHTTPClient.m in Sources */,
 				6A4E261D165D58A900E727B1 /* AFHTTPRequestOperation.m in Sources */,
 				6A4E261E165D58A900E727B1 /* AFImageRequestOperation.m in Sources */,
@@ -470,11 +492,19 @@
 				6A4E2623165D58A900E727B1 /* AFXMLRequestOperation.m in Sources */,
 				6A4E2624165D58A900E727B1 /* UIImageView+AFNetworking.m in Sources */,
 				6A4E2628165D63B500E727B1 /* MBProgressHUD.m in Sources */,
+				6AFE2C141660130C00BB64A6 /* KALoginViewController.m in Sources */,
+				6A4E25C6165C450600E727B1 /* ShareViewController.m in Sources */,
+				6A4E25C9165C454500E727B1 /* KAProfileNavigationController.m in Sources */,
+				6A4E25CC165C456600E727B1 /* KAFeedNavigationController.m in Sources */,
+				6A4E25D5165C7B9500E727B1 /* KAMainNavigationBar.m in Sources */,
+				6A4E25D8165C7C9800E727B1 /* KAFeedTableViewController.m in Sources */,
+				6A4E25DC165C7D7700E727B1 /* KAMealViewController.m in Sources */,
+				6A4E25F3165C84B200E727B1 /* KATabBar.m in Sources */,
+				6A4E2607165C8DD900E727B1 /* KAShareNavigationController.m in Sources */,
 				6A4E262B165D646F00E727B1 /* KAMeal.m in Sources */,
 				6AFE2C0E165E7EF700BB64A6 /* SSPullToRefreshDefaultContentView.m in Sources */,
 				6AFE2C0F165E7EF700BB64A6 /* SSPullToRefreshSimpleContentView.m in Sources */,
 				6AFE2C10165E7EF700BB64A6 /* SSPullToRefreshView.m in Sources */,
-				6AFE2C141660130C00BB64A6 /* KALoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

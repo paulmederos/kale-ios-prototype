@@ -14,6 +14,5 @@
 
 @property (nonatomic, retain) NSArray *meals;
 @property (nonatomic, strong) SSPullToRefreshView *pullToRefreshView;
-@property (nonatomic, strong) NSURL *apiURL;
 
 @end

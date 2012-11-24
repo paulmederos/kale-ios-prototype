@@ -11,6 +11,7 @@
 #import "MBProgressHUD.h"
 #import "KAMeal.h"
 #import "KAMealViewController.h"
+#import "AuthAPIClient.h"
 
 
 @interface KAFeedTableViewController ()
@@ -27,7 +28,6 @@
 
 @synthesize meals;
 @synthesize pullToRefreshView;
-@synthesize apiURL;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -40,7 +40,6 @@
 
 - (void)viewDidLoad
 {
-    apiURL = [NSURL URLWithString:@"http://kaleweb.herokuapp.com/api/v1/meals"];
     [super viewDidLoad];
     self.pullToRefreshView = [[SSPullToRefreshView alloc]
                               initWithScrollView:self.tableView
@@ -61,32 +60,30 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDModeIndeterminate;
     hud.labelText = @"Loading";
-    [self getMealsFromURL:apiURL];
+    [self getMeals];
 }
 
-- (void)getMealsFromURL:(NSURL *)url {
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation
-                                         JSONRequestOperationWithRequest:request
-                                         success:^(NSURLRequest *request,
-                                                   NSHTTPURLResponse *response, id json) {
-                                             NSMutableArray *results = [NSMutableArray array];
-                                             
-                                             for (id mealDictionary in json) {
-                                                 KAMeal *meal = [[KAMeal alloc] initWithDictionary:mealDictionary];
-                                                 [results addObject:meal];
-                                             }
-                                             
-                                             self.meals = results;
-                                             [self.tableView reloadData];
-                                             
-                                             [self.pullToRefreshView finishLoading];
-                                             [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                             
-                                         } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-                                             NSLog(@"%@", error);
-                                         }];    
-    [operation start];
+- (void)getMeals {
+    [[AuthAPIClient sharedClient] getPath:@"/api/v1/meals"
+                               parameters:nil
+                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                      NSMutableArray *results = [NSMutableArray array];
+                                      
+                                      for (id mealDictionary in responseObject) {
+                                          KAMeal *meal = [[KAMeal alloc] initWithDictionary:mealDictionary];
+                                          [results addObject:meal];
+                                      }
+                                      
+                                      self.meals = results;
+                                      [self.tableView reloadData];
+                                      
+                                      [self.pullToRefreshView finishLoading];
+                                      [MBProgressHUD hideHUDForView:self.view animated:YES];
+
+                                  }
+                                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                      NSLog(@"%@", error);
+                                  }];
 }
 
 #pragma mark - Pull to Refresh
@@ -96,7 +93,7 @@
 }
 
 - (void)pullToRefreshViewDidStartLoading:(SSPullToRefreshView *)view {
-    [self getMealsFromURL:apiURL];
+    [self getMeals];
 }
 
 - (void)pullToRefreshViewDidFinishLoading:(SSPullToRefreshView *)view {

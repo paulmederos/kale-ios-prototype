@@ -79,12 +79,18 @@
                                 <color key="textColor" red="0.1564717293" green="0.1564717293" blue="0.1564717293" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
+                                <connections>
+                                    <action selector="textFieldReturn:" destination="ood-eX-vyO" eventType="editingDidEndOnExit" id="yUg-gx-VVY"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xsy-IX-Wpq">
                                 <accessibility key="accessibilityConfiguration" hint="Enter your login password" label="Password"/>
                                 <color key="textColor" red="0.1564717293" green="0.1564717293" blue="0.1564717293" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <connections>
+                                    <action selector="textFieldReturn:" destination="vRn-f2-zq0" eventType="editingDidEndOnExit" id="CRd-yp-gAv"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8fZ-ds-T2z">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -99,24 +105,46 @@
                                     <action selector="login:" destination="vRn-f2-zq0" eventType="touchUpInside" id="fQM-w0-EiA"/>
                                 </connections>
                             </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C35-ZO-l2M">
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="outputLabel" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="Ioc-IZ-MNn">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Ioc-IZ-MNn" firstAttribute="centerX" secondItem="C35-ZO-l2M" secondAttribute="centerX" type="default" id="Kar-5A-VTV"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ioc-IZ-MNn" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="T7n-Ai-VCb"/>
+                                    <constraint firstItem="Ioc-IZ-MNn" firstAttribute="top" secondItem="C35-ZO-l2M" secondAttribute="top" constant="20" symbolic="YES" type="default" id="Zr4-gh-Ejt"/>
+                                    <constraint firstItem="Ioc-IZ-MNn" firstAttribute="leading" secondItem="C35-ZO-l2M" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="b3c-ja-FZq"/>
+                                    <constraint firstItem="Ioc-IZ-MNn" firstAttribute="centerY" secondItem="C35-ZO-l2M" secondAttribute="centerY" type="default" id="il2-0t-TZo"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ioc-IZ-MNn" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="m6q-Ly-ueJ"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="yh4-Yo-bdD" firstAttribute="top" secondItem="hHX-Ki-KWP" secondAttribute="top" constant="197" id="3bF-fC-rT2"/>
                             <constraint firstItem="8fZ-ds-T2z" firstAttribute="leading" secondItem="hHX-Ki-KWP" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="CqS-Yp-bBn"/>
+                            <constraint firstItem="C35-ZO-l2M" firstAttribute="leading" secondItem="hHX-Ki-KWP" secondAttribute="leading" type="default" id="EsX-Ni-eht"/>
+                            <constraint firstItem="C35-ZO-l2M" firstAttribute="trailing" secondItem="hHX-Ki-KWP" secondAttribute="trailing" type="default" id="Fne-xm-ljk"/>
+                            <constraint firstItem="C35-ZO-l2M" firstAttribute="top" secondItem="hHX-Ki-KWP" secondAttribute="top" constant="316" id="J69-6K-WFk"/>
                             <constraint firstItem="yh4-Yo-bdD" firstAttribute="leading" secondItem="hHX-Ki-KWP" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Jit-cQ-2nS"/>
                             <constraint firstItem="xsy-IX-Wpq" firstAttribute="leading" secondItem="hHX-Ki-KWP" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Ogz-eb-8oq"/>
                             <constraint firstAttribute="trailing" secondItem="xsy-IX-Wpq" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ZxR-bt-adB"/>
                             <constraint firstItem="8fZ-ds-T2z" firstAttribute="top" secondItem="xsy-IX-Wpq" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="bOe-23-nHa"/>
                             <constraint firstAttribute="trailing" secondItem="8fZ-ds-T2z" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="fWh-qf-osU"/>
                             <constraint firstAttribute="trailing" secondItem="yh4-Yo-bdD" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="gt3-bQ-S1W"/>
+                            <constraint firstItem="C35-ZO-l2M" firstAttribute="bottom" secondItem="hHX-Ki-KWP" secondAttribute="bottom" type="default" id="qXe-cd-Eck"/>
                             <constraint firstItem="xsy-IX-Wpq" firstAttribute="top" secondItem="yh4-Yo-bdD" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="uMt-gL-B7Y"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="emailField" destination="yh4-Yo-bdD" id="Z93-bj-OTa"/>
+                        <outlet property="emailField" destination="yh4-Yo-bdD" id="35V-o2-MzR"/>
                         <outlet property="loginButton" destination="8fZ-ds-T2z" id="OOa-TF-e6u"/>
-                        <outlet property="passwordField" destination="xsy-IX-Wpq" id="Jhc-tN-jti"/>
+                        <outlet property="outputLabel" destination="Ioc-IZ-MNn" id="JOP-x5-f0F"/>
+                        <outlet property="passwordField" destination="xsy-IX-Wpq" id="Bd9-cX-6XF"/>
                         <segue destination="3hz-dn-a3x" kind="modal" identifier="loginSuccess" id="ArS-rW-fuR"/>
                     </connections>
                 </viewController>
@@ -314,8 +342,11 @@
         <class className="KALoginViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/KALoginViewController.h"/>
             <relationships>
+                <relationship kind="action" name="login:"/>
+                <relationship kind="action" name="textFieldReturn:"/>
                 <relationship kind="outlet" name="emailField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="outputLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="passwordField" candidateClass="UITextField"/>
             </relationships>
         </class>
