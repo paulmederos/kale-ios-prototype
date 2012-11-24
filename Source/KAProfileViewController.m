@@ -9,6 +9,7 @@
 #import "KAProfileViewController.h"
 #import "AuthAPIClient.h"
 #import "UIImageView+AFNetworking.h"
+#import "KACredentialStore.h"
 
 @interface KAProfileViewController ()
 
@@ -39,7 +40,7 @@
     [[AuthAPIClient sharedClient] getPath:@"/api/v1/profile"
                                parameters:nil
                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                      [self configureProperties:responseObject];
+//                                      [self configureProperties:responseObject];
                                   }
                                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                       NSLog(@"%@", error);
@@ -62,6 +63,13 @@
     NSURL *photoURL = [NSURL URLWithString:[userDictionary objectForKey:@"avatar_square"]];
     [profilePhoto setImageWithURL:photoURL];
     
+}
+
+-(IBAction)logout:(id)sender
+{
+    KACredentialStore *store = [[KACredentialStore alloc] init];
+    [store clearSavedCredentials];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

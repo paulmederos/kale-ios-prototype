@@ -101,6 +101,9 @@
                     <navigationItem key="navigationItem" title="Profile" id="gnu-sA-SWM">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="GCI-Gg-PzU">
                             <color key="tintColor" red="0.22160489959999999" green="0.60000002379999995" blue="0.2447770004" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="logout:" destination="hUL-kx-kLm" id="Jrz-UM-Kfd"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="rxf-Ys-MtQ">
                             <color key="tintColor" red="0.17629740490000001" green="0.64854364809999998" blue="0.13663905300000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -179,18 +182,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="yh4-Yo-bdD" firstAttribute="top" secondItem="hHX-Ki-KWP" secondAttribute="top" constant="197" id="3bF-fC-rT2"/>
                             <constraint firstItem="8fZ-ds-T2z" firstAttribute="leading" secondItem="hHX-Ki-KWP" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="CqS-Yp-bBn"/>
                             <constraint firstItem="C35-ZO-l2M" firstAttribute="leading" secondItem="hHX-Ki-KWP" secondAttribute="leading" type="default" id="EsX-Ni-eht"/>
                             <constraint firstItem="C35-ZO-l2M" firstAttribute="trailing" secondItem="hHX-Ki-KWP" secondAttribute="trailing" type="default" id="Fne-xm-ljk"/>
-                            <constraint firstItem="C35-ZO-l2M" firstAttribute="top" secondItem="hHX-Ki-KWP" secondAttribute="top" constant="316" id="J69-6K-WFk"/>
                             <constraint firstItem="yh4-Yo-bdD" firstAttribute="leading" secondItem="hHX-Ki-KWP" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Jit-cQ-2nS"/>
                             <constraint firstItem="xsy-IX-Wpq" firstAttribute="leading" secondItem="hHX-Ki-KWP" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Ogz-eb-8oq"/>
                             <constraint firstAttribute="trailing" secondItem="xsy-IX-Wpq" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ZxR-bt-adB"/>
                             <constraint firstItem="8fZ-ds-T2z" firstAttribute="top" secondItem="xsy-IX-Wpq" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="bOe-23-nHa"/>
+                            <constraint firstItem="C35-ZO-l2M" firstAttribute="top" secondItem="hHX-Ki-KWP" secondAttribute="top" constant="20" symbolic="YES" type="default" id="dgr-AF-340"/>
+                            <constraint firstItem="yh4-Yo-bdD" firstAttribute="top" secondItem="hHX-Ki-KWP" secondAttribute="top" constant="172" id="e74-uV-8U6"/>
+                            <constraint firstAttribute="bottom" secondItem="C35-ZO-l2M" secondAttribute="bottom" constant="413" id="eNX-DH-d9e"/>
                             <constraint firstAttribute="trailing" secondItem="8fZ-ds-T2z" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="fWh-qf-osU"/>
                             <constraint firstAttribute="trailing" secondItem="yh4-Yo-bdD" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="gt3-bQ-S1W"/>
-                            <constraint firstItem="C35-ZO-l2M" firstAttribute="bottom" secondItem="hHX-Ki-KWP" secondAttribute="bottom" type="default" id="qXe-cd-Eck"/>
                             <constraint firstItem="xsy-IX-Wpq" firstAttribute="top" secondItem="yh4-Yo-bdD" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="uMt-gL-B7Y"/>
                         </constraints>
                     </view>

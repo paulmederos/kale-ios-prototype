@@ -37,6 +37,11 @@
     self.credentialStore = [[KACredentialStore alloc] init];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    outputLabel.text = @"Welcome to Kale.";
+}
+
 -(void)viewDidAppear:(BOOL)animated
 {
     if ([self.credentialStore isLoggedIn]) {
@@ -55,15 +60,16 @@
     [sender resignFirstResponder];
 }
 
-- (IBAction)login:(id)sender {
-    
+- (IBAction)login:(id)sender {    
     // Check to see if values have been entered
     id params = @{
         @"email": self.emailField.text,
         @"password": self.passwordField.text
     };
     
-    NSLog(@"About to send to server...");
+    MBProgressHUD *hud = [[MBProgressHUD alloc] init];
+    [hud setAnimationType:MBProgressHUDModeIndeterminate];
+    outputLabel.text = nil;
     
     // Send values to server
     [[AuthAPIClient sharedClient] postPath:@"api/v1/auth/login"
