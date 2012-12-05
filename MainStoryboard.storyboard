@@ -199,7 +199,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="151" id="eiP-Do-4cW"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <imageView contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Yz-rW-fVg">
@@ -222,6 +222,7 @@
                     <navigationItem key="navigationItem" id="zsh-PY-ImK"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="mealPhoto" destination="3Yz-rW-fVg" id="jO1-AC-wsP"/>
                         <outlet property="mealTitle" destination="vX6-Ij-x6Z" id="gG9-4K-PFP"/>
                     </connections>
                 </viewController>
@@ -373,7 +374,6 @@
         <class className="KALoginViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/KALoginViewController.h"/>
             <relationships>
-                <relationship kind="action" name="login:"/>
                 <relationship kind="outlet" name="emailField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="outputLabel" candidateClass="UILabel"/>
@@ -407,9 +407,9 @@
         <class className="KAShareViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/KAShareViewController.h"/>
             <relationships>
-                <relationship kind="action" name="shareMeal:"/>
+                <relationship kind="action" name="postMeal:"/>
                 <relationship kind="outlet" name="mealPhoto" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="mealTitle" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="mealTitle" candidateClass="SSTextView"/>
             </relationships>
         </class>
         <class className="KATabBar" superclassName="UITabBar">
