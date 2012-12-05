@@ -17,12 +17,20 @@
     back = [back stretchableImageWithLeftCapWidth:ArrowLeftCap
                                      topCapHeight:0];
     [[UIBarButtonItem appearanceWhenContainedIn:[KAMainNavigationBar class], nil]
-     setBackButtonBackgroundImage:back                                                      forState:UIControlStateNormal                                                    barMetrics:UIBarMetricsDefault];
+     setBackButtonBackgroundImage:back
+     forState:UIControlStateNormal
+     barMetrics:UIBarMetricsDefault];
     
     const CGFloat BackButtonTextOffset = 3.0f;
     [[UIBarButtonItem appearanceWhenContainedIn:[KAMainNavigationBar class], nil]
      setBackButtonTitlePositionAdjustment:UIOffsetMake(BackButtonTextOffset, 0)
      forBarMetrics:UIBarMetricsDefault];
+    
+    UIImage *forward = [UIImage imageNamed:@"nav-button.png"];
+    [[UIBarButtonItem appearanceWhenContainedIn:[KAMainNavigationBar class], nil]
+    setBackgroundImage:forward
+    forState:UIControlStateNormal
+     barMetrics:UIBarMetricsDefault];
 }
 
 

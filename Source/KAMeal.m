@@ -10,13 +10,13 @@
 
 @implementation KAMeal
 
-@synthesize ownerUsername;
-@synthesize ownerID;
-@synthesize ownerAvatarSquareURL;
-@synthesize ownerAvatarThumbURL;
-@synthesize title;
-@synthesize eaten_at;
-@synthesize photoSquareURL;
+@synthesize ownerUsername,
+            ownerID,
+            ownerAvatarSquareURL,
+            ownerAvatarThumbURL,
+            title,
+            eaten_at,
+            photoSquareURL;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
@@ -30,6 +30,15 @@
         self.photoSquareURL = [dictionary objectForKey:@"photo"];
     }
     
+    return self;
+}
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        
+    }
     return self;
 }
 

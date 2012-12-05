@@ -10,9 +10,10 @@
 #import "SSPullToRefresh.h"
 
 
-@interface KAFeedTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, SSPullToRefreshViewDelegate>
+@interface KAFeedTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, SSPullToRefreshViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, retain) NSArray *meals;
 @property (nonatomic, strong) SSPullToRefreshView *pullToRefreshView;
+
 
 @end

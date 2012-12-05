@@ -27,9 +27,9 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Profile"
+        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Me"
                                                         image:nil
-                                                          tag:0];
+                                                          tag:2];
         [self.tabBarItem
          setFinishedSelectedImage:[UIImage imageNamed:@"tabbar-profile-selected.png"]
          withFinishedUnselectedImage:[UIImage imageNamed:@"tabbar-profile"]];

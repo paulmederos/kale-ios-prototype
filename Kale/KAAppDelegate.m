@@ -7,6 +7,7 @@
 //
 
 #import "KAAppDelegate.h"
+#import "KACredentialStore.h"
 
 @implementation KAAppDelegate
 

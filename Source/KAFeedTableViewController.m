@@ -12,13 +12,12 @@
 #import "KAMeal.h"
 #import "KAMealViewController.h"
 #import "AuthAPIClient.h"
-
+#import "KAShareViewController.h"
+#import "KAMainNavigationBar.h"
 
 @interface KAFeedTableViewController ()
-{
-    
-}
 
+@property (strong, nonatomic) UIImagePickerController *pickerController;
 
 @end
 
@@ -28,6 +27,7 @@
 
 @synthesize meals;
 @synthesize pullToRefreshView;
+@synthesize pickerController;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -44,8 +44,13 @@
     self.pullToRefreshView = [[SSPullToRefreshView alloc]
                               initWithScrollView:self.tableView
                               delegate:self];
+    UIBarButtonItem *shareMealButton = [[UIBarButtonItem alloc] initWithTitle:@"Record"
+                                                                        style:UIBarButtonItemStylePlain
+                                                                       target:self
+                                                                       action:@selector(takePhoto:)];
+    self.navigationItem.rightBarButtonItem = shareMealButton;
     
-    [self initialDataRequest];
+//    [self initialDataRequest];
     
 }
 
@@ -84,6 +89,57 @@
                                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                       NSLog(@"%@", error);
                                   }];
+}
+
+- (void)takePhoto:(id)sender {
+    pickerController  = [[UIImagePickerController alloc] init];
+    // If we have a camera, take a picture. If not, use Photo Library.
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        [pickerController setSourceType:UIImagePickerControllerSourceTypeCamera];
+    } else {
+        [pickerController setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    }
+    
+    pickerController.delegate = self;
+    pickerController.allowsEditing = YES;
+    pickerController.navigationItem.title = @"Camera";
+    
+    [self presentViewController:pickerController animated:YES completion:nil];
+}
+
+#pragma mark - UIImagePickerDelegate
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [self dismissViewControllerAnimated:YES completion:^{
+        NSLog(@"Canceled the camera action.");
+    }];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *editedPhoto = [info objectForKey:UIImagePickerControllerEditedImage];
+    
+    // First, initialize and push shareViewController on UIImageController
+    // (which is a subclass of UInavigationController)
+    UIStoryboard *storyboard = self.storyboard;
+    KAShareViewController *shareViewController = [storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
+    
+    // Then push on to the stack.
+    [pickerController pushViewController:shareViewController animated:YES];
+    [shareViewController.navigationController setNavigationBarHidden:NO animated:YES];
+
+    // Next, Pass the image reference
+    [shareViewController.mealPhoto setImage:editedPhoto];
+}
+
+#pragma mark - UINavigationController delegate
+
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    // Use custom nav bar UI for sharing
+    [navigationController setValue:[[KAMainNavigationBar alloc] init]
+                                         forKeyPath:@"navigationBar"];
+    [navigationController setNavigationBarHidden:YES animated:NO];
 }
 
 #pragma mark - Pull to Refresh
@@ -141,7 +197,5 @@
     
     [self.navigationController pushViewController:mealViewController animated:YES];
 }
-
-
 
 @end
