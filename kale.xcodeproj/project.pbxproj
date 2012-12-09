@@ -68,6 +68,7 @@
 		6A4E25D8165C7C9800E727B1 /* KAFeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4E25D7165C7C9800E727B1 /* KAFeedTableViewController.m */; };
 		6A4E25F3165C84B200E727B1 /* KATabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4E25F2165C84B200E727B1 /* KATabBar.m */; };
 		6A4E262B165D646F00E727B1 /* KAMeal.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4E262A165D646F00E727B1 /* KAMeal.m */; };
+		6A67075A1674FD83007E8D97 /* KAFeedMealCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A6707591674FD83007E8D97 /* KAFeedMealCell.m */; };
 		6A6D8315166AF14400F2658B /* KAShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A6D8314166AF14400F2658B /* KAShareViewController.m */; };
 		6A7CE87D16704D3900DEE098 /* KANotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7CE87C16704D3900DEE098 /* KANotifications.m */; };
 		6AA8F1FE167267B30009B6A0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4E25AD165C443F00E727B1 /* main.m */; };
@@ -214,6 +215,8 @@
 		6A4E25F2165C84B200E727B1 /* KATabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KATabBar.m; path = Classes/KATabBar.m; sourceTree = SOURCE_ROOT; };
 		6A4E2629165D646E00E727B1 /* KAMeal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KAMeal.h; path = Classes/KAMeal.h; sourceTree = SOURCE_ROOT; };
 		6A4E262A165D646F00E727B1 /* KAMeal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KAMeal.m; path = Classes/KAMeal.m; sourceTree = SOURCE_ROOT; };
+		6A6707581674FD83007E8D97 /* KAFeedMealCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KAFeedMealCell.h; path = Classes/KAFeedMealCell.h; sourceTree = "<group>"; };
+		6A6707591674FD83007E8D97 /* KAFeedMealCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KAFeedMealCell.m; path = Classes/KAFeedMealCell.m; sourceTree = "<group>"; };
 		6A6D8313166AF14400F2658B /* KAShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KAShareViewController.h; path = Classes/KAShareViewController.h; sourceTree = "<group>"; };
 		6A6D8314166AF14400F2658B /* KAShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KAShareViewController.m; path = Classes/KAShareViewController.m; sourceTree = "<group>"; };
 		6A7CE87B16704D3900DEE098 /* KANotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KANotifications.h; path = Classes/KANotifications.h; sourceTree = SOURCE_ROOT; };
@@ -504,6 +507,8 @@
 				6A4E25D4165C7B9500E727B1 /* KAMainNavigationBar.m */,
 				6A4E25F1165C84B200E727B1 /* KATabBar.h */,
 				6A4E25F2165C84B200E727B1 /* KATabBar.m */,
+				6A6707581674FD83007E8D97 /* KAFeedMealCell.h */,
+				6A6707591674FD83007E8D97 /* KAFeedMealCell.m */,
 				6AE402971671A24000BECF47 /* KAProfileMealCell.h */,
 				6AE402981671A24000BECF47 /* KAProfileMealCell.m */,
 			);
@@ -703,6 +708,7 @@
 				6A11716D166EE88500B2467E /* SSPullToRefreshView.m in Sources */,
 				6A7CE87D16704D3900DEE098 /* KANotifications.m in Sources */,
 				6AE402991671A24000BECF47 /* KAProfileMealCell.m in Sources */,
+				6A67075A1674FD83007E8D97 /* KAFeedMealCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

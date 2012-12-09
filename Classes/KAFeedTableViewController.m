@@ -14,7 +14,7 @@
 #import "AuthAPIClient.h"
 #import "KAShareViewController.h"
 #import "KAMainNavigationBar.h"
-#import "KAProfileMealCell.h"
+#import "KAFeedMealCell.h"
 
 @interface KAFeedTableViewController ()
 
@@ -176,19 +176,29 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    KAMeal *meal = [self.meals objectAtIndex:indexPath.row];
+    
     static NSString *cellIdentifier = @"mealCell";
-    KAProfileMealCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    KAFeedMealCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
     if (!cell) {
-        cell = [[KAProfileMealCell alloc] initWithStyle:UITableViewCellStyleSubtitle
-                                      reuseIdentifier:cellIdentifier];
+        cell = [[KAFeedMealCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                     reuseIdentifier:cellIdentifier];
     }
     
-    KAMeal *meal = [self.meals objectAtIndex:indexPath.row];
     cell.mealTitle.text = meal.title;
     cell.mealDate.text = meal.eaten_at;
+    cell.mealUser.text = meal.ownerUsername;
     [cell.mealPhoto setImageWithURL:[NSURL URLWithString:meal.photoSquareURL] placeholderImage:nil];
-    
+    [cell.mealUserPhoto setImageWithURL:[NSURL URLWithString:meal.ownerAvatarThumbURL] placeholderImage:nil];
+
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    cell.backgroundColor =  [[UIColor alloc] initWithPatternImage:
+                             [UIImage imageNamed:@"light_toast.png"]];
 }
 
 

@@ -119,6 +119,12 @@
     self.userMeals = results;
 }
 
+- (IBAction)refreshData:(id)sender
+{
+    [self pullUserPersonalData];
+    [self pullUserMealData];
+}
+
 #pragma mark - Logout / terminate session
 
 -(IBAction)logout:(id)sender
