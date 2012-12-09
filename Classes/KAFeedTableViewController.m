@@ -14,6 +14,7 @@
 #import "AuthAPIClient.h"
 #import "KAShareViewController.h"
 #import "KAMainNavigationBar.h"
+#import "KAProfileMealCell.h"
 
 @interface KAFeedTableViewController ()
 
@@ -124,10 +125,14 @@
     UIStoryboard *storyboard = self.storyboard;
     KAShareViewController *shareViewController = [storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
     
+    
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent animated:YES];
+    
     // Then push on to the stack.
     [pickerController pushViewController:shareViewController animated:YES];
     [shareViewController.navigationController setNavigationBarHidden:NO animated:YES];
-
+    
     // Next, Pass the image reference
     [shareViewController.mealPhoto setImage:editedPhoto];
 }
@@ -172,15 +177,16 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellIdentifier = @"mealCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    KAProfileMealCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+        cell = [[KAProfileMealCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                       reuseIdentifier:cellIdentifier];
     }
     
     KAMeal *meal = [self.meals objectAtIndex:indexPath.row];
-    cell.textLabel.text = meal.title;
-    cell.detailTextLabel.text = meal.eaten_at;
+    cell.mealTitle.text = meal.title;
+    cell.mealDate.text = meal.eaten_at;
+    [cell.mealPhoto setImageWithURL:[NSURL URLWithString:meal.photoSquareURL] placeholderImage:nil];
     
     return cell;
 }

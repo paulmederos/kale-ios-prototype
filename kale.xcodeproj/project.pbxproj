@@ -787,8 +787,8 @@
 		6A4E25BC165C443F00E727B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Paul Mederos (8U7D63TBUF)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Paul Mederos (8U7D63TBUF)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/SSToolkit/Tests\"",
@@ -803,8 +803,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = kale;
-				PROVISIONING_PROFILE = "033EF84A-2C53-426A-8017-805B87B1AC1C";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "033EF84A-2C53-426A-8017-805B87B1AC1C";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -812,8 +812,8 @@
 		6A4E25BD165C443F00E727B1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Paul Mederos (8U7D63TBUF)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Paul Mederos (8U7D63TBUF)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/SSToolkit/Tests\"",
@@ -828,8 +828,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = kale;
-				PROVISIONING_PROFILE = "033EF84A-2C53-426A-8017-805B87B1AC1C";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "033EF84A-2C53-426A-8017-805B87B1AC1C";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
