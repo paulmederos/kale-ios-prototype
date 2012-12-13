@@ -1,16 +1,14 @@
 //
-//  KAProfileMealCell.m
-//  Kale
+//  KAMealCommentCell.m
+//  kale
 //
-//  Created by Paul Mederos Jr on 12/6/12.
+//  Created by Paul Mederos Jr on 12/9/12.
 //  Copyright (c) 2012 Enchant. All rights reserved.
 //
 
-#import "KAProfileMealCell.h"
+#import "KAMealCommentCell.h"
 
-@implementation KAProfileMealCell
-
-@synthesize mealPhoto, mealTitle, mealDay, mealMonth, mealYear;
+@implementation KAMealCommentCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

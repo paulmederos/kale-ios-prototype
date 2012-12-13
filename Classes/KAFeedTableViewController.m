@@ -26,9 +26,7 @@
 
 @implementation KAFeedTableViewController
 
-@synthesize meals;
-@synthesize pullToRefreshView;
-@synthesize pickerController;
+@synthesize meals, pullToRefreshView, pickerController;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -50,22 +48,14 @@
                                                                        target:self
                                                                        action:@selector(takePhoto:)];
     self.navigationItem.rightBarButtonItem = shareMealButton;
-    
     [self initialDataRequest];
-    
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(void)initialDataRequest
 {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDModeIndeterminate;
-    hud.labelText = @"Loading";
+    hud.labelText = @"Loading Meals";
     [self getMeals];
 }
 
@@ -89,6 +79,8 @@
                                   }
                                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                       NSLog(@"%@", error);
+                                      NSLog(@"");
+                                      
                                   }];
 }
 
@@ -187,20 +179,13 @@
     }
     
     cell.mealTitle.text = meal.title;
-    cell.mealDate.text = meal.eaten_at;
+    cell.mealDate.text = meal.eatenAt;
     cell.mealUser.text = meal.ownerUsername;
     [cell.mealPhoto setImageWithURL:[NSURL URLWithString:meal.photoSquareURL] placeholderImage:nil];
     [cell.mealUserPhoto setImageWithURL:[NSURL URLWithString:meal.ownerAvatarThumbURL] placeholderImage:nil];
 
     return cell;
 }
-
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    cell.backgroundColor =  [[UIColor alloc] initWithPatternImage:
-                             [UIImage imageNamed:@"light_toast.png"]];
-}
-
 
 #pragma mark - Table view delegate
 
@@ -211,6 +196,7 @@
     KAMeal *meal = [meals objectAtIndex:[indexPath row]];
     [mealViewController setMeal:meal];
     
+    [mealViewController setHidesBottomBarWhenPushed:YES];
     [self.navigationController pushViewController:mealViewController animated:YES];
 }
 

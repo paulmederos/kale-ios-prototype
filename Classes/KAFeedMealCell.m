@@ -30,7 +30,7 @@
     
     if (self) {
         mealTitle.text = meal.title;
-        mealDate.text = meal.eaten_at;
+        mealDate.text = meal.eatenAt;
         mealUser.text = meal.ownerUsername;
         [mealPhoto setImageWithURL:[NSURL URLWithString:meal.photoSquareURL] placeholderImage:nil];
         [mealUserPhoto setImageWithURL:[NSURL URLWithString:meal.ownerAvatarThumbURL] placeholderImage:nil];

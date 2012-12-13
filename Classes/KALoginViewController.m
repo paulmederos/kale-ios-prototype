@@ -120,9 +120,15 @@
        }];
 }
 
-- (IBAction)openWebsite:(id)sender
+- (IBAction)openWebsiteSignup:(id)sender
 {
     NSString* launchUrl = @"http://alpha.kaleapp.com/";
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: launchUrl]];
+}
+
+- (IBAction)openWebsiteResetPassword:(id)sender
+{
+    NSString* launchUrl = @"http://alpha.kaleapp.com/password_resets/new";
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString: launchUrl]];
 }
 
@@ -133,9 +139,8 @@
     [self.emailField setDelegate:self];
     [self.passwordField setDelegate:self];
     
-    CGRect frameRect = self.emailField.frame;
-    frameRect.size.height = 80.0f;
-    self.emailField.frame = frameRect;
+    [self.emailField setBorderStyle:UITextBorderStyleRoundedRect];
+    [self.passwordField setBorderStyle:UITextBorderStyleRoundedRect];
     
 }
 
@@ -159,6 +164,14 @@
     }
 
     return YES;
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch * touch = [touches anyObject];
+    if(touch.phase == UITouchPhaseBegan) {
+        [self.emailField resignFirstResponder];
+        [self.passwordField resignFirstResponder];
+    }
 }
 
 @end

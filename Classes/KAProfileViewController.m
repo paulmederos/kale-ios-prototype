@@ -166,6 +166,7 @@
     [mealViewController setMeal:meal];
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [mealViewController setHidesBottomBarWhenPushed:YES];
     [self.navigationController pushViewController:mealViewController animated:YES];
     
 }
@@ -190,8 +191,11 @@
     }
     
     KAMeal *meal = [self.userMeals objectAtIndex:indexPath.row];
+    
     cell.mealTitle.text = meal.title;
-    cell.mealDate.text = meal.eaten_at;
+    cell.mealDay.text = meal.eatenDay;
+    cell.mealMonth.text = meal.eatenMonth;
+    cell.mealYear.text = meal.eatenYear;
     [cell.mealPhoto setImageWithURL:[NSURL URLWithString:meal.photoSquareURL] placeholderImage:nil];
     
     return cell;

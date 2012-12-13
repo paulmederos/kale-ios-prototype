@@ -16,7 +16,11 @@
 @property (nonatomic, copy) NSString *ownerAvatarThumbURL;
 @property (nonatomic, copy) NSString *photoSquareURL;
 @property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSString *eaten_at;
+@property (nonatomic, copy) NSString *eatenAt;
+@property (nonatomic, copy) NSString *eatenDay;
+@property (nonatomic, copy) NSString *eatenMonth;
+@property (nonatomic, copy) NSString *eatenYear;
+@property (nonatomic, copy) NSString *serverID;
 @property (nonatomic, copy) NSData *photoData;
 
 

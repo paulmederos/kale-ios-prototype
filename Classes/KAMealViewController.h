@@ -7,17 +7,32 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 #import "KAMeal.h"
+#import "KAMealCommentCell.h"
+#import <SSToolkit/SSTextField.h>
 
-@interface KAMealViewController : UIViewController
+@interface KAMealViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate, UIScrollViewDelegate>
 {
-    __weak IBOutlet UILabel *titleLabel;
-    __weak IBOutlet UILabel *usernameLabel;
-    __weak IBOutlet UIImageView *userAvatar;
-    __weak IBOutlet UIImageView *photo;
 
 }
 
-@property(strong, nonatomic) KAMeal *meal;
+@property (strong, nonatomic) IBOutlet UITableView *commentsTable;
+@property (retain, nonatomic) NSArray *comments;
+@property (strong, nonatomic) KAMeal *meal;
+
+@property (strong, nonatomic) IBOutlet UIImageView *mealPhoto;
+@property (strong, nonatomic) IBOutlet UIImageView *mealUserPhoto;
+@property (strong, nonatomic) IBOutlet UILabel *mealUser;
+@property (strong, nonatomic) IBOutlet UILabel *mealDate;
+@property (strong, nonatomic) IBOutlet UILabel *mealTitle;
+
+@property (strong, nonatomic) IBOutlet UIToolbar *commentToolbar;
+@property (strong, nonatomic) IBOutlet SSTextField *commentField;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *sendCommentButton;
+
+
+- (IBAction)postComment:(id)sender;
+
 
 @end

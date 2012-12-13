@@ -12,6 +12,8 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *mealPhoto;
 @property (strong, nonatomic) IBOutlet UILabel *mealTitle;
-@property (strong, nonatomic) IBOutlet UILabel *mealDate;
+@property (strong, nonatomic) IBOutlet UILabel *mealDay;
+@property (strong, nonatomic) IBOutlet UILabel *mealMonth;
+@property (strong, nonatomic) IBOutlet UILabel *mealYear;
 
 @end

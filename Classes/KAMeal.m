@@ -19,7 +19,11 @@
             ownerAvatarThumbURL,
             photoSquareURL,
             title,
-            eaten_at,
+            eatenAt,
+            eatenDay,
+            eatenMonth,
+            eatenYear,
+            serverID,
             photoData;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary {
@@ -89,16 +93,12 @@
     self.ownerAvatarSquareURL = [dictionary objectForKey:@"owner_avatar_square"];
     self.ownerAvatarThumbURL = [dictionary objectForKey:@"owner_avatar_thumb"];
     self.title = [dictionary objectForKey:@"title"];
-    self.eaten_at = [dictionary objectForKey:@"eaten_at"];
+    self.eatenAt = [dictionary objectForKey:@"eaten_at"];
+    self.eatenDay = [dictionary objectForKey:@"eaten_at_day"];
+    self.eatenMonth = [dictionary objectForKey:@"eaten_at_month"];
+    self.eatenYear = [dictionary objectForKey:@"eaten_at_year"];
     self.photoSquareURL = [dictionary objectForKey:@"photo"];
-    
-//    NSDictionary *photoDictionary = [dictionary objectForKey:@"photo"];
-//    self.largeUrl = [photoDictionary stringForKey:@"url"];
-//    
-//    NSString *photoKey = IsRetina() ? @"thumb_retina" : @"thumb";
-//    NSDictionary *thumbDictionary = [photoDictionary objectForKey:photoKey];
-//    self.thumbnailUrl = [thumbDictionary stringForKey:@"url"];
-    
+    self.serverID = [dictionary objectForKey:@"meal_server_id"];
 }
 
 - (void)notifyCreated {

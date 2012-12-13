@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 @property (weak, nonatomic) IBOutlet UILabel *outputLabel;
 
-- (IBAction)openWebsite:(id)sender;
+- (IBAction)openWebsiteSignup:(id)sender;
+- (IBAction)openWebsiteResetPassword:(id)sender;
 
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A066BB91675992100C0AF09 /* KAComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A066BB81675992100C0AF09 /* KAComment.m */; };
 		6A11708B166EE80F00B2467E /* KAMealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A11708A166EE80F00B2467E /* KAMealViewController.m */; };
 		6A117160166EE88500B2467E /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A11708E166EE88400B2467E /* AFHTTPClient.m */; };
 		6A117161166EE88500B2467E /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A117090166EE88400B2467E /* AFHTTPRequestOperation.m */; };
@@ -25,6 +26,10 @@
 		6A1171DF166EE90500B2467E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A1171DE166EE90400B2467E /* QuartzCore.framework */; };
 		6A1171F1166EEBAB00B2467E /* libSSToolkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A1171E8166EEB3C00B2467E /* libSSToolkit.a */; };
 		6A1171F2166EEBFC00B2467E /* SSToolkitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6A1171EC166EEB3C00B2467E /* SSToolkitResources.bundle */; };
+		6A36AD83167691F200B50B1A /* comment-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A36AD81167691F200B50B1A /* comment-background.png */; };
+		6A36AD84167691F200B50B1A /* comment-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A36AD82167691F200B50B1A /* comment-background@2x.png */; };
+		6A36AD871676C20400B50B1A /* tabbar-background-half-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A36AD851676C20400B50B1A /* tabbar-background-half-pressed.png */; };
+		6A36AD881676C20400B50B1A /* tabbar-background-half-pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A36AD861676C20400B50B1A /* tabbar-background-half-pressed@2x.png */; };
 		6A4A7D7A1672616200F84976 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4A7D791672616200F84976 /* Default.png */; };
 		6A4A7D9E1672618600F84976 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4A7D7D1672618600F84976 /* Default-568h@2x.png */; };
 		6A4A7DA01672618600F84976 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4A7D7F1672618600F84976 /* Default@2x.png */; };
@@ -75,6 +80,7 @@
 		6AA8F20816726AA10009B6A0 /* login-background-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AA8F20516726AA10009B6A0 /* login-background-568h@2x.png */; };
 		6AA8F20916726AA10009B6A0 /* login-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AA8F20616726AA10009B6A0 /* login-background.png */; };
 		6AA8F20A16726AA10009B6A0 /* login-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AA8F20716726AA10009B6A0 /* login-background@2x.png */; };
+		6AC557ED167593EC00193B36 /* KAMealCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC557EC167593EC00193B36 /* KAMealCommentCell.m */; };
 		6AE2C0D716727EF8003298FE /* nav-backbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE2C0D316727EF8003298FE /* nav-backbutton.png */; };
 		6AE2C0D816727EF8003298FE /* nav-backbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE2C0D416727EF8003298FE /* nav-backbutton@2x.png */; };
 		6AE2C0D916727EF8003298FE /* nav-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE2C0D516727EF8003298FE /* nav-button.png */; };
@@ -126,6 +132,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6A066BB71675992100C0AF09 /* KAComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KAComment.h; path = Classes/KAComment.h; sourceTree = "<group>"; };
+		6A066BB81675992100C0AF09 /* KAComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KAComment.m; path = Classes/KAComment.m; sourceTree = "<group>"; };
 		6A117089166EE80F00B2467E /* KAMealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KAMealViewController.h; path = Classes/KAMealViewController.h; sourceTree = "<group>"; };
 		6A11708A166EE80F00B2467E /* KAMealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KAMealViewController.m; path = Classes/KAMealViewController.m; sourceTree = "<group>"; };
 		6A11708D166EE88400B2467E /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
@@ -160,6 +168,10 @@
 		6A1170AD166EE88400B2467E /* SSPullToRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPullToRefreshView.m; sourceTree = "<group>"; };
 		6A1171DE166EE90400B2467E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6A1171E1166EEB3B00B2467E /* SSToolkit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SSToolkit.xcodeproj; path = Vendor/SSToolkit/SSToolkit.xcodeproj; sourceTree = "<group>"; };
+		6A36AD81167691F200B50B1A /* comment-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "comment-background.png"; sourceTree = "<group>"; };
+		6A36AD82167691F200B50B1A /* comment-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "comment-background@2x.png"; sourceTree = "<group>"; };
+		6A36AD851676C20400B50B1A /* tabbar-background-half-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-background-half-pressed.png"; sourceTree = "<group>"; };
+		6A36AD861676C20400B50B1A /* tabbar-background-half-pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-background-half-pressed@2x.png"; sourceTree = "<group>"; };
 		6A4A7D791672616200F84976 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Images/Default.png; sourceTree = SOURCE_ROOT; };
 		6A4A7D7D1672618600F84976 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		6A4A7D7E1672618600F84976 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -224,6 +236,8 @@
 		6AA8F20516726AA10009B6A0 /* login-background-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-background-568h@2x.png"; sourceTree = "<group>"; };
 		6AA8F20616726AA10009B6A0 /* login-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-background.png"; sourceTree = "<group>"; };
 		6AA8F20716726AA10009B6A0 /* login-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-background@2x.png"; sourceTree = "<group>"; };
+		6AC557EB167593EC00193B36 /* KAMealCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KAMealCommentCell.h; path = Classes/KAMealCommentCell.h; sourceTree = "<group>"; };
+		6AC557EC167593EC00193B36 /* KAMealCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KAMealCommentCell.m; path = Classes/KAMealCommentCell.m; sourceTree = "<group>"; };
 		6AE2C0D316727EF8003298FE /* nav-backbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-backbutton.png"; sourceTree = "<group>"; };
 		6AE2C0D416727EF8003298FE /* nav-backbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-backbutton@2x.png"; sourceTree = "<group>"; };
 		6AE2C0D516727EF8003298FE /* nav-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-button.png"; sourceTree = "<group>"; };
@@ -345,6 +359,8 @@
 		6A4A7D7C1672618600F84976 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				6A36AD81167691F200B50B1A /* comment-background.png */,
+				6A36AD82167691F200B50B1A /* comment-background@2x.png */,
 				6A4A7D791672616200F84976 /* Default.png */,
 				6A4A7D7D1672618600F84976 /* Default-568h@2x.png */,
 				6A4A7D7E1672618600F84976 /* Default.png */,
@@ -374,6 +390,8 @@
 				6AE2C0D616727EF8003298FE /* nav-button@2x.png */,
 				6A4A7D921672618600F84976 /* tabbar-background-pressed.png */,
 				6A4A7D931672618600F84976 /* tabbar-background-pressed@2x.png */,
+				6A36AD851676C20400B50B1A /* tabbar-background-half-pressed.png */,
+				6A36AD861676C20400B50B1A /* tabbar-background-half-pressed@2x.png */,
 				6A4A7D941672618600F84976 /* tabbar-background.png */,
 				6A4A7D951672618600F84976 /* tabbar-background@2x.png */,
 				6A4A7D961672618600F84976 /* tabbar-global-selected.png */,
@@ -496,6 +514,8 @@
 				6A4E262A165D646F00E727B1 /* KAMeal.m */,
 				6A7CE87B16704D3900DEE098 /* KANotifications.h */,
 				6A7CE87C16704D3900DEE098 /* KANotifications.m */,
+				6A066BB71675992100C0AF09 /* KAComment.h */,
+				6A066BB81675992100C0AF09 /* KAComment.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -511,6 +531,8 @@
 				6A6707591674FD83007E8D97 /* KAFeedMealCell.m */,
 				6AE402971671A24000BECF47 /* KAProfileMealCell.h */,
 				6AE402981671A24000BECF47 /* KAProfileMealCell.m */,
+				6AC557EB167593EC00193B36 /* KAMealCommentCell.h */,
+				6AC557EC167593EC00193B36 /* KAMealCommentCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -668,6 +690,10 @@
 				6AE2C0D816727EF8003298FE /* nav-backbutton@2x.png in Resources */,
 				6AE2C0D916727EF8003298FE /* nav-button.png in Resources */,
 				6AE2C0DA16727EF8003298FE /* nav-button@2x.png in Resources */,
+				6A36AD83167691F200B50B1A /* comment-background.png in Resources */,
+				6A36AD84167691F200B50B1A /* comment-background@2x.png in Resources */,
+				6A36AD871676C20400B50B1A /* tabbar-background-half-pressed.png in Resources */,
+				6A36AD881676C20400B50B1A /* tabbar-background-half-pressed@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -709,6 +735,8 @@
 				6A7CE87D16704D3900DEE098 /* KANotifications.m in Sources */,
 				6AE402991671A24000BECF47 /* KAProfileMealCell.m in Sources */,
 				6A67075A1674FD83007E8D97 /* KAFeedMealCell.m in Sources */,
+				6AC557ED167593EC00193B36 /* KAMealCommentCell.m in Sources */,
+				6A066BB91675992100C0AF09 /* KAComment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -793,7 +821,7 @@
 		6A4E25BC165C443F00E727B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -819,7 +847,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/SSToolkit/Tests\"",

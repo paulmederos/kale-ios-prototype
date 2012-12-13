@@ -31,7 +31,7 @@
 - (void)customize
 {
     UIImage *tabBarBG = [UIImage imageNamed:@"tabbar-background.png"];
-    UIImage *tabBarSelected = [UIImage imageNamed:@"tabbar-background-pressed.png"];
+    UIImage *tabBarSelected = [UIImage imageNamed:@"tabbar-background-half-pressed.png"];
     [self setBackgroundImage:tabBarBG];
     [self setSelectionIndicatorImage:tabBarSelected];
 }
