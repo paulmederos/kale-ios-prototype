@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KALoginViewController : UIViewController <UITextFieldDelegate>
+@interface KALoginViewController : UIViewController <UITextFieldDelegate, UIWebViewDelegate>
 {
     __weak IBOutlet UIButton *loginButton;
 

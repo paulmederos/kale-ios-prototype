@@ -21,7 +21,9 @@
 @property (nonatomic, copy) NSString *eatenMonth;
 @property (nonatomic, copy) NSString *eatenYear;
 @property (nonatomic, copy) NSString *serverID;
+@property (nonatomic, copy) NSString *commentCount;
 @property (nonatomic, copy) NSData *photoData;
+@property (nonatomic) BOOL proudOfMeal;
 
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;

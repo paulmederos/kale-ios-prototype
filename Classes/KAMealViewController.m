@@ -79,6 +79,10 @@
     [mealPhoto setImageWithURL:[NSURL URLWithString:meal.photoSquareURL] placeholderImage:nil];
     [mealUserPhoto setImageWithURL:[NSURL URLWithString:meal.ownerAvatarThumbURL] placeholderImage:nil];
     
+    [mealTitle sizeToFit];
+    
+    NSLog(@"Proud is set to %i", meal.proudOfMeal);
+    
     // Load comments
     [self loadComments];
 }
@@ -154,6 +158,7 @@
     cell.commentDate.text = comment.createdAt;
     cell.commentOwner.text = comment.ownerUsername;
     [cell.commentOwnerAvatar setImageWithURL:[NSURL URLWithString:comment.ownerAvatarThumbURL] placeholderImage:nil];
+    [cell.commentContent sizeToFit];
     
     return cell;
 }

@@ -8,10 +8,11 @@
 
 #import "KAFeedMealCell.h"
 #import "UIImageView+AFNetworking.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation KAFeedMealCell
 
-@synthesize mealPhoto, mealTitle, mealDate, mealUser, mealUserPhoto;
+@synthesize mealPhoto, mealTitle, mealDate, mealUser, mealUserPhoto, mealCommentCount, commentBubble, mealContainer;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -22,28 +23,46 @@
     return self;
 }
 
-- (id)initWithStyle:(UITableViewCellStyle)style
-    reuseIdentifier:(NSString *)reuseIdentifier
-           withMeal:(KAMeal *)meal
-{
-    self = [self initWithStyle:style reuseIdentifier:reuseIdentifier];
-    
-    if (self) {
-        mealTitle.text = meal.title;
-        mealDate.text = meal.eatenAt;
-        mealUser.text = meal.ownerUsername;
-        [mealPhoto setImageWithURL:[NSURL URLWithString:meal.photoSquareURL] placeholderImage:nil];
-        [mealUserPhoto setImageWithURL:[NSURL URLWithString:meal.ownerAvatarThumbURL] placeholderImage:nil];
-    }
-    
-    return self;
-}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)prepareWithMeal:(KAMeal *)meal
+{
+    self.backgroundColor = [UIColor colorWithRed:230.0/255.0f green:225.0/255.0f blue:220.0/255.0f alpha:1.0];
+    [mealTitle setLineBreakMode:NSLineBreakByWordWrapping];
+    mealTitle.text = meal.title;
+    mealDate.text = meal.eatenAt;
+    mealUser.text = meal.ownerUsername;
+    mealCommentCount.text = meal.commentCount;
+    
+    [mealPhoto setImageWithURL:[NSURL URLWithString:meal.photoSquareURL] placeholderImage:[UIImage imageNamed:@"meal_photo-placeholder"]];
+    [mealUserPhoto setImageWithURL:[NSURL URLWithString:meal.ownerAvatarThumbURL] placeholderImage:nil];
+    [commentBubble setImage:[UIImage imageNamed:@"table-comment-bubble.png"]];
+    
+    mealContainer.layer.borderColor = [UIColor colorWithRed:0.0/255.0f
+                                                      green:0.0/255.0f
+                                                       blue:0.0/255.0f
+                                                      alpha:0.3].CGColor;
+    mealContainer.layer.borderWidth = 1.0f;
+    mealContainer.layer.backgroundColor = [UIColor whiteColor].CGColor;
+    mealContainer.layer.shadowOffset = CGSizeMake(0.0f, 1.0f);
+    mealContainer.layer.shadowColor = [UIColor grayColor].CGColor;
+    mealContainer.layer.shadowOpacity = 0.3f;
+    mealContainer.layer.cornerRadius = 3.0f;
+    
+    if (![meal.commentCount isEqualToString:@"0"]) {
+        mealCommentCount.text = meal.commentCount;
+    } else {
+        mealCommentCount.text = nil;
+        [commentBubble setImage:nil];
+    }
+    
+    [self setNeedsDisplay];
 }
 
 @end

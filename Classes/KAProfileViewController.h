@@ -8,17 +8,20 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import "UIImageView+LBBlurredImage.h"
 
 @interface KAProfileViewController : UIViewController <UIActionSheetDelegate, UITableViewDataSource, UITableViewDelegate>
 {
 
     __weak IBOutlet UILabel *numberOfMeals;
     __weak IBOutlet UILabel *username;
+    __weak IBOutlet UIView *profileContainer;
 }
 
 @property (weak, nonatomic) IBOutlet UIImageView *profilePhoto;
 @property (strong, nonatomic) NSArray *userMeals;
 @property (strong, nonatomic) IBOutlet UITableView *mealsTable;
+@property (weak, nonatomic) IBOutlet UIImageView *lastMealPhoto;
 
 - (IBAction)logout:(id)sender;
 

@@ -27,7 +27,7 @@
 
 @implementation KAProfileViewController
 
-@synthesize profilePhoto, userMeals, mealsTable;
+@synthesize profilePhoto, userMeals, mealsTable, lastMealPhoto;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,14 +38,23 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    float yOffset = 200.0f; // Change this how much you want!
+    mealsTable.frame =  CGRectMake(mealsTable.frame.origin.x, mealsTable.frame.origin.y - yOffset, mealsTable.frame.size.width, mealsTable.frame.size.height);
+}
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setupAppearance];
     
     [mealsTable setDataSource:self];
     [mealsTable setDelegate:self];
+    
+    [self setupAppearance];
     
     [self pullUserPersonalData];
     [self pullUserMealData];
@@ -57,13 +66,28 @@
     username.text = nil;
     numberOfMeals.text = nil;
     
+    [profileContainer.layer setBorderColor:[UIColor lightGrayColor].CGColor];
+    [profileContainer.layer setBorderWidth:1.0f];
+    [profileContainer setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"light_toast.png"]]];
+    
     // Set background images/colors
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"light_toast.png"]];
     
+    // Bring profile photo to front of the profile pic    
     [profilePhoto.layer setMasksToBounds:YES];
     [profilePhoto.layer setCornerRadius:8.0f];
     [profilePhoto.layer setBorderColor:[UIColor blackColor].CGColor];
     [profilePhoto.layer setBorderWidth:1.0f];
+    [profilePhoto.layer setShadowColor:[UIColor whiteColor].CGColor];
+    [profilePhoto.layer setShadowOffset:CGSizeMake(0,0)];
+    [profilePhoto.layer setShadowOpacity:1];
+    [profilePhoto.layer setShadowRadius:2.0];
+    
+    // Set placeholders while content loads
+    [profilePhoto setImage:[UIImage imageNamed:@"meal_photo-placeholder.png"]];
+
+
+    [mealsTable bringSubviewToFront:profilePhoto];
 }
 
 - (void)pullUserPersonalData
@@ -92,12 +116,10 @@
     [[AuthAPIClient sharedClient] getPath:@"/api/v1/meals/me"
                                parameters:nil
                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                      NSLog(@"Successfully pulled user meals: %@", responseObject);
-                                      
+                                      NSLog(@"Successfully pulled user meals: %@", responseObject);                                      
                                       [self parseMealsJSON:responseObject];
                                       [self.mealsTable reloadData];
                                       
-                                      NSLog(@"Should hide progress HUD now.");
                                       [MBProgressHUD hideHUDForView:self.view animated:YES];
                                   }
                                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -133,7 +155,7 @@
                                  delegate:self
                         cancelButtonTitle:@"Close"
                    destructiveButtonTitle:@"Logout"
-                        otherButtonTitles:nil]
+                        otherButtonTitles:@"Account Details", nil]
      showFromTabBar:self.tabBarController.tabBar];
 }
 
@@ -152,6 +174,8 @@
     switch (buttonIndex) {
         case 0:
             [self terminateUserSession]; break;
+        case 1:
+            [self openWebsiteAccountDetails:nil]; break;
     }
 }
 
@@ -199,6 +223,12 @@
     [cell.mealPhoto setImageWithURL:[NSURL URLWithString:meal.photoSquareURL] placeholderImage:nil];
     
     return cell;
+}
+
+- (void)openWebsiteAccountDetails:(id)sender
+{
+    NSString* launchUrl = @"https://kaleweb.herokuapp.com/account-details";
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: launchUrl]];
 }
 
 @end

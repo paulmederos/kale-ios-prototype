@@ -25,6 +25,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *mealUserPhoto;
 @property (strong, nonatomic) IBOutlet UILabel *mealUser;
 @property (strong, nonatomic) IBOutlet UILabel *mealDate;
+
 @property (strong, nonatomic) IBOutlet UILabel *mealTitle;
 
 @property (strong, nonatomic) IBOutlet UIToolbar *commentToolbar;

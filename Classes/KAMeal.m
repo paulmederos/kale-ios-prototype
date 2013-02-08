@@ -24,7 +24,9 @@
             eatenMonth,
             eatenYear,
             serverID,
-            photoData;
+            photoData,
+            commentCount,
+            proudOfMeal;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
@@ -51,6 +53,7 @@
     
     NSDictionary *params = @{
         @"meal[title]" : self.title,
+        @"meal[proud]" : [NSNumber numberWithBool:self.proudOfMeal],
     };
     
     NSURLRequest *postRequest = [[AuthAPIClient sharedClient]
@@ -99,6 +102,8 @@
     self.eatenYear = [dictionary objectForKey:@"eaten_at_year"];
     self.photoSquareURL = [dictionary objectForKey:@"photo"];
     self.serverID = [dictionary objectForKey:@"meal_server_id"];
+    self.commentCount = [NSString stringWithFormat:@"%@", [dictionary objectForKey:@"comments_count"]];
+    self.proudOfMeal = [dictionary objectForKey:@"proud"];
 }
 
 - (void)notifyCreated {

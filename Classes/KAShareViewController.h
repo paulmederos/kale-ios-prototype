@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <SSToolkit/SSTextView.h>
 
-@interface KAShareViewController : UIViewController <UITextViewDelegate>
+@interface KAShareViewController : UIViewController <UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
+{
+
+}
 
 @property (strong, nonatomic) IBOutlet UIImageView *mealPhoto;
 @property (strong, nonatomic) IBOutlet SSTextView *mealTitle;

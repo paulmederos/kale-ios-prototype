@@ -18,7 +18,6 @@
 
 @interface KAFeedTableViewController ()
 
-@property (strong, nonatomic) UIImagePickerController *pickerController;
 
 @end
 
@@ -26,7 +25,7 @@
 
 @implementation KAFeedTableViewController
 
-@synthesize meals, pullToRefreshView, pickerController;
+@synthesize meals, pullToRefreshView;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -46,9 +45,22 @@
     UIBarButtonItem *shareMealButton = [[UIBarButtonItem alloc] initWithTitle:@"Record"
                                                                         style:UIBarButtonItemStylePlain
                                                                        target:self
-                                                                       action:@selector(takePhoto:)];
+                                                                       action:@selector(recordMeal:)];
     self.navigationItem.rightBarButtonItem = shareMealButton;
     [self initialDataRequest];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveMealPostedNotification:)
+                                                 name:@"MealPostedNotification"
+                                               object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"MealPostedNotification" object:nil];
 }
 
 -(void)initialDataRequest
@@ -79,55 +91,22 @@
                                   }
                                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                       NSLog(@"%@", error);
-                                      NSLog(@"");
-                                      
+                                      MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                                      hud.mode = MBProgressHUDModeText;
+                                      hud.labelText = @"Sorry, there seems to be a connection problem. Try refreshing again!";
+
                                   }];
 }
 
-- (void)takePhoto:(id)sender {
-    pickerController  = [[UIImagePickerController alloc] init];
-    // If we have a camera, take a picture. If not, use Photo Library.
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        [pickerController setSourceType:UIImagePickerControllerSourceTypeCamera];
-    } else {
-        [pickerController setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
-    }
-    
-    pickerController.delegate = self;
-    pickerController.allowsEditing = YES;
-    pickerController.navigationItem.title = @"Camera";
-    
-    [self presentViewController:pickerController animated:NO completion:nil];
-}
-
-#pragma mark - UIImagePickerDelegate
-
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    [self dismissViewControllerAnimated:YES completion:^{
-        NSLog(@"Canceled the camera action.");
-    }];
-}
-
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+- (IBAction)recordMeal:(id)sender
 {
-    UIImage *editedPhoto = [info objectForKey:UIImagePickerControllerEditedImage];
+    KAShareViewController *svc =  [self.storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
     
-    // First, initialize and push shareViewController on UIImageController
-    // (which is a subclass of UInavigationController)
-    UIStoryboard *storyboard = self.storyboard;
-    KAShareViewController *shareViewController = [storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
-    
-    
-    [[UIApplication sharedApplication] setStatusBarHidden:NO];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent animated:YES];
-    
-    // Then push on to the stack.
-    [pickerController pushViewController:shareViewController animated:YES];
-    [shareViewController.navigationController setNavigationBarHidden:NO animated:YES];
-    
-    // Next, Pass the image reference
-    [shareViewController.mealPhoto setImage:editedPhoto];
+    [svc setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:svc animated:YES];
 }
+
+
 
 #pragma mark - UINavigationController delegate
 
@@ -168,8 +147,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // Get the meal for this specific cell
     KAMeal *meal = [self.meals objectAtIndex:indexPath.row];
     
+    // Set the cellIdentifier and retrieve a used cell (if it exists)
     static NSString *cellIdentifier = @"mealCell";
     KAFeedMealCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
@@ -178,12 +159,9 @@
                                      reuseIdentifier:cellIdentifier];
     }
     
-    cell.mealTitle.text = meal.title;
-    cell.mealDate.text = meal.eatenAt;
-    cell.mealUser.text = meal.ownerUsername;
-    [cell.mealPhoto setImageWithURL:[NSURL URLWithString:meal.photoSquareURL] placeholderImage:nil];
-    [cell.mealUserPhoto setImageWithURL:[NSURL URLWithString:meal.ownerAvatarThumbURL] placeholderImage:nil];
-
+    // Set the image, text, and appearance
+    [cell prepareWithMeal:meal];
+    
     return cell;
 }
 
@@ -198,6 +176,14 @@
     
     [mealViewController setHidesBottomBarWhenPushed:YES];
     [self.navigationController pushViewController:mealViewController animated:YES];
+}
+
+#pragma mark - Notifications
+
+- (void) receiveMealPostedNotification:(NSNotification *) notification
+{
+    NSLog(@"Meal was just posted - lets fetch new data.");
+    [self initialDataRequest];
 }
 
 @end

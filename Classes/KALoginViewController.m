@@ -6,10 +6,13 @@
 //  Copyright (c) 2012 Enchant. All rights reserved.
 //
 
+#import <SSToolkit/SSWebView.h>
 #import "KALoginViewController.h"
 #import "AuthAPIClient.h"
 #import "KACredentialStore.h"
 #import "MBProgressHUD.h"
+#import "KASignupViewController.h"
+
 
 #define isPhone568 ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone && [UIScreen mainScreen].bounds.size.height == 568)
 #define iPhone568ImageNamed(image) (isPhone568 ? [NSString stringWithFormat:@"%@-568h.%@", [image stringByDeletingPathExtension], [image pathExtension]] : image)
@@ -120,17 +123,25 @@
        }];
 }
 
+// Using UIWebView modal for registration for now
+
 - (IBAction)openWebsiteSignup:(id)sender
 {
-    NSString* launchUrl = @"http://alpha.kaleapp.com/";
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: launchUrl]];
+    KASignupViewController *svc = [self.storyboard instantiateViewControllerWithIdentifier:@"signupWebView"];
+
+    
+    [self presentViewController:svc animated:YES completion:^{
+        [svc.webView setDelegate:self];
+    }];
 }
+
 
 - (IBAction)openWebsiteResetPassword:(id)sender
 {
-    NSString* launchUrl = @"http://alpha.kaleapp.com/password_resets/new";
+    NSString* launchUrl = @"http://app.getkale.com/password_resets/new";
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString: launchUrl]];
 }
+
 
 #pragma mark - Customize UI
 
@@ -172,6 +183,12 @@
         [self.emailField resignFirstResponder];
         [self.passwordField resignFirstResponder];
     }
+}
+
+#pragma mark - UIWebView delegate
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    NSLog(@"Request is: %@", webView.request);
 }
 
 @end
