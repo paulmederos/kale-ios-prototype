@@ -47,6 +47,10 @@
                                                                        target:self
                                                                        action:@selector(recordMeal:)];
     self.navigationItem.rightBarButtonItem = shareMealButton;
+    [self.view.layer setBackgroundColor:[UIColor colorWithRed:234.0/255.0f
+                                                        green:229.0/255.0f
+                                                         blue:224.0/255.0f
+                                                        alpha:1.0].CGColor];
     [self initialDataRequest];
 }
 
@@ -67,7 +71,10 @@
 {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDModeIndeterminate;
-    hud.labelText = @"Loading Meals";
+    hud.labelText = @"Loading Meals.";
+    [hud addGestureRecognizer:[[UITapGestureRecognizer alloc]
+                               initWithTarget:self
+                               action:@selector(cancelHud:)]];
     [self getMeals];
 }
 
@@ -91,14 +98,10 @@
                                   }
                                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                       NSLog(@"%@", error);
-                                      MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-                                      hud.mode = MBProgressHUDModeText;
-                                      hud.labelText = @"Sorry, there seems to be a connection problem. Try refreshing again!";
-
                                   }];
 }
 
-- (IBAction)recordMeal:(id)sender
+- (void)recordMeal:(id)sender
 {
     KAShareViewController *svc =  [self.storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
     
@@ -106,6 +109,9 @@
     [self.navigationController pushViewController:svc animated:YES];
 }
 
+- (void)cancelHud {
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+}
 
 
 #pragma mark - UINavigationController delegate

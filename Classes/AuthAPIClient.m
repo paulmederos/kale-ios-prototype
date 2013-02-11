@@ -9,7 +9,7 @@
 #import "AuthAPIClient.h"
 #import "KACredentialStore.h"
 
-#define BASE_URL @"http://kaleweb.herokuapp.com/"
+#define BASE_URL @"https://kaleweb.herokuapp.com/"
 
 @implementation AuthAPIClient
 

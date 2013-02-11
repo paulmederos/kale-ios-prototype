@@ -619,6 +619,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <color key="backgroundColor" red="0.82352948189999997" green="0.76862752440000004" blue="0.71764707569999997" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstItem="zXh-xL-dO2" firstAttribute="centerX" secondItem="H1Q-km-SGu" secondAttribute="centerX" type="default" id="FCs-RQ-IGu"/>
                                     <constraint firstAttribute="bottom" secondItem="zXh-xL-dO2" secondAttribute="bottom" constant="20" type="user" id="OQo-R8-w4i"/>

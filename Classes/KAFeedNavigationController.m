@@ -27,7 +27,7 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Global Feed"
+        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"The Feed"
                                                         image:nil tag:0];
         [self.tabBarItem
          setFinishedSelectedImage:[UIImage imageNamed:@"tabbar-global-selected.png"]
