@@ -101,6 +101,7 @@
 		8EA4CBA7168FEC2D00BDB9B8 /* share-dont_share_meal.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EA4CBA3168FEC2D00BDB9B8 /* share-dont_share_meal.png */; };
 		8EF6FF2416C40E1800711DD5 /* KASignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF6FF2316C40E1800711DD5 /* KASignupViewController.m */; };
 		8EF6FF2E16C413CC00711DD5 /* KAToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF6FF2D16C413CC00711DD5 /* KAToolbar.m */; };
+		8EF9E98116D7DCF000567303 /* KAWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF9E98016D7DCF000567303 /* KAWelcomeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -276,6 +277,8 @@
 		8EF6FF2316C40E1800711DD5 /* KASignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KASignupViewController.m; path = Classes/KASignupViewController.m; sourceTree = "<group>"; };
 		8EF6FF2C16C413CC00711DD5 /* KAToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KAToolbar.h; path = Classes/KAToolbar.h; sourceTree = "<group>"; };
 		8EF6FF2D16C413CC00711DD5 /* KAToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KAToolbar.m; path = Classes/KAToolbar.m; sourceTree = "<group>"; };
+		8EF9E97F16D7DCF000567303 /* KAWelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KAWelcomeViewController.h; path = Classes/KAWelcomeViewController.h; sourceTree = "<group>"; };
+		8EF9E98016D7DCF000567303 /* KAWelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KAWelcomeViewController.m; path = Classes/KAWelcomeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -476,6 +479,7 @@
 				6A4E2604165C8DAD00E727B1 /* Share Meal Process */,
 				6A4E25D9165C7CA500E727B1 /* Global Feed */,
 				6AFE2C151660131400BB64A6 /* Login */,
+				8EF9E98316D7DCF600567303 /* Welcome */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -576,12 +580,6 @@
 			children = (
 				6AFE2C121660130B00BB64A6 /* KALoginViewController.h */,
 				6AFE2C131660130C00BB64A6 /* KALoginViewController.m */,
-				6AFE2C1F1660474300BB64A6 /* AuthAPIClient.h */,
-				6AFE2C201660474300BB64A6 /* AuthAPIClient.m */,
-				6AFE2C1C166044B600BB64A6 /* KACredentialStore.h */,
-				6AFE2C1D166044B600BB64A6 /* KACredentialStore.m */,
-				8EF6FF2216C40E1800711DD5 /* KASignupViewController.h */,
-				8EF6FF2316C40E1800711DD5 /* KASignupViewController.m */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -593,6 +591,21 @@
 				8EA4CB9F168FA18D00BDB9B8 /* UIImageView+LBBlurredImage.m */,
 			);
 			name = LBBlurredImageView;
+			sourceTree = "<group>";
+		};
+		8EF9E98316D7DCF600567303 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				8EF9E97F16D7DCF000567303 /* KAWelcomeViewController.h */,
+				8EF9E98016D7DCF000567303 /* KAWelcomeViewController.m */,
+				8EF6FF2216C40E1800711DD5 /* KASignupViewController.h */,
+				8EF6FF2316C40E1800711DD5 /* KASignupViewController.m */,
+				6AFE2C1F1660474300BB64A6 /* AuthAPIClient.h */,
+				6AFE2C201660474300BB64A6 /* AuthAPIClient.m */,
+				6AFE2C1C166044B600BB64A6 /* KACredentialStore.h */,
+				6AFE2C1D166044B600BB64A6 /* KACredentialStore.m */,
+			);
+			name = Welcome;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -791,6 +804,7 @@
 				6A066BB91675992100C0AF09 /* KAComment.m in Sources */,
 				8EF6FF2416C40E1800711DD5 /* KASignupViewController.m in Sources */,
 				8EF6FF2E16C413CC00711DD5 /* KAToolbar.m in Sources */,
+				8EF9E98116D7DCF000567303 /* KAWelcomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
