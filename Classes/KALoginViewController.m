@@ -1,17 +1,16 @@
 //
-//  KALoginViewController.m
+//  KAWelcomeViewController.m
 //  Kale
 //
-//  Created by Paul Mederos Jr on 11/23/12.
-//  Copyright (c) 2012 Enchant. All rights reserved.
+//  Created by Paul Mederos on 2/22/13.
+//  Copyright (c) 2013 Enchant. All rights reserved.
 //
 
-#import <SSToolkit/SSWebView.h>
-#import "KALoginViewController.h"
+
 #import "AuthAPIClient.h"
 #import "KACredentialStore.h"
+#import "KALoginViewController.h"
 #import "MBProgressHUD.h"
-#import "KASignupViewController.h"
 
 
 #define isPhone568 ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone && [UIScreen mainScreen].bounds.size.height == 568)
@@ -27,7 +26,7 @@
 
 @implementation KALoginViewController
 
-@synthesize outputLabel;
+@synthesize emailField, passwordField, outputLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,32 +37,27 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [emailField becomeFirstResponder];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
     self.credentialStore = [[KACredentialStore alloc] init];
     
-    UIImage *background = iPhone568Image(@"login-background.png");
-    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:background];
-    
-    [self.view addSubview:backgroundImage];
-    [self.view sendSubviewToBack:backgroundImage];
-    
+    [emailField setTextEdgeInsets:UIEdgeInsetsMake(0.0, 12.0f, 0, 12.0f)];
+    [passwordField setTextEdgeInsets:UIEdgeInsetsMake(0.0, 12.0f, 0, 12.0f)];
     [self customizeTextFields];
-    [self customizeLoginButton];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    outputLabel.text = @"Welcome to Kale.";
-}
-
--(void)viewDidAppear:(BOOL)animated
-{
-    if ([self.credentialStore isLoggedIn]) {
-        [self performSegueWithIdentifier:@"loginSuccess" sender:self];
-    }
+    [self setBackButton];
 }
 
 - (void)didReceiveMemoryWarning
@@ -72,13 +66,33 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)customizeTextFields
+{
+    [self.emailField setDelegate:self];
+    [self.passwordField setDelegate:self];
+}
 
-- (IBAction)login:(id)sender {    
+- (void)setBackButton
+{
+    UIButton *backButton =  [UIButton buttonWithType:UIButtonTypeCustom];
+    [backButton setImage:[UIImage imageNamed:@"controls-nav-back-arrow.png"] forState:UIControlStateNormal];
+    [backButton addTarget:self action:@selector(backButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [backButton setFrame:CGRectMake(0, 0, 36.0, 18.0f)];
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+}
+
+- (void)backButtonTapped:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)login:(id)sender {
     // Check to see if values have been entered
     id params = @{
-        @"email": self.emailField.text,
-        @"password": self.passwordField.text
-    };
+                  @"email": self.emailField.text,
+                  @"password": self.passwordField.text
+                  };
     
     MBProgressHUD *hud = [[MBProgressHUD alloc] init];
     [hud setAnimationType:MBProgressHUDModeIndeterminate];
@@ -87,79 +101,36 @@
     
     // Send values to server
     [[AuthAPIClient sharedClient] postPath:@"api/v1/auth/login"
-    parameters:params
-       success:^(AFHTTPRequestOperation *operation, id responseObject) {
-       // If server returns auth token, set current user
-       // and then perform segue to mainTabBarController
-           NSLog(@"Received successful auth. Response is %@", [responseObject class]);
-           NSString *authToken = [responseObject objectForKey:@"auth_token"];
-           NSLog(@"auth_token is %@", authToken);
-           
-           [self.credentialStore setAuthToken:authToken];
-           NSLog(@"Set the token in the credential store.");
-           
-           
-           [MBProgressHUD hideHUDForView:self.view animated:YES];
-           [self performSegueWithIdentifier:@"loginSuccess" sender:self];
-           
-       } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        // else, display the error of why it wasn't successful
-           NSLog(@"Failure...");
-           if (operation.response.statusCode == 500) {
-               NSLog(@"500");
-               [MBProgressHUD hideHUDForView:self.view animated:YES];
-               outputLabel.text = @"Something went wrong with Kale's servers.";
-               
-           } else {
-               NSData *jsonData = [operation.responseString dataUsingEncoding:NSUTF8StringEncoding];
-               NSDictionary *json = [NSJSONSerialization JSONObjectWithData:jsonData
-                                                                    options:0
-                                                                      error:nil];
-               NSString *errorMessage = [json objectForKey:@"error"];
-               [MBProgressHUD hideHUDForView:self.view animated:YES];
-               NSLog(@"Other error: %@", errorMessage);
-               outputLabel.text = errorMessage;
-           }
-       }];
-}
-
-// Using UIWebView modal for registration for now
-
-- (IBAction)openWebsiteSignup:(id)sender
-{
-    KASignupViewController *svc = [self.storyboard instantiateViewControllerWithIdentifier:@"signupWebView"];
-
-    
-    [self presentViewController:svc animated:YES completion:^{
-        [svc.webView setDelegate:self];
-    }];
-}
-
-
-- (IBAction)openWebsiteResetPassword:(id)sender
-{
-    NSString* launchUrl = @"http://app.getkale.com/password_resets/new";
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: launchUrl]];
-}
-
-
-#pragma mark - Customize UI
-
-- (void)customizeTextFields
-{
-    [self.emailField setDelegate:self];
-    [self.passwordField setDelegate:self];
-    
-    [self.emailField setBorderStyle:UITextBorderStyleRoundedRect];
-    [self.passwordField setBorderStyle:UITextBorderStyleRoundedRect];
-    
-}
-
-- (void)customizeLoginButton
-{
-    [loginButton setBackgroundImage:[UIImage imageNamed:@"login-button.png"] forState:UIControlStateNormal];
-    [loginButton setBackgroundImage:[UIImage imageNamed:@"login-button_highlighted.png"] forState:UIControlStateHighlighted];
-    [loginButton setBackgroundImage:[UIImage imageNamed:@"login-button_selected.png"] forState:UIControlStateSelected];
+                                parameters:params
+                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                       // If server returns auth token, set current user
+                                       // and then perform segue to mainTabBarController
+                                       NSLog(@"Received successful auth. Response is %@", [responseObject class]);
+                                       NSString *authToken = [responseObject objectForKey:@"auth_token"];
+                                       [self.credentialStore setAuthToken:authToken];
+                                       
+                                       [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                       [self performSegueWithIdentifier:@"loginSuccess" sender:self];
+                                       
+                                   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                       // else, display the error of why it wasn't successful
+                                       NSLog(@"Failure...");
+                                       if (operation.response.statusCode == 500) {
+                                           NSLog(@"500");
+                                           [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                           outputLabel.text = @"Something went wrong with Kale's servers.";
+                                           
+                                       } else {
+                                           NSData *jsonData = [operation.responseString dataUsingEncoding:NSUTF8StringEncoding];
+                                           NSDictionary *json = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                                                                options:0
+                                                                                                  error:nil];
+                                           NSString *errorMessage = [json objectForKey:@"error"];
+                                           [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                           NSLog(@"Other error: %@", errorMessage);
+                                           outputLabel.text = errorMessage;
+                                       }
+                                   }];
 }
 
 
@@ -173,7 +144,7 @@
     } else {
         [textField resignFirstResponder];
     }
-
+    
     return YES;
 }
 
@@ -185,10 +156,5 @@
     }
 }
 
-#pragma mark - UIWebView delegate
-- (void)webViewDidFinishLoad:(UIWebView *)webView
-{
-    NSLog(@"Request is: %@", webView.request);
-}
 
 @end

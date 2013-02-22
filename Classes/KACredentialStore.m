@@ -28,6 +28,7 @@
 }
 
 - (void)setAuthToken:(NSString *)authToken {
+
     [self setSecureValue:authToken forKey:AUTH_TOKEN_KEY];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"token-changed" object:self];
 }

@@ -10,6 +10,4 @@
 
 @interface KAWelcomeViewController : UIViewController <UIWebViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UILabel *outputLabel;
-
 @end

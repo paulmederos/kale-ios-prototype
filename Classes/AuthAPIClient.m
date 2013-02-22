@@ -44,9 +44,11 @@
     KACredentialStore *store = [[KACredentialStore alloc] init];
     NSString *authToken = [store authToken];
     [self setDefaultHeader:@"auth_token" value:authToken];
+
 }
 
 - (void)tokenChanged:(NSNotification *)notification {
+
     [self setAuthTokenHeader];
 }
 

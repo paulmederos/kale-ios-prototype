@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MBProgressHUD.h"
 
-@interface KASignupViewController : UIViewController
+@interface KASignupViewController : UIViewController <MBProgressHUDDelegate, UIWebViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
-
-- (IBAction)closeWebView:(id)sender;
+@property (weak, nonatomic) IBOutlet UIWebView *signupWebView;
 
 @end

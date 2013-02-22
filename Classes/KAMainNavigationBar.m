@@ -16,6 +16,7 @@
     UIImage *back = [UIImage imageNamed:@"nav-backbutton.png"];
     back = [back stretchableImageWithLeftCapWidth:ArrowLeftCap
                                      topCapHeight:0];
+    
     [[UIBarButtonItem appearanceWhenContainedIn:[KAMainNavigationBar class], nil]
      setBackButtonBackgroundImage:back
      forState:UIControlStateNormal
@@ -31,8 +32,6 @@
     setBackgroundImage:forward
     forState:UIControlStateNormal
      barMetrics:UIBarMetricsDefault];
-    
-    NSLog(@"Set up the navigation bar.");
 }
 
 

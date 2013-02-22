@@ -7,6 +7,7 @@
 //
 
 #import "KAWelcomeViewController.h"
+#import "KASignupViewController.h"
 
 @interface KAWelcomeViewController ()
 
@@ -23,6 +24,11 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -33,6 +39,16 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+// Using UIWebView modal for registration for now
+- (IBAction)openWebsiteSignup:(id)sender {
+    KASignupViewController *svc = [self.storyboard instantiateViewControllerWithIdentifier:@"signupWebView"];
+    
+    
+    [self presentViewController:svc animated:YES completion:^{
+        [svc.signupWebView setDelegate:self];
+    }];
 }
 
 @end

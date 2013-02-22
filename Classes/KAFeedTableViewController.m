@@ -6,15 +6,18 @@
 //  Copyright (c) 2012 Enchant. All rights reserved.
 //
 
-#import "KAFeedTableViewController.h"
 #import "AFNetworking.h"
+#import "AuthAPIClient.h"
 #import "MBProgressHUD.h"
+
+#import "KAFeedMealCell.h"
+#import "KAFeedTableViewController.h"
+#import "KAMainNavigationBar.h"
 #import "KAMeal.h"
 #import "KAMealViewController.h"
-#import "AuthAPIClient.h"
 #import "KAShareViewController.h"
-#import "KAMainNavigationBar.h"
-#import "KAFeedMealCell.h"
+
+
 
 @interface KAFeedTableViewController ()
 
@@ -79,6 +82,7 @@
 }
 
 - (void)getMeals {
+    NSLog(@"About to pull meals with auth_token.");
     [[AuthAPIClient sharedClient] getPath:@"/api/v1/meals"
                                parameters:nil
                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
