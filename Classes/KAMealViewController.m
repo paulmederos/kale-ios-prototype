@@ -81,6 +81,8 @@
     
     [mealTitle sizeToFit];
     
+    [self setBackButton];
+    
     NSLog(@"Proud is set to %i", meal.proudOfMeal);
     
     // Load comments
@@ -94,6 +96,21 @@
         NSIndexPath *ipath = [NSIndexPath indexPathForRow:comments.count-1 inSection:0];
         [commentsTable scrollToRowAtIndexPath:ipath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
     }
+}
+
+- (void)setBackButton
+{
+    UIButton *backButton =  [UIButton buttonWithType:UIButtonTypeCustom];
+    [backButton setImage:[UIImage imageNamed:@"controls-nav-back-arrow.png"] forState:UIControlStateNormal];
+    [backButton addTarget:self action:@selector(backButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [backButton setFrame:CGRectMake(0, 0, 36.0, 18.0f)];
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+}
+
+- (void)backButtonTapped:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)loadComments

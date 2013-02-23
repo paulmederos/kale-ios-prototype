@@ -55,7 +55,7 @@
 
 - (void)customize
 {
-    UIImage *navBarBg = [UIImage imageNamed:@"navigationbar.png"];
+    UIImage *navBarBg = [UIImage imageNamed:@"navigation-bar.png"];
     [self setBackgroundImage:navBarBg forBarMetrics:UIBarMetricsDefault];
 }
 

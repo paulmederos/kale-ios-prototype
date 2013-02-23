@@ -73,6 +73,9 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 
+- (IBAction)closeModal:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (void)postMeal:(id)sender
 {
@@ -124,7 +127,7 @@
 - (void)customizeAppearance
 {
     // Set the title
-    self.navigationItem.title = @"Share Food";
+    self.navigationItem.title = @"Log Your Food";
     
     // Set background colors/images
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"light_toast.png"]];
@@ -146,7 +149,7 @@
     [mealPhoto.layer setShadowOffset:CGSizeMake(0.0, 1.0)];
     [mealPhoto setImage:[UIImage imageNamed:@"meal_photo-placeholder.png"]];
     
-    [proudImage setImage:[UIImage imageNamed:@"share-proud_of_meal.png"]];
+    [proudImage setImage:[UIImage imageNamed:@"controls-proud-switch.png"]];
     proudTextLabel.text = @"I'm proud of eating this!";
     proudOfMeal = YES;
     
@@ -179,7 +182,7 @@
 - (IBAction)toggleProud:(id)sender {
     if (proudOfMeal) {
         proudOfMeal = NO;
-        UIImage * toImage = [UIImage imageNamed:@"share-dont_share_meal.png"];
+        UIImage * toImage = [UIImage imageNamed:@"controls-private-switch.png"];
         [UIView transitionWithView:proudImage
                           duration:0.25f
                            options:UIViewAnimationOptionTransitionCrossDissolve
@@ -191,7 +194,7 @@
     } else {
         proudOfMeal = YES;
         proudTextLabel.text = @"I'm proud of eating this!";
-        UIImage * toImage = [UIImage imageNamed:@"share-proud_of_meal.png"];
+        UIImage * toImage = [UIImage imageNamed:@"controls-proud-switch.png"];
         [UIView transitionWithView:proudImage
                           duration:0.25f
                            options:UIViewAnimationOptionTransitionCrossDissolve
@@ -267,7 +270,7 @@
     [UIView setAnimationDuration:0.25];
     
     CGRect imageFrame = self.mealPhoto.frame;
-    imageFrame.origin.y = 10.0f;
+    imageFrame.origin.y = 54.0f;
     self.mealPhoto.frame = imageFrame;
     self.photoButton.frame = imageFrame;
     
@@ -281,7 +284,7 @@
     self.descriptionCounter.frame = counterFrame;
     
     CGRect proudFrame = self.proudImage.frame;
-    proudFrame.origin.y = 10.f;
+    proudFrame.origin.y = 54.f;
     self.proudImage.frame = proudFrame;
     self.proudButton.frame = proudFrame;
     

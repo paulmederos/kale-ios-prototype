@@ -60,12 +60,6 @@
     [self setBackButton];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (void)customizeTextFields
 {
     [self.emailField setDelegate:self];
@@ -138,7 +132,6 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    NSLog(@"Tag is %d", textField.tag);
     if (textField.tag == 0) {
         [self.passwordField becomeFirstResponder];
     } else {

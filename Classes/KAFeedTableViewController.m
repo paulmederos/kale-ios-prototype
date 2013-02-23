@@ -45,15 +45,15 @@
     self.pullToRefreshView = [[SSPullToRefreshView alloc]
                               initWithScrollView:self.tableView
                               delegate:self];
-    UIBarButtonItem *shareMealButton = [[UIBarButtonItem alloc] initWithTitle:@"Record"
-                                                                        style:UIBarButtonItemStylePlain
-                                                                       target:self
-                                                                       action:@selector(recordMeal:)];
-    self.navigationItem.rightBarButtonItem = shareMealButton;
-    [self.view.layer setBackgroundColor:[UIColor colorWithRed:234.0/255.0f
-                                                        green:229.0/255.0f
-                                                         blue:224.0/255.0f
-                                                        alpha:1.0].CGColor];
+    
+//    UIBarButtonItem *shareMealButton = [[UIBarButtonItem alloc] initWithTitle:@"Record"
+//                                                                        style:UIBarButtonItemStylePlain
+//                                                                       target:self
+//                                                                       action:@selector(recordMeal:)];
+    
+    
+    self.navigationItem.rightBarButtonItem = [self logMealButton];
+    
     [self initialDataRequest];
 }
 
@@ -70,6 +70,28 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"MealPostedNotification" object:nil];
 }
 
+- (UIBarButtonItem *)logMealButton {
+    UIImage *logMealImage = [UIImage imageNamed:@"nav-log_meal-button.png"];
+    UIImage *logMealPressed = [UIImage imageNamed:@"nav-log_meal-button-pressed.png"];
+    UIButton *logMealButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    [logMealButton setBackgroundImage:logMealImage forState:UIControlStateNormal];
+    [logMealButton setBackgroundImage:logMealPressed forState:UIControlStateHighlighted];
+    
+    const CGFloat BarButtonOffset = 5.0f;
+    [logMealButton setFrame:CGRectMake(BarButtonOffset, 0, logMealImage.size.width, logMealImage.size.height)];
+
+    // Set target and action (this way since it has a custom view, cant set on UIBarButtonItem)
+    [logMealButton addTarget:self action:@selector(recordMeal:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIView *containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, logMealImage.size.width, logMealImage.size.height)];
+    [containerView addSubview:logMealButton];
+    
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:containerView];
+    
+    return item;
+}
+
 -(void)initialDataRequest
 {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -82,7 +104,6 @@
 }
 
 - (void)getMeals {
-    NSLog(@"About to pull meals with auth_token.");
     [[AuthAPIClient sharedClient] getPath:@"/api/v1/meals"
                                parameters:nil
                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -107,10 +128,11 @@
 
 - (void)recordMeal:(id)sender
 {
+    NSLog(@"Record meal action.");
     KAShareViewController *svc =  [self.storyboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
     
     [svc setHidesBottomBarWhenPushed:YES];
-    [self.navigationController pushViewController:svc animated:YES];
+    [self presentViewController:svc animated:YES completion:nil];
 }
 
 - (void)cancelHud {
