@@ -21,7 +21,6 @@
 
 @interface KAFeedTableViewController ()
 
-
 @end
 
 
@@ -46,13 +45,8 @@
                               initWithScrollView:self.tableView
                               delegate:self];
     
-//    UIBarButtonItem *shareMealButton = [[UIBarButtonItem alloc] initWithTitle:@"Record"
-//                                                                        style:UIBarButtonItemStylePlain
-//                                                                       target:self
-//                                                                       action:@selector(recordMeal:)];
-    
-    
     self.navigationItem.rightBarButtonItem = [self logMealButton];
+    self.tableView.backgroundColor = [UIColor colorWithRed:245.0/255.0f green:239.0/255.0f blue:233.0/255.0f alpha:1.0];
     
     [self initialDataRequest];
 }
@@ -212,7 +206,7 @@
 
 #pragma mark - Notifications
 
-- (void) receiveMealPostedNotification:(NSNotification *) notification
+- (void)receiveMealPostedNotification:(NSNotification *) notification
 {
     NSLog(@"Meal was just posted - lets fetch new data.");
     [self initialDataRequest];

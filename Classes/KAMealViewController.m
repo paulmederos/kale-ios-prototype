@@ -62,14 +62,11 @@
 
     [commentToolbar setBackgroundImage:[UIImage imageNamed:@"comment-background.png"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
     
-    [commentField setFrame:CGRectMake(0, 0, 232.0f, 36.0f)];
+    [commentField setFrame:CGRectMake(-10.0f, 0, 232.0f, 36.0f)];
     [commentField setDelegate:self];
     [commentField setBackgroundColor:[UIColor whiteColor]];
     [commentField.layer setCornerRadius:4.0f];
     [commentField setTextEdgeInsets:UIEdgeInsetsMake(0, 6.0f, 0, 6.0f)];
-    
-    [sendCommentButton.customView setFrame:CGRectMake(0, 0, 56.0f, 34.0f)];
-    [sendCommentButton.customView.layer setCornerRadius:4.0f];
     
     
     // Configure outlets
@@ -214,7 +211,7 @@
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    [self.commentField resignFirstResponder];	
+//    [self.commentField resignFirstResponder];	
 }
 
 
@@ -228,6 +225,13 @@
     frame.origin.y = self.view.frame.size.height - 260.0f;
     self.commentToolbar.frame = frame;
     
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
+    
+    
     [UIView commitAnimations];
 }
 
@@ -240,6 +244,10 @@
     self.commentToolbar.frame = frame;
     
     [UIView commitAnimations];
+}
+
+-(void)dismissKeyboard {
+    [self.commentField resignFirstResponder];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

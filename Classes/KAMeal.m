@@ -50,6 +50,7 @@
 {
     //make sure none of the parameters are nil, otherwise it will mess up our dictionary
     if (!self.title) self.title = @"";
+    NSLog(@"About to save.");
     
     NSDictionary *params = @{
         @"meal[title]" : self.title,
@@ -61,13 +62,16 @@
                                 path:@"/api/v1/meals"
                                 parameters:params
                                 constructingBodyWithBlock:^(id formData) {
-                                     [formData appendPartWithFileData:self.photoData
+                                    NSLog(@"Sending data.");
+                                    [formData appendPartWithFileData:self.photoData
                                                                  name:@"meal[photo]"
                                                              fileName:@"meal.jpg"
                                                              mimeType:@"image/jpg"];
+
                                 }];
     
     AFHTTPRequestOperation *operation = [[AFJSONRequestOperation alloc] initWithRequest:postRequest];
+    NSLog(@"Creating operation.");
     [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
         CGFloat progress = ((CGFloat)totalBytesWritten) / totalBytesExpectedToWrite;
         progressBlock(progress);

@@ -23,12 +23,13 @@
 @property (nonatomic) bool proudOfMeal;
 @property (weak, nonatomic) IBOutlet UILabel *proudTextLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionCounter;
+@property (weak, nonatomic) IBOutlet UIButton *submitMealButton;
 
 @end
 
 @implementation KAShareViewController
 
-@synthesize mealPhoto, mealTitle, pickerController, photoButton, proudImage, proudButton, proudOfMeal, proudTextLabel, descriptionCounter;
+@synthesize mealPhoto, mealTitle, pickerController, photoButton, proudImage, proudButton, proudOfMeal, proudTextLabel, descriptionCounter, submitMealButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -54,6 +55,7 @@
 {
     [super viewDidLoad];
     [self customizeAppearance];
+    [self.submitMealButton addTarget:self action:@selector(postMeal:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -84,6 +86,16 @@
     
     meal.title = self.mealTitle.text;
     meal.photoData = UIImageJPEGRepresentation(mealPhoto.image, 0.8f);
+    
+    UIImage *placeholder = [UIImage imageNamed:@"share-photo-placeholder.png"];
+    if ([meal.photoData isEqualToData:UIImageJPEGRepresentation(placeholder, 0.8f)])
+    {
+        NSLog(@"Empty photo");
+        meal.photoData = UIImageJPEGRepresentation([UIImage imageNamed:@"meal_photo-placeholder.png"], 0.8f);;
+    }
+    
+    NSLog(@"Meal photo is: %@", meal.photoData);
+    
     meal.proudOfMeal = self.proudOfMeal;
     
     [self.view endEditing:YES];
@@ -97,7 +109,7 @@
     } completion:^(BOOL success, NSError *error) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (success) {
-            [self.navigationController popViewControllerAnimated:YES];
+            [self dismissViewControllerAnimated:YES completion:nil];
             NSLog(@"Posting the MealPostedNotification.");
             [[NSNotificationCenter defaultCenter]
              postNotificationName:@"MealPostedNotification"
@@ -109,19 +121,6 @@
     }];
 }
 
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
-{
-    NSInteger textLength = 0;
-    textLength = [textView.text length] - range.length;
-    self.descriptionCounter.text = [NSString stringWithFormat:@"%d", 139 - textLength];
-    if (textLength >= 140) {
-        self.descriptionCounter.textColor = [UIColor redColor];
-    } else {
-        self.descriptionCounter.textColor = [UIColor lightGrayColor];
-    }
-    return YES;
-}
-
 #pragma mark - UI Customizations
 
 - (void)customizeAppearance
@@ -130,36 +129,20 @@
     self.navigationItem.title = @"Log Your Food";
     
     // Set background colors/images
-    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"light_toast.png"]];
-    
     mealTitle.delegate = self;
     mealTitle.backgroundColor = [UIColor whiteColor];
     mealTitle.placeholderTextColor = [UIColor lightGrayColor];
-    [mealTitle.layer setBorderColor:[UIColor lightGrayColor].CGColor];
+    [mealTitle.layer setBorderColor:[UIColor colorWithRed:220.0/255.0f green:215.0/255.0f blue:209.0/255.0f alpha:1.0].CGColor];
     [mealTitle.layer setBorderWidth:1.0f];
     [mealTitle.layer setCornerRadius:2.0f];
     [mealTitle setPlaceholder:@"What are you eating?"];
     [mealTitle setPlaceholderTextColor:[UIColor lightGrayColor]];
     
-    [mealPhoto.layer setBorderColor:[UIColor whiteColor].CGColor];
-    [mealPhoto.layer setBorderWidth:4.0f];
-    [mealPhoto.layer setShadowColor:[UIColor blackColor].CGColor];
-    [mealPhoto.layer setShadowOpacity:0.3];
-    [mealPhoto.layer setShadowRadius:1.0];
-    [mealPhoto.layer setShadowOffset:CGSizeMake(0.0, 1.0)];
-    [mealPhoto setImage:[UIImage imageNamed:@"meal_photo-placeholder.png"]];
+    [mealPhoto setImage:[UIImage imageNamed:@"share-photo-placeholder.png"]];
     
     [proudImage setImage:[UIImage imageNamed:@"controls-proud-switch.png"]];
     proudTextLabel.text = @"I'm proud of eating this!";
     proudOfMeal = YES;
-    
-    
-    // Set navigation button styles / actions
-    UIBarButtonItem *postMealButton = [[UIBarButtonItem alloc] initWithTitle:@"Post"
-                                                                        style:UIBarButtonItemStylePlain
-                                                                       target:self
-                                                                       action:@selector(postMeal:)];
-    self.navigationItem.rightBarButtonItem = postMealButton;
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -180,8 +163,10 @@
 }
 
 - (IBAction)toggleProud:(id)sender {
+    [self.mealTitle resignFirstResponder];
     if (proudOfMeal) {
         proudOfMeal = NO;
+        [submitMealButton setTitle:@"Log This Meal" forState:UIControlStateNormal];
         UIImage * toImage = [UIImage imageNamed:@"controls-private-switch.png"];
         [UIView transitionWithView:proudImage
                           duration:0.25f
@@ -194,6 +179,7 @@
     } else {
         proudOfMeal = YES;
         proudTextLabel.text = @"I'm proud of eating this!";
+        [submitMealButton setTitle:@"Share This Meal" forState:UIControlStateNormal];
         UIImage * toImage = [UIImage imageNamed:@"controls-proud-switch.png"];
         [UIView transitionWithView:proudImage
                           duration:0.25f
@@ -240,28 +226,7 @@
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.25];
     
-    CGRect titleFrame = self.mealTitle.frame;
-    titleFrame.origin.y = titleFrame.origin.y - 100.0f;
-    self.mealTitle.frame = titleFrame;
-    
-    CGRect countFrame = self.descriptionCounter.frame;
-    countFrame.origin.y = countFrame.origin.y - 100.0f;
-    self.descriptionCounter.frame = countFrame;
-    
-    CGRect imageFrame = self.mealPhoto.frame;
-    imageFrame.origin.y = imageFrame.origin.y - 100.0f;
-    self.mealPhoto.frame = imageFrame;
-    self.photoButton.frame = imageFrame;
-    
-    CGRect proudFrame = self.proudImage.frame;
-    proudFrame.origin.y = proudFrame.origin.y - 100.0f;
-    self.proudImage.frame = proudFrame;
-    self.proudButton.frame = proudFrame;
-    
-    CGRect proudLabelFrame = self.proudTextLabel.frame;
-    proudLabelFrame.origin.y = proudLabelFrame.origin.y - 100.0f;
-    self.proudTextLabel.frame = proudLabelFrame;
-    
+    self.view.center = CGPointMake(self.view.center.x, self.view.center.y - 100.0f);
     [UIView commitAnimations];
 }
 
@@ -269,30 +234,7 @@
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.25];
     
-    CGRect imageFrame = self.mealPhoto.frame;
-    imageFrame.origin.y = 54.0f;
-    self.mealPhoto.frame = imageFrame;
-    self.photoButton.frame = imageFrame;
-    
-    CGRect titleFrame = self.mealTitle.frame;
-    titleFrame.origin.y = imageFrame.origin.y + imageFrame.size.height + 10.0f;
-    self.mealTitle.frame = titleFrame;
-    
-    CGRect counterFrame = titleFrame;
-    counterFrame.origin.y = counterFrame.origin.y + (titleFrame.size.height/2.0f) - 12.0f;
-    counterFrame.origin.x = counterFrame.origin.x - 6.0f;
-    self.descriptionCounter.frame = counterFrame;
-    
-    CGRect proudFrame = self.proudImage.frame;
-    proudFrame.origin.y = 54.f;
-    self.proudImage.frame = proudFrame;
-    self.proudButton.frame = proudFrame;
-    
-    CGRect proudLabelFrame = self.proudTextLabel.frame;
-    proudLabelFrame.origin.y = proudFrame.origin.y + proudFrame.size.height + 10.0f;
-    self.proudTextLabel.frame = proudLabelFrame;
-
-    
+    self.view.center = CGPointMake(self.view.center.x, self.view.center.y + 100.0f);
     [UIView commitAnimations];
 }
 
@@ -300,6 +242,7 @@
 
 -(IBAction)choosePhoto:(id)sender
 {
+    [self.mealTitle resignFirstResponder];
     pickerController  = [[UIImagePickerController alloc] init];
     
     pickerController.delegate = self;
@@ -338,5 +281,28 @@
     }
 }
 
+#pragma mark - UITextView delegate
+
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    // Count the characters in textfield, show limit of 140.
+    NSInteger textLength = 0;
+    textLength = [textView.text length] - range.length;
+    self.descriptionCounter.text = [NSString stringWithFormat:@"%d", 139 - textLength];
+    if (textLength >= 140) {
+        self.descriptionCounter.textColor = [UIColor redColor];
+    } else {
+        self.descriptionCounter.textColor = [UIColor lightGrayColor];
+    }
+    
+    // Enter/Done should resign keyboard
+    if([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        return NO;
+    }
+    
+    return YES;
+}
 
 @end

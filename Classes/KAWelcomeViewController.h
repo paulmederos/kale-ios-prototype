@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KAWelcomeViewController : UIViewController <UIWebViewDelegate>
+@interface KAWelcomeViewController : UIViewController
 
 @end

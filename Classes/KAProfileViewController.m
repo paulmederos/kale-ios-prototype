@@ -13,21 +13,21 @@
 #import "KAMealViewController.h"
 #import "KAProfileMealCell.h"
 #import "KAProfileViewController.h"
+
 #import "MBProgressHUD.h"
 #import "UIImageView+AFNetworking.h"
 
 
 
 @interface KAProfileViewController ()
-{
-    __weak UIBarButtonItem *settingsButton;
-}
+
+@property (nonatomic, strong) SSPullToRefreshView *pullToRefreshView;
 
 @end
 
 @implementation KAProfileViewController
 
-@synthesize profilePhoto, userMeals, mealsTable, lastMealPhoto;
+@synthesize profilePhoto, userMeals, mealsTable, lastMealPhoto, pullToRefreshView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -42,10 +42,9 @@
 {
     [super viewWillAppear:animated];
     
-    float yOffset = 200.0f; // Change this how much you want!
+    float yOffset = 200.0f; // size of Profile area.
     mealsTable.frame =  CGRectMake(mealsTable.frame.origin.x, mealsTable.frame.origin.y - yOffset, mealsTable.frame.size.width, mealsTable.frame.size.height);
 }
-
 
 - (void)viewDidLoad
 {
@@ -56,8 +55,12 @@
     
     [self setupAppearance];
     
-    [self pullUserPersonalData];
-    [self pullUserMealData];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [self pullUserData];
+    
+    self.pullToRefreshView = [[SSPullToRefreshView alloc]
+                              initWithScrollView:self.mealsTable
+                              delegate:self];
 }
 
 - (void)setupAppearance
@@ -68,10 +71,12 @@
     
     [profileContainer.layer setBorderColor:[UIColor lightGrayColor].CGColor];
     [profileContainer.layer setBorderWidth:1.0f];
-    [profileContainer setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"light_toast.png"]]];
     
     // Set background images/colors
-    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"light_toast.png"]];
+    self.view.backgroundColor = [UIColor colorWithRed:245.0/255.0f
+                                                green:239.0/255.0f
+                                                 blue:233.0/255.0f
+                                                alpha:1.0];
     
     // Bring profile photo to front of the profile pic    
     [profilePhoto.layer setMasksToBounds:YES];
@@ -85,20 +90,47 @@
     
     // Set placeholders while content loads
     [profilePhoto setImage:[UIImage imageNamed:@"meal_photo-placeholder.png"]];
-
-
+    
     [mealsTable bringSubviewToFront:profilePhoto];
+    
+    self.navigationItem.rightBarButtonItem = [self setupSettingsButton];
 }
 
-- (void)pullUserPersonalData
-{    
+- (UIBarButtonItem *)setupSettingsButton {
+    UIImage *settingsCogImage = [UIImage imageNamed:@"nav-settings.png"];
+    UIButton *settingsButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    [settingsButton setBackgroundImage:settingsCogImage forState:UIControlStateNormal];
+    
+    const CGFloat BarButtonOffset = 0.0f;
+    [settingsButton setFrame:CGRectMake(BarButtonOffset, 0, settingsCogImage.size.width, settingsCogImage.size.height)];
+    
+    // Set target and action (this way since it has a custom view, cant set on UIBarButtonItem)
+    [settingsButton addTarget:self action:@selector(showMenuSheet:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIView *containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, settingsCogImage.size.width, settingsCogImage.size.height)];
+    [containerView addSubview:settingsButton];
+    
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:containerView];
+    
+    return item;
+}
+
+// Only need to call pullUserData to refresh profile
+- (void)pullUserData
+{
+    // First, pull profile details (name, meal count, etc.)
+    // then once completed, pull Meals details
     [[AuthAPIClient sharedClient] getPath:@"/api/v1/profile"
                                parameters:nil
                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                       [self configureProperties:responseObject];
+
+                                      // Pull meal data
+                                      [self pullUserMealData];
                                   }
                                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                      NSLog(@"%@", error);
+                                      NSLog(@"Error pulling user Personal data: %@", error);
                                   }];
 }
 
@@ -111,45 +143,37 @@
 
 - (void)pullUserMealData
 {
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    
     [[AuthAPIClient sharedClient] getPath:@"/api/v1/meals/me"
                                parameters:nil
                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                      NSLog(@"Successfully pulled user meals: %@", responseObject);                                      
                                       [self parseMealsJSON:responseObject];
                                       [self.mealsTable reloadData];
                                       
                                       [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                      [self.pullToRefreshView finishLoading];
                                   }
                                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                      NSLog(@"Error: %@", error);
+                                      NSLog(@"Error pulling user Meals data: %@", error);
                                       [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                      [self.pullToRefreshView finishLoading];
                                   }];
 }
 
 - (void)parseMealsJSON:(id)responseObject
 {
-    NSLog(@"Hopping in the parser.");
     NSMutableArray *results = [NSMutableArray array];
     for (id mealDictionary in responseObject) {
         KAMeal *meal = [[KAMeal alloc] initWithDictionary:mealDictionary];
         [results addObject:meal];
     }
     
-    NSLog(@"Done parsing.");
     self.userMeals = results;
 }
 
-- (IBAction)refreshData:(id)sender
-{
-    [self pullUserPersonalData];
-    [self pullUserMealData];
-}
 
 #pragma mark - Logout / terminate session
 
--(IBAction)logout:(id)sender
+-(void)showMenuSheet:(id)sender
 {
     [[[UIActionSheet alloc] initWithTitle:nil
                                  delegate:self
@@ -230,5 +254,16 @@
     NSString* launchUrl = @"https://kaleweb.herokuapp.com/account-details";
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString: launchUrl]];
 }
+
+#pragma mark - Pull to Refresh
+
+- (BOOL)pullToRefreshViewShouldStartLoading:(SSPullToRefreshView *)view {
+    return YES;
+}
+
+- (void)pullToRefreshViewDidStartLoading:(SSPullToRefreshView *)view {
+    [self pullUserData];
+}
+
 
 @end

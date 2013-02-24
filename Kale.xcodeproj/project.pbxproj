@@ -99,6 +99,8 @@
 		8EA4CBA5168FEC2D00BDB9B8 /* share-proud_of_meal.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EA4CBA1168FEC2D00BDB9B8 /* share-proud_of_meal.png */; };
 		8EA4CBA6168FEC2D00BDB9B8 /* share-dont_share_meal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EA4CBA2168FEC2D00BDB9B8 /* share-dont_share_meal@2x.png */; };
 		8EA4CBA7168FEC2D00BDB9B8 /* share-dont_share_meal.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EA4CBA3168FEC2D00BDB9B8 /* share-dont_share_meal.png */; };
+		8ED5B9D416DAC6040009DED4 /* nav-settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 8ED5B9D216DAC6040009DED4 /* nav-settings.png */; };
+		8ED5B9D516DAC6040009DED4 /* nav-settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8ED5B9D316DAC6040009DED4 /* nav-settings@2x.png */; };
 		8EF6FF2416C40E1800711DD5 /* KASignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF6FF2316C40E1800711DD5 /* KASignupViewController.m */; };
 		8EF6FF2E16C413CC00711DD5 /* KAToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF6FF2D16C413CC00711DD5 /* KAToolbar.m */; };
 		8EF9E98116D7DCF000567303 /* KALoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF9E98016D7DCF000567303 /* KALoginViewController.m */; };
@@ -127,6 +129,10 @@
 		8EF9E9BF16D865B000567303 /* controls-private-switch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EF9E9BB16D865B000567303 /* controls-private-switch@2x.png */; };
 		8EF9E9C016D865B000567303 /* controls-proud-switch.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EF9E9BC16D865B000567303 /* controls-proud-switch.png */; };
 		8EF9E9C116D865B000567303 /* controls-proud-switch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EF9E9BD16D865B000567303 /* controls-proud-switch@2x.png */; };
+		8EF9E9C416D86FE500567303 /* share-photo-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EF9E9C216D86FE500567303 /* share-photo-placeholder.png */; };
+		8EF9E9C516D86FE500567303 /* share-photo-placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EF9E9C316D86FE500567303 /* share-photo-placeholder@2x.png */; };
+		8EF9E9C816D872A400567303 /* share-photo-placeholder-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EF9E9C616D872A300567303 /* share-photo-placeholder-pressed.png */; };
+		8EF9E9C916D872A400567303 /* share-photo-placeholder-pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EF9E9C716D872A400567303 /* share-photo-placeholder-pressed@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -298,6 +304,8 @@
 		8EA4CBA1168FEC2D00BDB9B8 /* share-proud_of_meal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share-proud_of_meal.png"; sourceTree = "<group>"; };
 		8EA4CBA2168FEC2D00BDB9B8 /* share-dont_share_meal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share-dont_share_meal@2x.png"; sourceTree = "<group>"; };
 		8EA4CBA3168FEC2D00BDB9B8 /* share-dont_share_meal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share-dont_share_meal.png"; sourceTree = "<group>"; };
+		8ED5B9D216DAC6040009DED4 /* nav-settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-settings.png"; sourceTree = "<group>"; };
+		8ED5B9D316DAC6040009DED4 /* nav-settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-settings@2x.png"; sourceTree = "<group>"; };
 		8EF6FF2216C40E1800711DD5 /* KASignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KASignupViewController.h; path = Classes/KASignupViewController.h; sourceTree = "<group>"; };
 		8EF6FF2316C40E1800711DD5 /* KASignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KASignupViewController.m; path = Classes/KASignupViewController.m; sourceTree = "<group>"; };
 		8EF6FF2C16C413CC00711DD5 /* KAToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KAToolbar.h; path = Classes/KAToolbar.h; sourceTree = "<group>"; };
@@ -330,6 +338,10 @@
 		8EF9E9BB16D865B000567303 /* controls-private-switch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "controls-private-switch@2x.png"; sourceTree = "<group>"; };
 		8EF9E9BC16D865B000567303 /* controls-proud-switch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "controls-proud-switch.png"; sourceTree = "<group>"; };
 		8EF9E9BD16D865B000567303 /* controls-proud-switch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "controls-proud-switch@2x.png"; sourceTree = "<group>"; };
+		8EF9E9C216D86FE500567303 /* share-photo-placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share-photo-placeholder.png"; sourceTree = "<group>"; };
+		8EF9E9C316D86FE500567303 /* share-photo-placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share-photo-placeholder@2x.png"; sourceTree = "<group>"; };
+		8EF9E9C616D872A300567303 /* share-photo-placeholder-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share-photo-placeholder-pressed.png"; sourceTree = "<group>"; };
+		8EF9E9C716D872A400567303 /* share-photo-placeholder-pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share-photo-placeholder-pressed@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -523,7 +535,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6A4E25C3165C44C300E727B1 /* Controllers */ = {
+		6A4E25C3165C44C300E727B1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				6AA8F202167268520009B6A0 /* Profile */,
@@ -532,14 +544,12 @@
 				6AFE2C151660131400BB64A6 /* Login */,
 				8EF9E98316D7DCF600567303 /* Welcome */,
 			);
-			name = Controllers;
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 		6A4E25D9165C7CA500E727B1 /* Global Feed */ = {
 			isa = PBXGroup;
 			children = (
-				6A4E25CA165C456600E727B1 /* KAFeedNavigationController.h */,
-				6A4E25CB165C456600E727B1 /* KAFeedNavigationController.m */,
 				6A4E25D6165C7C9800E727B1 /* KAFeedTableViewController.h */,
 				6A4E25D7165C7C9800E727B1 /* KAFeedTableViewController.m */,
 				6A117089166EE80F00B2467E /* KAMealViewController.h */,
@@ -561,8 +571,9 @@
 			isa = PBXGroup;
 			children = (
 				6AA8F203167268810009B6A0 /* Models */,
+				8ED5B9D116DAC1730009DED4 /* Navigation Controllers */,
 				6AA8F204167268AC0009B6A0 /* Views */,
-				6A4E25C3165C44C300E727B1 /* Controllers */,
+				6A4E25C3165C44C300E727B1 /* ViewControllers */,
 				6A4E25BE165C446700E727B1 /* MainStoryboard.storyboard */,
 				6A4E25B0165C443F00E727B1 /* KAAppDelegate.h */,
 				6A4E25B1165C443F00E727B1 /* KAAppDelegate.m */,
@@ -587,8 +598,6 @@
 		6AA8F202167268520009B6A0 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				6A4E25C7165C454500E727B1 /* KAProfileNavigationController.h */,
-				6A4E25C8165C454500E727B1 /* KAProfileNavigationController.m */,
 				6AF51621166068260083C3F9 /* KAProfileViewController.h */,
 				6AF51622166068260083C3F9 /* KAProfileViewController.m */,
 			);
@@ -647,15 +656,26 @@
 			name = LBBlurredImageView;
 			sourceTree = "<group>";
 		};
+		8ED5B9D116DAC1730009DED4 /* Navigation Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6A4E25C7165C454500E727B1 /* KAProfileNavigationController.h */,
+				6A4E25C8165C454500E727B1 /* KAProfileNavigationController.m */,
+				6A4E25CA165C456600E727B1 /* KAFeedNavigationController.h */,
+				6A4E25CB165C456600E727B1 /* KAFeedNavigationController.m */,
+			);
+			name = "Navigation Controllers";
+			sourceTree = "<group>";
+		};
 		8EF9E98316D7DCF600567303 /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
-				8EF6FF2216C40E1800711DD5 /* KASignupViewController.h */,
-				8EF6FF2316C40E1800711DD5 /* KASignupViewController.m */,
 				6AFE2C1F1660474300BB64A6 /* AuthAPIClient.h */,
 				6AFE2C201660474300BB64A6 /* AuthAPIClient.m */,
 				6AFE2C1C166044B600BB64A6 /* KACredentialStore.h */,
 				6AFE2C1D166044B600BB64A6 /* KACredentialStore.m */,
+				8EF6FF2216C40E1800711DD5 /* KASignupViewController.h */,
+				8EF6FF2316C40E1800711DD5 /* KASignupViewController.m */,
 				8EF9E99916D7FD2000567303 /* KAWelcomeViewController.h */,
 				8EF9E99A16D7FD2000567303 /* KAWelcomeViewController.m */,
 			);
@@ -685,6 +705,12 @@
 				8EF9E9B316D844DB00567303 /* nav-log_meal-button-pressed@2x.png */,
 				8EF9E9B416D844DC00567303 /* nav-log_meal-button.png */,
 				8EF9E9B516D844DD00567303 /* nav-log_meal-button@2x.png */,
+				8ED5B9D216DAC6040009DED4 /* nav-settings.png */,
+				8ED5B9D316DAC6040009DED4 /* nav-settings@2x.png */,
+				8EF9E9C216D86FE500567303 /* share-photo-placeholder.png */,
+				8EF9E9C316D86FE500567303 /* share-photo-placeholder@2x.png */,
+				8EF9E9C616D872A300567303 /* share-photo-placeholder-pressed.png */,
+				8EF9E9C716D872A400567303 /* share-photo-placeholder-pressed@2x.png */,
 				8EF9E99516D7FCDF00567303 /* welcome-kale-logo.png */,
 				8EF9E99616D7FCDF00567303 /* welcome-kale-logo@2x.png */,
 				8EF9E99116D7FC3B00567303 /* welcome-image-01.png */,
@@ -868,6 +894,12 @@
 				8EF9E9BF16D865B000567303 /* controls-private-switch@2x.png in Resources */,
 				8EF9E9C016D865B000567303 /* controls-proud-switch.png in Resources */,
 				8EF9E9C116D865B000567303 /* controls-proud-switch@2x.png in Resources */,
+				8EF9E9C416D86FE500567303 /* share-photo-placeholder.png in Resources */,
+				8EF9E9C516D86FE500567303 /* share-photo-placeholder@2x.png in Resources */,
+				8EF9E9C816D872A400567303 /* share-photo-placeholder-pressed.png in Resources */,
+				8EF9E9C916D872A400567303 /* share-photo-placeholder-pressed@2x.png in Resources */,
+				8ED5B9D416DAC6040009DED4 /* nav-settings.png in Resources */,
+				8ED5B9D516DAC6040009DED4 /* nav-settings@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -33,7 +33,7 @@
 
 - (void)prepareWithMeal:(KAMeal *)meal
 {
-    self.backgroundColor = [UIColor colorWithRed:230.0/255.0f green:225.0/255.0f blue:220.0/255.0f alpha:1.0];
+    self.backgroundColor = [UIColor colorWithRed:245.0/255.0f green:239.0/255.0f blue:233.0/255.0f alpha:1.0];
     [mealTitle setLineBreakMode:NSLineBreakByWordWrapping];
     mealTitle.text = meal.title;
     mealDate.text = meal.eatenAt;

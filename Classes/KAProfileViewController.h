@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+
+#import "SSPullToRefresh.h"
 #import "UIImageView+LBBlurredImage.h"
 
-@interface KAProfileViewController : UIViewController <UIActionSheetDelegate, UITableViewDataSource, UITableViewDelegate>
+
+@interface KAProfileViewController : UIViewController <SSPullToRefreshViewDelegate, UIActionSheetDelegate, UITableViewDataSource, UITableViewDelegate>
 {
 
     __weak IBOutlet UILabel *numberOfMeals;
@@ -22,7 +25,5 @@
 @property (strong, nonatomic) NSArray *userMeals;
 @property (strong, nonatomic) IBOutlet UITableView *mealsTable;
 @property (weak, nonatomic) IBOutlet UIImageView *lastMealPhoto;
-
-- (IBAction)logout:(id)sender;
 
 @end

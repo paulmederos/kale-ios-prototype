@@ -6,14 +6,21 @@
 //  Copyright (c) 2013 Enchant. All rights reserved.
 //
 
-#import "KAWelcomeViewController.h"
+#import "KACredentialStore.h"
 #import "KASignupViewController.h"
+#import "KAWelcomeViewController.h"
+
 
 @interface KAWelcomeViewController ()
+@property (nonatomic, strong) KACredentialStore *credentialStore;
+@property (strong, nonatomic) KASignupViewController *svc;
 
 @end
 
+
 @implementation KAWelcomeViewController
+
+@synthesize svc;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,22 +40,22 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.credentialStore = [[KACredentialStore alloc] init];
+    
+    svc = [self.storyboard instantiateViewControllerWithIdentifier:@"signupWebView"];
 }
 
-- (void)didReceiveMemoryWarning
+- (void)viewDidAppear:(BOOL)animated
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    if ([self.credentialStore isLoggedIn]) {
+        [self performSegueWithIdentifier:@"loginSuccess" sender:self];
+    }
 }
 
 // Using UIWebView modal for registration for now
-- (IBAction)openWebsiteSignup:(id)sender {
-    KASignupViewController *svc = [self.storyboard instantiateViewControllerWithIdentifier:@"signupWebView"];
-    
-    
-    [self presentViewController:svc animated:YES completion:^{
-        [svc.signupWebView setDelegate:self];
-    }];
+- (IBAction)openWebsiteSignup:(id)sender {    
+    [self presentViewController:svc animated:YES completion:nil];
 }
+
 
 @end
