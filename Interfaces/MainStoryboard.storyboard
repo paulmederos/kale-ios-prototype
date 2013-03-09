@@ -1147,9 +1147,6 @@
         <class className="KAShareViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/KAShareViewController.h"/>
             <relationships>
-                <relationship kind="action" name="choosePhoto:"/>
-                <relationship kind="action" name="closeModal:"/>
-                <relationship kind="action" name="toggleProud:"/>
                 <relationship kind="outlet" name="descriptionCounter" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="mealPhoto" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="mealTitle" candidateClass="SSTextView"/>
@@ -1174,9 +1171,6 @@
         </class>
         <class className="KAWelcomeViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/KAWelcomeViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="openWebsiteSignup:"/>
-            </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
