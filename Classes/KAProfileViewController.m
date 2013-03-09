@@ -44,6 +44,9 @@
     
     float yOffset = 200.0f; // size of Profile area.
     mealsTable.frame =  CGRectMake(mealsTable.frame.origin.x, mealsTable.frame.origin.y - yOffset, mealsTable.frame.size.width, mealsTable.frame.size.height);
+    
+    // Set badge count to 0 (assuming they have checked-in happiness
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
 }
 
 - (void)viewDidLoad

@@ -209,7 +209,39 @@
 - (void)receiveMealPostedNotification:(NSNotification *) notification
 {
     NSLog(@"Meal was just posted - lets fetch new data.");
+//    [self scheduleHappinessCheck];
     [self initialDataRequest];
+}
+
+
+// We want to see how people are feeling after thier meals
+// so we can let them know what sorts of foods make them
+// feel better.
+// This function schedules a local notification and prompts
+// the user to pick Happy / OK / Bad for how they feel, and
+// then records this on the server.
+- (void)scheduleHappinessCheck
+{
+    NSLog(@"Scheduling happiness check.");
+    UILocalNotification *localNotif = [[UILocalNotification alloc] init];
+    if (localNotif == nil)
+        return;
+    localNotif.fireDate = [NSDate dateWithTimeIntervalSinceNow:20];
+    localNotif.timeZone = [NSTimeZone defaultTimeZone];
+    
+	// Set the action button
+    localNotif.alertAction = @"View";
+    localNotif.alertBody = @"How do you feel after that meal an hour ago?";
+    
+    localNotif.soundName = UILocalNotificationDefaultSoundName;
+    localNotif.applicationIconBadgeNumber += 1;
+    
+	// Specify custom data for the notification
+    NSDictionary *infoDict = [NSDictionary dictionaryWithObject:@"someValue" forKey:@"someKey"];
+    localNotif.userInfo = infoDict;
+    
+	// Schedule the notification
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];    
 }
 
 @end
