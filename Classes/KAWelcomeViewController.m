@@ -11,16 +11,17 @@
 #import "KAWelcomeViewController.h"
 
 
+#define isPhone568 ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone && [UIScreen mainScreen].bounds.size.height == 568)
+#define iPhone568ImageNamed(image) (isPhone568 ? [NSString stringWithFormat:@"%@-568h.%@", [image stringByDeletingPathExtension], [image pathExtension]] : image)
+#define iPhone568Image(image) ([UIImage imageNamed:iPhone568ImageNamed(image)])
+
+
 @interface KAWelcomeViewController ()
 @property (nonatomic, strong) KACredentialStore *credentialStore;
-@property (strong, nonatomic) KASignupViewController *svc;
-
 @end
 
 
 @implementation KAWelcomeViewController
-
-@synthesize svc;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,8 +42,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.credentialStore = [[KACredentialStore alloc] init];
-    
-    svc = [self.storyboard instantiateViewControllerWithIdentifier:@"signupWebView"];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -50,11 +49,6 @@
     if ([self.credentialStore isLoggedIn]) {
         [self performSegueWithIdentifier:@"loginSuccess" sender:self];
     }
-}
-
-// Using UIWebView modal for registration for now
-- (IBAction)openWebsiteSignup:(id)sender {    
-    [self presentViewController:svc animated:YES completion:nil];
 }
 
 

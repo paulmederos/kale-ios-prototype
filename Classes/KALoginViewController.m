@@ -13,11 +13,6 @@
 #import "MBProgressHUD.h"
 
 
-#define isPhone568 ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone && [UIScreen mainScreen].bounds.size.height == 568)
-#define iPhone568ImageNamed(image) (isPhone568 ? [NSString stringWithFormat:@"%@-568h.%@", [image stringByDeletingPathExtension], [image pathExtension]] : image)
-#define iPhone568Image(image) ([UIImage imageNamed:iPhone568ImageNamed(image)])
-
-
 @interface KALoginViewController ()
 
 @property (nonatomic, strong) KACredentialStore *credentialStore;
@@ -54,14 +49,17 @@
     
     self.credentialStore = [[KACredentialStore alloc] init];
     
-    [emailField setTextEdgeInsets:UIEdgeInsetsMake(0.0, 12.0f, 0, 12.0f)];
-    [passwordField setTextEdgeInsets:UIEdgeInsetsMake(0.0, 12.0f, 0, 12.0f)];
+    self.outputLabel.text = nil;
+    
     [self customizeTextFields];
     [self setBackButton];
 }
 
 - (void)customizeTextFields
 {
+    [emailField setTextEdgeInsets:UIEdgeInsetsMake(0.0, 12.0f, 0, 12.0f)];
+    [passwordField setTextEdgeInsets:UIEdgeInsetsMake(0.0, 12.0f, 0, 12.0f)];
+    
     [self.emailField setDelegate:self];
     [self.passwordField setDelegate:self];
 }

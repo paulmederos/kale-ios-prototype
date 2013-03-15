@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <SSToolkit/SSTextField.h>
 
-@interface KALoginViewController : UIViewController <UITextFieldDelegate, UIWebViewDelegate>
+@interface KALoginViewController : UIViewController <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet SSTextField *emailField;
 @property (weak, nonatomic) IBOutlet SSTextField *passwordField;

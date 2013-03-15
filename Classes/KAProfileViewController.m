@@ -8,6 +8,8 @@
 
 
 #import "AuthAPIClient.h"
+
+#import "KAAccountViewController.h"
 #import "KAMeal.h"
 #import "KACredentialStore.h"
 #import "KAMealViewController.h"
@@ -142,6 +144,11 @@
     username.text = [userDictionary objectForKey:@"username"];
     numberOfMeals.text = [NSString stringWithFormat:@"%@ meals shared", [userDictionary objectForKey:@"meals"]];
     [profilePhoto setImageWithURL:[NSURL URLWithString:[userDictionary objectForKey:@"avatar_square"]]];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[userDictionary objectForKey:@"username"] forKey:@"username"];
+    [defaults setObject:[userDictionary objectForKey:@"email"] forKey:@"email"];
+    [defaults setObject:[userDictionary objectForKey:@"avatar_thumb"] forKey:@"avatar_thumb"];
 }
 
 - (void)pullUserMealData
@@ -182,7 +189,7 @@
                                  delegate:self
                         cancelButtonTitle:@"Close"
                    destructiveButtonTitle:@"Logout"
-                        otherButtonTitles:@"Account Details", nil]
+                        otherButtonTitles:@"View Webapp", @"Settings", nil]
      showFromTabBar:self.tabBarController.tabBar];
 }
 
@@ -203,6 +210,8 @@
             [self terminateUserSession]; break;
         case 1:
             [self openWebsiteAccountDetails:nil]; break;
+        case 2:
+            [self showAccountView];break;
     }
 }
 
@@ -256,6 +265,12 @@
 {
     NSString* launchUrl = @"https://kaleweb.herokuapp.com/account-details";
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString: launchUrl]];
+}
+
+- (void)showAccountView
+{
+    KAAccountViewController *avc = [self.storyboard instantiateViewControllerWithIdentifier:@"accountViewController"];
+    [self presentViewController:avc animated:YES completion:nil];
 }
 
 #pragma mark - Pull to Refresh
