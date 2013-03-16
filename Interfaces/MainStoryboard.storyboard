@@ -181,7 +181,7 @@
                         <sections>
                             <tableViewSection id="39d-tu-tFh">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="profilePhoto" id="eMW-97-Zvl">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="profilePhoto" id="eMW-97-Zvl">
                                         <rect key="frame" x="0.0" y="10" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -285,6 +285,34 @@
                                             <constraint firstItem="ILI-vU-szr" firstAttribute="baseline" secondItem="r1b-Tt-7ov" secondAttribute="baseline" type="default" id="Ybk-CG-xhr"/>
                                             <constraint firstItem="ILI-vU-szr" firstAttribute="leading" secondItem="fBn-CI-q50" secondAttribute="leading" constant="30" id="ZPZ-Gy-42m"/>
                                             <constraint firstItem="r1b-Tt-7ov" firstAttribute="centerY" secondItem="fBn-CI-q50" secondAttribute="centerY" type="default" id="hEN-JL-lwN"/>
+                                        </constraints>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="6Tf-FY-JxB">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="password" id="czw-Zb-yZC">
+                                        <rect key="frame" x="0.0" y="186" width="320" height="46"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Change/Reset Password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TAS-qv-9Cv">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="g9u-bQ-Oga"/>
+                                                        <constraint firstAttribute="width" constant="260" id="trX-I8-etE"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" red="0.82352948189999997" green="0.76862752440000004" blue="0.71764707569999997" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="TAS-qv-9Cv" firstAttribute="centerX" secondItem="czw-Zb-yZC" secondAttribute="centerX" type="default" id="Jgo-qs-OMR"/>
+                                            <constraint firstItem="TAS-qv-9Cv" firstAttribute="centerY" secondItem="czw-Zb-yZC" secondAttribute="centerY" type="default" id="fTJ-xo-GfB"/>
                                         </constraints>
                                     </tableViewCell>
                                 </cells>

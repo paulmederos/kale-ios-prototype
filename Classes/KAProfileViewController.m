@@ -48,22 +48,35 @@
 {
     [super viewWillAppear:animated];
     
+    // Set badge count to 0 (assuming they have checked-in happiness
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    
     float yOffset = 200.0f; // size of Profile area.
     mealsTable.frame =  CGRectMake(mealsTable.frame.origin.x, mealsTable.frame.origin.y - yOffset, mealsTable.frame.size.width, mealsTable.frame.size.height);
     
-    // Set badge count to 0 (assuming they have checked-in happiness
-    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveUserUpdatedNotification:)
+                                                 name:@"UserUpdatedNotification"
+                                               object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"UserUpdatedNotification" object:nil];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // Configure instance variables
     defaults = [NSUserDefaults standardUserDefaults];
     
+    // Hook up delegates
     [mealsTable setDataSource:self];
     [mealsTable setDelegate:self];
     
-    [self setupAppearance];
+    // Set up appearance/interface stuff
+    [self customizeAppearance];
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [self pullUserData];
@@ -73,7 +86,7 @@
                               delegate:self];
 }
 
-- (void)setupAppearance
+- (void)customizeAppearance
 {
     // Reset placeholders to nil
     username.text = nil;
@@ -134,7 +147,8 @@
     [[AuthAPIClient sharedClient] getPath:@"/api/v1/profile"
                                parameters:nil
                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                      [self configureProperties:responseObject];
+                                      [self configureUserDefaults:responseObject];
+                                      [self updateProfileInterface];
 
                                       // Pull meal data
                                       [self pullUserMealData];
@@ -142,17 +156,6 @@
                                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                       NSLog(@"Error pulling user Personal data: %@", error);
                                   }];
-}
-
-- (void)configureProperties:(id)userDictionary
-{
-    // Set NSUserDefaults first
-    [self configureUserDefaults:userDictionary];
-    
-    // Then set interface pieces
-    username.text = [defaults objectForKey:@"username"];
-    numberOfMeals.text = [NSString stringWithFormat:@"%@ meals shared", [defaults objectForKey:@"mealsCount"]];
-    [profilePhoto setImageWithURL:[NSURL URLWithString:[defaults objectForKey:@"avatar_square"]]];
 }
 
 - (void)configureUserDefaults:(id)userDictionary
@@ -163,6 +166,14 @@
     [defaults setObject:[userDictionary objectForKey:@"avatar_thumb"] forKey:@"avatar_thumb"];
     [defaults setObject:[userDictionary objectForKey:@"id"] forKey:@"serverID"];
     [defaults setObject:[userDictionary objectForKey:@"meals"] forKey:@"mealsCount"];
+}
+
+- (void)updateProfileInterface
+{
+    // This should be called after user profile data has been updated and needs UI refresh.
+    username.text = [defaults objectForKey:@"username"];
+    numberOfMeals.text = [NSString stringWithFormat:@"%@ meals shared", [defaults objectForKey:@"mealsCount"]];
+    [profilePhoto setImageWithURL:[NSURL URLWithString:[defaults objectForKey:@"avatar_square"]]];
 }
 
 - (void)pullUserMealData
@@ -194,19 +205,16 @@
     self.userMeals = results;
 }
 
+#pragma mark - Notifications
 
-#pragma mark - Logout / terminate session
-
--(void)showMenuSheet:(id)sender
+- (void)receiveUserUpdatedNotification:(NSNotification *) notification
 {
-    [[[UIActionSheet alloc] initWithTitle:nil
-                                 delegate:self
-                        cancelButtonTitle:@"Close"
-                   destructiveButtonTitle:@"Logout"
-                        otherButtonTitles:@"View Webapp", @"Settings", nil]
-     showFromTabBar:self.tabBarController.tabBar];
+    NSLog(@"User updated. Lets update UI from NSUserDefaults.");
+    [self updateProfileInterface];
 }
 
+
+#pragma mark - Logout / terminate session
 
 - (void)terminateUserSession
 {
@@ -217,14 +225,22 @@
 
 #pragma mark - UIActionSheetDelegate
 
+-(void)showMenuSheet:(id)sender
+{
+    [[[UIActionSheet alloc] initWithTitle:nil
+                                 delegate:self
+                        cancelButtonTitle:@"Close"
+                   destructiveButtonTitle:@"Logout"
+                        otherButtonTitles:@"Account Settings", nil]
+     showFromTabBar:self.tabBarController.tabBar];
+}
+
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     switch (buttonIndex) {
         case 0:
             [self terminateUserSession]; break;
         case 1:
-            [self openWebsiteAccountDetails:nil]; break;
-        case 2:
             [self showAccountView];break;
     }
 }
@@ -286,8 +302,6 @@
     KASettingsNavigationController *snvc = [self.storyboard instantiateViewControllerWithIdentifier:@"settingsNavigationViewController"];
     [snvc setDelegate:self];
     [self presentViewController:snvc animated:YES completion:nil];
-//    KAAccountViewController *avc = [self.storyboard instantiateViewControllerWithIdentifier:@"accountViewController"];
-//    [self presentViewController:avc animated:YES completion:nil];
 }
 
 #pragma mark - Pull to Refresh

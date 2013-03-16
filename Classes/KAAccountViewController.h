@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KAAccountViewController : UITableViewController <UITextFieldDelegate>
+@interface KAAccountViewController : UITableViewController <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *emailField;

@@ -202,6 +202,8 @@
     
     [mealViewController setHidesBottomBarWhenPushed:YES];
     [self.navigationController pushViewController:mealViewController animated:YES];
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - Notifications

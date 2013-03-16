@@ -58,6 +58,14 @@
     [self.submitMealButton addTarget:self action:@selector(postMeal:) forControlEvents:UIControlEventTouchUpInside];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    pickerController  = [[UIImagePickerController alloc] init];
+    pickerController.delegate = self;
+    pickerController.allowsEditing = YES;
+    pickerController.navigationItem.title = @"Camera";
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -106,6 +114,10 @@
     // save it
     [meal saveWithProgress:^(CGFloat progress) {
         hud.progress = progress;
+        if (progress == 1.0){
+            hud.mode = MBProgressHUDModeText;
+            [hud setLabelText:@"Meal has been logged :)"];
+        }
     } completion:^(BOOL success, NSError *error) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (success) {
@@ -243,18 +255,12 @@
 -(IBAction)choosePhoto:(id)sender
 {
     [self.mealTitle resignFirstResponder];
-    pickerController  = [[UIImagePickerController alloc] init];
-    
-    pickerController.delegate = self;
-    pickerController.allowsEditing = YES;
-    pickerController.navigationItem.title = @"Camera";
-    
     [[[UIActionSheet alloc] initWithTitle:nil
                                  delegate:self
                         cancelButtonTitle:@"Cancel"
                    destructiveButtonTitle:nil
                         otherButtonTitles:@"Take Photo", @"Choose From Saved", nil]
-                            showInView:self.view];
+     showInView:self.view];
 }
 
 #pragma mark - UIActionSheetDelegate
