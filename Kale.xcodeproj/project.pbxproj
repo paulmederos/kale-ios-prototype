@@ -99,6 +99,7 @@
 		8EA4CBA6168FEC2D00BDB9B8 /* share-dont_share_meal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EA4CBA2168FEC2D00BDB9B8 /* share-dont_share_meal@2x.png */; };
 		8EA4CBA7168FEC2D00BDB9B8 /* share-dont_share_meal.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EA4CBA3168FEC2D00BDB9B8 /* share-dont_share_meal.png */; };
 		8EB938A816F281210047C952 /* KAAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB938A716F281210047C952 /* KAAccountViewController.m */; };
+		8EB938AB16F3B5D50047C952 /* KASettingsNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB938AA16F3B5D50047C952 /* KASettingsNavigationController.m */; };
 		8ED5B9D416DAC6040009DED4 /* nav-settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 8ED5B9D216DAC6040009DED4 /* nav-settings.png */; };
 		8ED5B9D516DAC6040009DED4 /* nav-settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8ED5B9D316DAC6040009DED4 /* nav-settings@2x.png */; };
 		8EF6FF2416C40E1800711DD5 /* KASignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF6FF2316C40E1800711DD5 /* KASignupViewController.m */; };
@@ -304,6 +305,8 @@
 		8EA4CBA3168FEC2D00BDB9B8 /* share-dont_share_meal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share-dont_share_meal.png"; sourceTree = "<group>"; };
 		8EB938A616F281210047C952 /* KAAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KAAccountViewController.h; path = Classes/KAAccountViewController.h; sourceTree = "<group>"; };
 		8EB938A716F281210047C952 /* KAAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KAAccountViewController.m; path = Classes/KAAccountViewController.m; sourceTree = "<group>"; };
+		8EB938A916F3B5D50047C952 /* KASettingsNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KASettingsNavigationController.h; path = Classes/KASettingsNavigationController.h; sourceTree = "<group>"; };
+		8EB938AA16F3B5D50047C952 /* KASettingsNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KASettingsNavigationController.m; path = Classes/KASettingsNavigationController.m; sourceTree = "<group>"; };
 		8ED5B9D216DAC6040009DED4 /* nav-settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-settings.png"; sourceTree = "<group>"; };
 		8ED5B9D316DAC6040009DED4 /* nav-settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-settings@2x.png"; sourceTree = "<group>"; };
 		8EF6FF2216C40E1800711DD5 /* KASignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KASignupViewController.h; path = Classes/KASignupViewController.h; sourceTree = "<group>"; };
@@ -602,6 +605,8 @@
 				8EB938A716F281210047C952 /* KAAccountViewController.m */,
 				6AF51621166068260083C3F9 /* KAProfileViewController.h */,
 				6AF51622166068260083C3F9 /* KAProfileViewController.m */,
+				8EB938A916F3B5D50047C952 /* KASettingsNavigationController.h */,
+				8EB938AA16F3B5D50047C952 /* KASettingsNavigationController.m */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -947,6 +952,7 @@
 				8EF9E98116D7DCF000567303 /* KALoginViewController.m in Sources */,
 				8EF9E99B16D7FD2100567303 /* KAWelcomeViewController.m in Sources */,
 				8EB938A816F281210047C952 /* KAAccountViewController.m in Sources */,
+				8EB938AB16F3B5D50047C952 /* KASettingsNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

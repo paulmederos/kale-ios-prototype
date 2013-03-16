@@ -13,7 +13,7 @@
 #import "UIImageView+LBBlurredImage.h"
 
 
-@interface KAProfileViewController : UIViewController <SSPullToRefreshViewDelegate, UIActionSheetDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface KAProfileViewController : UIViewController <SSPullToRefreshViewDelegate, UIActionSheetDelegate, UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate>
 {
 
     __weak IBOutlet UILabel *numberOfMeals;

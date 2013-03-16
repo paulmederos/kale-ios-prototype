@@ -15,6 +15,8 @@
 #import "KAMealViewController.h"
 #import "KAProfileMealCell.h"
 #import "KAProfileViewController.h"
+#import "KAMainNavigationBar.h"
+#import "KASettingsNavigationController.h"
 
 #import "MBProgressHUD.h"
 #import "UIImageView+AFNetworking.h"
@@ -22,7 +24,9 @@
 
 
 @interface KAProfileViewController ()
-
+{
+    NSUserDefaults *defaults;
+}
 @property (nonatomic, strong) SSPullToRefreshView *pullToRefreshView;
 
 @end
@@ -54,6 +58,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    defaults = [NSUserDefaults standardUserDefaults];
     
     [mealsTable setDataSource:self];
     [mealsTable setDelegate:self];
@@ -141,14 +146,23 @@
 
 - (void)configureProperties:(id)userDictionary
 {
-    username.text = [userDictionary objectForKey:@"username"];
-    numberOfMeals.text = [NSString stringWithFormat:@"%@ meals shared", [userDictionary objectForKey:@"meals"]];
-    [profilePhoto setImageWithURL:[NSURL URLWithString:[userDictionary objectForKey:@"avatar_square"]]];
+    // Set NSUserDefaults first
+    [self configureUserDefaults:userDictionary];
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    // Then set interface pieces
+    username.text = [defaults objectForKey:@"username"];
+    numberOfMeals.text = [NSString stringWithFormat:@"%@ meals shared", [defaults objectForKey:@"mealsCount"]];
+    [profilePhoto setImageWithURL:[NSURL URLWithString:[defaults objectForKey:@"avatar_square"]]];
+}
+
+- (void)configureUserDefaults:(id)userDictionary
+{
     [defaults setObject:[userDictionary objectForKey:@"username"] forKey:@"username"];
     [defaults setObject:[userDictionary objectForKey:@"email"] forKey:@"email"];
+    [defaults setObject:[userDictionary objectForKey:@"avatar_square"] forKey:@"avatar_square"];
     [defaults setObject:[userDictionary objectForKey:@"avatar_thumb"] forKey:@"avatar_thumb"];
+    [defaults setObject:[userDictionary objectForKey:@"id"] forKey:@"serverID"];
+    [defaults setObject:[userDictionary objectForKey:@"meals"] forKey:@"mealsCount"];
 }
 
 - (void)pullUserMealData
@@ -269,8 +283,11 @@
 
 - (void)showAccountView
 {
-    KAAccountViewController *avc = [self.storyboard instantiateViewControllerWithIdentifier:@"accountViewController"];
-    [self presentViewController:avc animated:YES completion:nil];
+    KASettingsNavigationController *snvc = [self.storyboard instantiateViewControllerWithIdentifier:@"settingsNavigationViewController"];
+    [snvc setDelegate:self];
+    [self presentViewController:snvc animated:YES completion:nil];
+//    KAAccountViewController *avc = [self.storyboard instantiateViewControllerWithIdentifier:@"accountViewController"];
+//    [self presentViewController:avc animated:YES completion:nil];
 }
 
 #pragma mark - Pull to Refresh
@@ -281,6 +298,16 @@
 
 - (void)pullToRefreshViewDidStartLoading:(SSPullToRefreshView *)view {
     [self pullUserData];
+}
+
+#pragma mark - UINavigationController delegate
+
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    // Use custom nav bar UI for sharing
+    [navigationController setValue:[[KAMainNavigationBar alloc] init]
+                        forKeyPath:@"navigationBar"];
+    [navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 

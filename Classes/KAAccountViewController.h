@@ -13,4 +13,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 
+- (void)saveSettings:(id)selector;
+
 @end
