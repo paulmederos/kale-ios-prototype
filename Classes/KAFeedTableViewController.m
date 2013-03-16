@@ -228,7 +228,7 @@
     UILocalNotification *localNotif = [[UILocalNotification alloc] init];
     if (localNotif == nil)
         return;
-    localNotif.fireDate = [NSDate dateWithTimeIntervalSinceNow:20];
+    localNotif.fireDate = [NSDate dateWithTimeIntervalSinceNow:600];
     localNotif.timeZone = [NSTimeZone defaultTimeZone];
     
 	// Set the action button

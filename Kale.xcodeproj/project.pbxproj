@@ -35,8 +35,6 @@
 		6A4A7DA01672618600F84976 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4A7D7F1672618600F84976 /* Default@2x.png */; };
 		6A4A7DA11672618600F84976 /* Icon-256.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4A7D801672618600F84976 /* Icon-256.png */; };
 		6A4A7DA21672618600F84976 /* Icon-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4A7D811672618600F84976 /* Icon-512.png */; };
-		6A4A7DA31672618600F84976 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4A7D821672618600F84976 /* Icon.png */; };
-		6A4A7DA41672618600F84976 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4A7D831672618600F84976 /* Icon@2x.png */; };
 		6A4A7DA51672618600F84976 /* light_toast.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4A7D841672618600F84976 /* light_toast.png */; };
 		6A4A7DA61672618600F84976 /* light_toast_@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4A7D851672618600F84976 /* light_toast_@2X.png */; };
 		6A4A7DA91672618600F84976 /* login-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4A7D881672618600F84976 /* login-button.png */; };
@@ -100,6 +98,8 @@
 		8EA4CBA7168FEC2D00BDB9B8 /* share-dont_share_meal.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EA4CBA3168FEC2D00BDB9B8 /* share-dont_share_meal.png */; };
 		8EB938A816F281210047C952 /* KAAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB938A716F281210047C952 /* KAAccountViewController.m */; };
 		8EB938AB16F3B5D50047C952 /* KASettingsNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB938AA16F3B5D50047C952 /* KASettingsNavigationController.m */; };
+		8EB938B716F4BBEA0047C952 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EB938B616F4BBE90047C952 /* Icon@2x.png */; };
+		8EB938B916F4BC000047C952 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EB938B816F4BC000047C952 /* Icon.png */; };
 		8ED5B9D416DAC6040009DED4 /* nav-settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 8ED5B9D216DAC6040009DED4 /* nav-settings.png */; };
 		8ED5B9D516DAC6040009DED4 /* nav-settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8ED5B9D316DAC6040009DED4 /* nav-settings@2x.png */; };
 		8EF6FF2416C40E1800711DD5 /* KASignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF6FF2316C40E1800711DD5 /* KASignupViewController.m */; };
@@ -221,8 +221,6 @@
 		6A4A7D7F1672618600F84976 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		6A4A7D801672618600F84976 /* Icon-256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-256.png"; sourceTree = "<group>"; };
 		6A4A7D811672618600F84976 /* Icon-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-512.png"; sourceTree = "<group>"; };
-		6A4A7D821672618600F84976 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		6A4A7D831672618600F84976 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		6A4A7D841672618600F84976 /* light_toast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = light_toast.png; sourceTree = "<group>"; };
 		6A4A7D851672618600F84976 /* light_toast_@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "light_toast_@2X.png"; sourceTree = "<group>"; };
 		6A4A7D881672618600F84976 /* login-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-button.png"; sourceTree = "<group>"; };
@@ -307,6 +305,8 @@
 		8EB938A716F281210047C952 /* KAAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KAAccountViewController.m; path = Classes/KAAccountViewController.m; sourceTree = "<group>"; };
 		8EB938A916F3B5D50047C952 /* KASettingsNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KASettingsNavigationController.h; path = Classes/KASettingsNavigationController.h; sourceTree = "<group>"; };
 		8EB938AA16F3B5D50047C952 /* KASettingsNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KASettingsNavigationController.m; path = Classes/KASettingsNavigationController.m; sourceTree = "<group>"; };
+		8EB938B616F4BBE90047C952 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../../Icon@2x.png"; sourceTree = "<group>"; };
+		8EB938B816F4BC000047C952 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../../Icon.png; sourceTree = "<group>"; };
 		8ED5B9D216DAC6040009DED4 /* nav-settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-settings.png"; sourceTree = "<group>"; };
 		8ED5B9D316DAC6040009DED4 /* nav-settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-settings@2x.png"; sourceTree = "<group>"; };
 		8EF6FF2216C40E1800711DD5 /* KASignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KASignupViewController.h; path = Classes/KASignupViewController.h; sourceTree = "<group>"; };
@@ -461,8 +461,8 @@
 				6A4A7D7F1672618600F84976 /* Default@2x.png */,
 				6A4A7D801672618600F84976 /* Icon-256.png */,
 				6A4A7D811672618600F84976 /* Icon-512.png */,
-				6A4A7D821672618600F84976 /* Icon.png */,
-				6A4A7D831672618600F84976 /* Icon@2x.png */,
+				8EB938B816F4BC000047C952 /* Icon.png */,
+				8EB938B616F4BBE90047C952 /* Icon@2x.png */,
 				6A4A7D841672618600F84976 /* light_toast.png */,
 				6A4A7D851672618600F84976 /* light_toast_@2X.png */,
 				6AA8F20516726AA10009B6A0 /* login-background-568h@2x.png */,
@@ -831,8 +831,6 @@
 				6A4A7DA01672618600F84976 /* Default@2x.png in Resources */,
 				6A4A7DA11672618600F84976 /* Icon-256.png in Resources */,
 				6A4A7DA21672618600F84976 /* Icon-512.png in Resources */,
-				6A4A7DA31672618600F84976 /* Icon.png in Resources */,
-				6A4A7DA41672618600F84976 /* Icon@2x.png in Resources */,
 				6A4A7DA51672618600F84976 /* light_toast.png in Resources */,
 				6A4A7DA61672618600F84976 /* light_toast_@2X.png in Resources */,
 				6A4A7DA91672618600F84976 /* login-button.png in Resources */,
@@ -905,6 +903,8 @@
 				8EF9E9C916D872A400567303 /* share-photo-placeholder-pressed@2x.png in Resources */,
 				8ED5B9D416DAC6040009DED4 /* nav-settings.png in Resources */,
 				8ED5B9D516DAC6040009DED4 /* nav-settings@2x.png in Resources */,
+				8EB938B716F4BBEA0047C952 /* Icon@2x.png in Resources */,
+				8EB938B916F4BC000047C952 /* Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
