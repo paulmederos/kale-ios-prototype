@@ -818,11 +818,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="mealCell" rowHeight="491" id="H1Q-km-SGu" userLabel="A Meal" customClass="KAFeedMealCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="491"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="mealCell" rowHeight="470" id="H1Q-km-SGu" userLabel="A Meal" customClass="KAFeedMealCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="470"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="490"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="469"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zXh-xL-dO2" userLabel="Background View">
@@ -835,7 +835,6 @@
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VzI-6e-iGR" userLabel="Username Label">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="175" id="KWM-Wc-Opa"/>
                                                         <constraint firstAttribute="height" constant="21" type="user" id="qm8-hj-v0R"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
@@ -844,6 +843,7 @@
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Date Taken" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZTa-cG-983" userLabel="Date Taken label">
                                                     <constraints>
+                                                        <constraint firstAttribute="width" constant="175" id="Nvv-4q-49Z"/>
                                                         <constraint firstAttribute="height" constant="22" type="user" id="v3T-uq-Zaf"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
@@ -852,7 +852,7 @@
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Description" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="267" translatesAutoresizingMaskIntoConstraints="NO" id="Zvc-TF-wXM" userLabel="Meal Description label">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="267" id="bSC-PB-PmH"/>
+                                                        <constraint firstAttribute="width" constant="267" id="oek-Hd-SDo"/>
                                                         <constraint firstAttribute="height" constant="48" type="user" id="xUM-mo-mxl"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -888,21 +888,21 @@
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="VzI-6e-iGR" firstAttribute="top" secondItem="zXh-xL-dO2" secondAttribute="top" constant="6" id="8by-S5-bPB"/>
-                                                <constraint firstItem="VzI-6e-iGR" firstAttribute="leading" secondItem="cw5-e0-nQm" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="9OG-yv-YmX"/>
+                                                <constraint firstItem="ZTa-cG-983" firstAttribute="trailing" secondItem="VzI-6e-iGR" secondAttribute="trailing" type="default" id="6HC-Gk-b6b"/>
+                                                <constraint firstItem="cw5-e0-nQm" firstAttribute="leading" secondItem="zXh-xL-dO2" secondAttribute="leading" constant="10" id="7SK-4a-4Ur"/>
                                                 <constraint firstItem="Tgw-Dz-ATL" firstAttribute="leading" secondItem="zXh-xL-dO2" secondAttribute="leading" type="default" id="AtH-ZG-mHy"/>
-                                                <constraint firstItem="Zvc-TF-wXM" firstAttribute="top" secondItem="zXh-xL-dO2" secondAttribute="top" constant="336" type="user" id="Dnn-mn-8LB"/>
-                                                <constraint firstItem="ZTa-cG-983" firstAttribute="trailing" secondItem="VzI-6e-iGR" secondAttribute="trailing" type="default" id="OQ6-Zh-Ne6"/>
-                                                <constraint firstItem="Tgw-Dz-ATL" firstAttribute="top" secondItem="Zvc-TF-wXM" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="TkW-XJ-g7R"/>
+                                                <constraint firstItem="cw5-e0-nQm" firstAttribute="top" secondItem="zXh-xL-dO2" secondAttribute="top" constant="10" id="CWz-t7-Wfv"/>
+                                                <constraint firstItem="ZTa-cG-983" firstAttribute="leading" secondItem="zXh-xL-dO2" secondAttribute="leading" constant="56" id="Q65-ka-Odf"/>
+                                                <constraint firstItem="ZTa-cG-983" firstAttribute="leading" secondItem="VzI-6e-iGR" secondAttribute="leading" type="default" id="TGj-7Q-5HL"/>
+                                                <constraint firstItem="VzI-6e-iGR" firstAttribute="top" secondItem="cw5-e0-nQm" secondAttribute="top" type="default" id="VHn-JC-kby"/>
                                                 <constraint firstAttribute="bottom" secondItem="Tgw-Dz-ATL" secondAttribute="bottom" constant="1" id="WW8-tQ-J4U"/>
-                                                <constraint firstAttribute="bottom" secondItem="Zvc-TF-wXM" secondAttribute="bottom" constant="51" id="YJ7-4a-LsQ"/>
-                                                <constraint firstItem="ZTa-cG-983" firstAttribute="leading" secondItem="cw5-e0-nQm" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="YJH-yF-WC1"/>
-                                                <constraint firstItem="cw5-e0-nQm" firstAttribute="leading" secondItem="zXh-xL-dO2" secondAttribute="leading" constant="6" type="user" id="Zed-k4-2tx"/>
-                                                <constraint firstItem="cw5-e0-nQm" firstAttribute="top" secondItem="zXh-xL-dO2" secondAttribute="top" constant="5" id="hhW-kD-WJP"/>
+                                                <constraint firstItem="ZTa-cG-983" firstAttribute="top" secondItem="zXh-xL-dO2" secondAttribute="top" constant="24" id="aXa-Dj-Twa"/>
+                                                <constraint firstItem="Tgw-Dz-ATL" firstAttribute="top" secondItem="zXh-xL-dO2" secondAttribute="top" constant="392" id="gYe-Le-RKD"/>
+                                                <constraint firstItem="Tgw-Dz-ATL" firstAttribute="top" relation="greaterThanOrEqual" secondItem="zXh-xL-dO2" secondAttribute="top" constant="392" type="user" id="giC-9B-Rhy"/>
                                                 <constraint firstItem="Tgw-Dz-ATL" firstAttribute="trailing" secondItem="zXh-xL-dO2" secondAttribute="trailing" type="default" id="kGZ-Aa-8YC"/>
+                                                <constraint firstItem="Zvc-TF-wXM" firstAttribute="top" secondItem="zXh-xL-dO2" secondAttribute="top" constant="338" type="user" id="vAY-kp-jFj"/>
                                                 <constraint firstItem="Tgw-Dz-ATL" firstAttribute="centerX" secondItem="Zvc-TF-wXM" secondAttribute="centerX" type="default" id="vkT-KR-5wr"/>
-                                                <constraint firstItem="ZTa-cG-983" firstAttribute="top" secondItem="zXh-xL-dO2" secondAttribute="top" constant="19" id="wJh-QB-Qb0"/>
-                                                <constraint firstItem="Tgw-Dz-ATL" firstAttribute="top" secondItem="zXh-xL-dO2" secondAttribute="top" constant="392" type="user" id="yUo-bd-r6w"/>
+                                                <constraint firstAttribute="bottom" secondItem="Zvc-TF-wXM" secondAttribute="bottom" constant="49" type="user" id="x0r-uf-CcN"/>
                                             </constraints>
                                         </view>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5NX-AU-9M3" userLabel="mealPhoto">
@@ -916,11 +916,12 @@
                                 </view>
                                 <color key="backgroundColor" red="0.96078437569999997" green="0.93725496529999996" blue="0.91372555489999996" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
-                                    <constraint firstItem="zXh-xL-dO2" firstAttribute="leading" secondItem="H1Q-km-SGu" secondAttribute="leading" constant="15" id="52J-Rl-He2"/>
-                                    <constraint firstItem="zXh-xL-dO2" firstAttribute="top" secondItem="H1Q-km-SGu" secondAttribute="top" constant="22" type="user" id="5S8-5v-d6W"/>
-                                    <constraint firstItem="5NX-AU-9M3" firstAttribute="centerX" secondItem="H1Q-km-SGu" secondAttribute="centerX" type="default" id="Awv-Hp-6ss"/>
-                                    <constraint firstItem="5NX-AU-9M3" firstAttribute="top" secondItem="H1Q-km-SGu" secondAttribute="top" constant="64" id="OCX-RL-YDY"/>
+                                    <constraint firstAttribute="bottom" secondItem="zXh-xL-dO2" secondAttribute="bottom" constant="22" type="user" id="5X3-oD-bjx"/>
+                                    <constraint firstItem="zXh-xL-dO2" firstAttribute="leading" secondItem="H1Q-km-SGu" secondAttribute="leading" constant="15" id="8nC-rR-mSh"/>
+                                    <constraint firstItem="zXh-xL-dO2" firstAttribute="centerX" secondItem="H1Q-km-SGu" secondAttribute="centerX" type="default" id="Mjq-nx-a0F"/>
                                     <constraint firstItem="zXh-xL-dO2" firstAttribute="centerX" secondItem="5NX-AU-9M3" secondAttribute="centerX" type="default" id="TeC-aL-Plu"/>
+                                    <constraint firstItem="zXh-xL-dO2" firstAttribute="top" secondItem="H1Q-km-SGu" secondAttribute="top" constant="13" type="user" id="gwJ-gm-AaX"/>
+                                    <constraint firstItem="5NX-AU-9M3" firstAttribute="top" secondItem="H1Q-km-SGu" secondAttribute="top" constant="64" id="sLk-JJ-K46"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="actionsContainer" destination="Tgw-Dz-ATL" id="7wf-9h-PrJ"/>
