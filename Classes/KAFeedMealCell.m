@@ -12,7 +12,7 @@
 
 @implementation KAFeedMealCell
 
-@synthesize mealPhoto, mealTitle, mealDate, mealUser, mealUserPhoto, mealCommentCount, commentBubble, mealContainer;
+@synthesize mealPhoto, mealTitle, mealDate, mealUser, mealUserPhoto, mealCommentCount, commentBubble, mealContainer, actionsContainer;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -47,20 +47,25 @@
     mealContainer.layer.borderColor = [UIColor colorWithRed:0.0/255.0f
                                                       green:0.0/255.0f
                                                        blue:0.0/255.0f
-                                                      alpha:0.3].CGColor;
+                                                      alpha:0.2].CGColor;
     mealContainer.layer.borderWidth = 1.0f;
     mealContainer.layer.backgroundColor = [UIColor whiteColor].CGColor;
     mealContainer.layer.shadowOffset = CGSizeMake(0.0f, 1.0f);
     mealContainer.layer.shadowColor = [UIColor grayColor].CGColor;
-    mealContainer.layer.shadowOpacity = 0.3f;
-    mealContainer.layer.cornerRadius = 3.0f;
+    mealContainer.layer.shadowOpacity = 0.2f;
+    mealContainer.layer.cornerRadius = 0.0f;
     
     if (![meal.commentCount isEqualToString:@"0"]) {
-        mealCommentCount.text = meal.commentCount;
+        mealCommentCount.text = [NSString stringWithFormat:@"%@ comments", meal.commentCount];
     } else {
-        mealCommentCount.text = nil;
-        [commentBubble setImage:nil];
+        mealCommentCount.text = @"No comments yet.";
     }
+    
+    
+    [actionsContainer setBackgroundColor:[UIColor colorWithRed:243.0/255.0f
+                                                         green:243.0/255.0f
+                                                          blue:243.0/255.0f
+                                                         alpha:1.0]];
     
     [self setNeedsDisplay];
 }

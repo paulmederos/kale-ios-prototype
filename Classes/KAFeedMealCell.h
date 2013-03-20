@@ -15,6 +15,7 @@
 }
 
 @property (weak, nonatomic) IBOutlet UIView *mealContainer;
+@property (weak, nonatomic) IBOutlet UIView *actionsContainer;
 @property (strong, nonatomic) IBOutlet UIImageView *mealPhoto;
 @property (strong, nonatomic) IBOutlet UILabel *mealTitle;
 @property (strong, nonatomic) IBOutlet UILabel *mealDate;
