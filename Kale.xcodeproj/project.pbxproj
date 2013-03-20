@@ -91,6 +91,8 @@
 		6AFE2C1E166044B600BB64A6 /* KACredentialStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFE2C1D166044B600BB64A6 /* KACredentialStore.m */; };
 		6AFE2C211660474300BB64A6 /* AuthAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFE2C201660474300BB64A6 /* AuthAPIClient.m */; };
 		6AFE2C231660538500BB64A6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AFE2C221660538500BB64A6 /* Security.framework */; };
+		8E1D15BE16F9246B00B4E886 /* KAProfileCollectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E1D15BD16F9246B00B4E886 /* KAProfileCollectionHeaderView.m */; };
+		8E1D15C416F9441E00B4E886 /* KAUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E1D15C316F9441D00B4E886 /* KAUser.m */; };
 		8E32E61516C40BAC00043E74 /* Kale-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E32E61416C40BAC00043E74 /* Kale-Info.plist */; };
 		8EA4CBA4168FEC2D00BDB9B8 /* share-proud_of_meal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EA4CBA0168FEC2D00BDB9B8 /* share-proud_of_meal@2x.png */; };
 		8EA4CBA5168FEC2D00BDB9B8 /* share-proud_of_meal.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EA4CBA1168FEC2D00BDB9B8 /* share-proud_of_meal.png */; };
@@ -293,6 +295,10 @@
 		6AFE2C1F1660474300BB64A6 /* AuthAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AuthAPIClient.h; path = Classes/AuthAPIClient.h; sourceTree = "<group>"; };
 		6AFE2C201660474300BB64A6 /* AuthAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AuthAPIClient.m; path = Classes/AuthAPIClient.m; sourceTree = "<group>"; };
 		6AFE2C221660538500BB64A6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		8E1D15BC16F9246B00B4E886 /* KAProfileCollectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KAProfileCollectionHeaderView.h; path = Classes/KAProfileCollectionHeaderView.h; sourceTree = "<group>"; };
+		8E1D15BD16F9246B00B4E886 /* KAProfileCollectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KAProfileCollectionHeaderView.m; path = Classes/KAProfileCollectionHeaderView.m; sourceTree = "<group>"; };
+		8E1D15C216F9441D00B4E886 /* KAUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KAUser.h; path = Classes/KAUser.h; sourceTree = "<group>"; };
+		8E1D15C316F9441D00B4E886 /* KAUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KAUser.m; path = Classes/KAUser.m; sourceTree = "<group>"; };
 		8E32E61416C40BAC00043E74 /* Kale-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Kale-Info.plist"; path = "Resources/Kale-Info.plist"; sourceTree = "<group>"; };
 		8E32E61616C40BB600043E74 /* Kale.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Kale.pch; path = "Other Sources/Kale.pch"; sourceTree = "<group>"; };
 		8EA4CB9E168FA18D00BDB9B8 /* UIImageView+LBBlurredImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+LBBlurredImage.h"; sourceTree = "<group>"; };
@@ -603,10 +609,10 @@
 			children = (
 				8EB938A616F281210047C952 /* KAAccountViewController.h */,
 				8EB938A716F281210047C952 /* KAAccountViewController.m */,
-				6AF51621166068260083C3F9 /* KAProfileViewController.h */,
-				6AF51622166068260083C3F9 /* KAProfileViewController.m */,
 				8EB938A916F3B5D50047C952 /* KASettingsNavigationController.h */,
 				8EB938AA16F3B5D50047C952 /* KASettingsNavigationController.m */,
+				6AF51621166068260083C3F9 /* KAProfileViewController.h */,
+				6AF51622166068260083C3F9 /* KAProfileViewController.m */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -620,6 +626,8 @@
 				6A7CE87C16704D3900DEE098 /* KANotifications.m */,
 				6A066BB71675992100C0AF09 /* KAComment.h */,
 				6A066BB81675992100C0AF09 /* KAComment.m */,
+				8E1D15C216F9441D00B4E886 /* KAUser.h */,
+				8E1D15C316F9441D00B4E886 /* KAUser.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -639,6 +647,8 @@
 				6AE402981671A24000BECF47 /* KAProfileMealCell.m */,
 				6AC557EB167593EC00193B36 /* KAMealCommentCell.h */,
 				6AC557EC167593EC00193B36 /* KAMealCommentCell.m */,
+				8E1D15BC16F9246B00B4E886 /* KAProfileCollectionHeaderView.h */,
+				8E1D15BD16F9246B00B4E886 /* KAProfileCollectionHeaderView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -953,6 +963,8 @@
 				8EF9E99B16D7FD2100567303 /* KAWelcomeViewController.m in Sources */,
 				8EB938A816F281210047C952 /* KAAccountViewController.m in Sources */,
 				8EB938AB16F3B5D50047C952 /* KASettingsNavigationController.m in Sources */,
+				8E1D15BE16F9246B00B4E886 /* KAProfileCollectionHeaderView.m in Sources */,
+				8E1D15C416F9441E00B4E886 /* KAUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

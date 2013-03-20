@@ -12,8 +12,8 @@
 #import "KAAccountViewController.h"
 #import "KAMeal.h"
 #import "KACredentialStore.h"
+#import "KAProfileCollectionHeaderView.h"
 #import "KAMealViewController.h"
-#import "KAProfileMealCell.h"
 #import "KAProfileViewController.h"
 #import "KAMainNavigationBar.h"
 #import "KASettingsNavigationController.h"
@@ -26,6 +26,7 @@
 @interface KAProfileViewController ()
 {
     NSUserDefaults *defaults;
+    KAProfileCollectionHeaderView *header;
 }
 @property (nonatomic, strong) SSPullToRefreshView *pullToRefreshView;
 
@@ -33,7 +34,7 @@
 
 @implementation KAProfileViewController
 
-@synthesize profilePhoto, userMeals, mealsTable, lastMealPhoto, pullToRefreshView;
+@synthesize userMeals, mealsCollection, pullToRefreshView, user;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -50,9 +51,6 @@
     
     // Set badge count to 0 (assuming they have checked-in happiness
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
-    
-    float yOffset = 200.0f; // size of Profile area.
-    mealsTable.frame =  CGRectMake(mealsTable.frame.origin.x, mealsTable.frame.origin.y - yOffset, mealsTable.frame.size.width, mealsTable.frame.size.height);
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receiveUserUpdatedNotification:)
@@ -71,29 +69,32 @@
     // Configure instance variables
     defaults = [NSUserDefaults standardUserDefaults];
     
+    if (!user) {
+        NSLog(@"No user given. Must be My Profile.");
+        user = [[KAUser alloc] initWithDictionary:(NSDictionary *)defaults];
+    }
+    
+    [mealsCollection setAllowsSelection:YES];
+    [mealsCollection setAllowsMultipleSelection:NO];
+    
     // Hook up delegates
-    [mealsTable setDataSource:self];
-    [mealsTable setDelegate:self];
+    [mealsCollection setDataSource:self];
+    [mealsCollection setDelegate:self];
     
     // Set up appearance/interface stuff
     [self customizeAppearance];
     
+    NSLog(@"Appearance is set. Time to pull user data.");
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [self pullUserData];
     
     self.pullToRefreshView = [[SSPullToRefreshView alloc]
-                              initWithScrollView:self.mealsTable
+                              initWithScrollView:self.mealsCollection
                               delegate:self];
 }
 
 - (void)customizeAppearance
 {
-    // Reset placeholders to nil
-    username.text = nil;
-    numberOfMeals.text = nil;
-    
-    [profileContainer.layer setBorderColor:[UIColor lightGrayColor].CGColor];
-    [profileContainer.layer setBorderWidth:1.0f];
     
     // Set background images/colors
     self.view.backgroundColor = [UIColor colorWithRed:245.0/255.0f
@@ -101,22 +102,13 @@
                                                  blue:233.0/255.0f
                                                 alpha:1.0];
     
-    // Bring profile photo to front of the profile pic    
-    [profilePhoto.layer setMasksToBounds:YES];
-    [profilePhoto.layer setCornerRadius:8.0f];
-    [profilePhoto.layer setBorderColor:[UIColor blackColor].CGColor];
-    [profilePhoto.layer setBorderWidth:1.0f];
-    [profilePhoto.layer setShadowColor:[UIColor whiteColor].CGColor];
-    [profilePhoto.layer setShadowOffset:CGSizeMake(0,0)];
-    [profilePhoto.layer setShadowOpacity:1];
-    [profilePhoto.layer setShadowRadius:2.0];
+    if (!user.serverID || user.serverID == [defaults objectForKey:@"serverID"])
+    {
+        self.navigationItem.rightBarButtonItem = [self setupSettingsButton];
+    } else {
+        [self setBackButton];
+    }
     
-    // Set placeholders while content loads
-    [profilePhoto setImage:[UIImage imageNamed:@"meal_photo-placeholder.png"]];
-    
-    [mealsTable bringSubviewToFront:profilePhoto];
-    
-    self.navigationItem.rightBarButtonItem = [self setupSettingsButton];
 }
 
 - (UIBarButtonItem *)setupSettingsButton {
@@ -144,45 +136,42 @@
 {
     // First, pull profile details (name, meal count, etc.)
     // then once completed, pull Meals details
-    [[AuthAPIClient sharedClient] getPath:@"/api/v1/profile"
+    NSLog(@"User ID: %@", user.serverID);
+    NSString *url = [NSString stringWithFormat:@"/api/v1/users/%@", user.serverID];
+    [[AuthAPIClient sharedClient] getPath:url
                                parameters:nil
                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                      [self configureUserDefaults:responseObject];
-                                      [self updateProfileInterface];
+                                      NSLog(@"Successfully pulled user data: %@", responseObject);
+                                      [user updateFromJSON:responseObject];
+                                      [self updateProfileInterface:responseObject];
 
                                       // Pull meal data
-                                      [self pullUserMealData];
+                                      [self updateMealData];
                                   }
                                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                       NSLog(@"Error pulling user Personal data: %@", error);
                                   }];
 }
 
-- (void)configureUserDefaults:(id)userDictionary
-{
-    [defaults setObject:[userDictionary objectForKey:@"username"] forKey:@"username"];
-    [defaults setObject:[userDictionary objectForKey:@"email"] forKey:@"email"];
-    [defaults setObject:[userDictionary objectForKey:@"avatar_square"] forKey:@"avatar_square"];
-    [defaults setObject:[userDictionary objectForKey:@"avatar_thumb"] forKey:@"avatar_thumb"];
-    [defaults setObject:[userDictionary objectForKey:@"id"] forKey:@"serverID"];
-    [defaults setObject:[userDictionary objectForKey:@"meals"] forKey:@"mealsCount"];
-}
 
-- (void)updateProfileInterface
+- (void)updateProfileInterface:(id)userDictionary
 {
     // This should be called after user profile data has been updated and needs UI refresh.
-    username.text = [defaults objectForKey:@"username"];
-    numberOfMeals.text = [NSString stringWithFormat:@"%@ meals shared", [defaults objectForKey:@"mealsCount"]];
-    [profilePhoto setImageWithURL:[NSURL URLWithString:[defaults objectForKey:@"avatar_square"]]];
+    header.profileUsername.text = user.displayName;
+    header.mealsCount.text = user.mealCount;
+    header.followersCount.text = user.followersCount;
+    header.followingCount.text = user.followingCount;
+    [header.profilePhoto setImageWithURL:[NSURL URLWithString:user.avatarThumbURL]];
 }
 
-- (void)pullUserMealData
+- (void)updateMealData
 {
-    [[AuthAPIClient sharedClient] getPath:@"/api/v1/meals/me"
+    NSString *url = [NSString stringWithFormat:@"/api/v1/users/%@/meals", user.serverID];
+    [[AuthAPIClient sharedClient] getPath:url
                                parameters:nil
                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                       [self parseMealsJSON:responseObject];
-                                      [self.mealsTable reloadData];
+                                      [self.mealsCollection reloadData];
                                       
                                       [MBProgressHUD hideHUDForView:self.view animated:YES];
                                       [self.pullToRefreshView finishLoading];
@@ -205,12 +194,25 @@
     self.userMeals = results;
 }
 
-#pragma mark - Notifications
+- (void)openWebsiteAccountDetails:(id)sender
+{
+    NSString* launchUrl = @"https://kaleweb.herokuapp.com/account-details";
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: launchUrl]];
+}
 
+- (void)showAccountView
+{
+    KASettingsNavigationController *snvc = [self.storyboard instantiateViewControllerWithIdentifier:@"settingsNavigationViewController"];
+    [snvc setDelegate:self];
+    [self presentViewController:snvc animated:YES completion:nil];
+}
+
+
+#pragma mark - Notifications
 - (void)receiveUserUpdatedNotification:(NSNotification *) notification
 {
     NSLog(@"User updated. Lets update UI from NSUserDefaults.");
-    [self updateProfileInterface];
+    [self updateMealData];
 }
 
 
@@ -245,64 +247,51 @@
     }
 }
 
-#pragma mark - UITableViewDelegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+#pragma mark - UICollectionViewDelegate
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    // Make a KAMealViewController, set the data, push it on the nav controller.
-    KAMealViewController *mealViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"mealDetail"];
-    
-    KAMeal *meal = [userMeals objectAtIndex:[indexPath row]];
-    [mealViewController setMeal:meal];
-    
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [mealViewController setHidesBottomBarWhenPushed:YES];
-    [self.navigationController pushViewController:mealViewController animated:YES];
-    
+    return 1;
 }
 
-#pragma mark - UITableViewDataSource
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    // Return number of meals in the array (pulled from the JSON response.)
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return userMeals.count;
 }
 
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Set the image from URL, the title, and the eaten_at date... using the profileMealPhoto reuse identifier
-    static NSString *cellIdentifier = @"profileMealPhoto";
-    KAProfileMealCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (!cell) {
-        cell = [[KAProfileMealCell alloc] initWithStyle:UITableViewCellStyleSubtitle
-                                      reuseIdentifier:cellIdentifier];
-    }
-    
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *identifier = @"profileMealCell";
     KAMeal *meal = [self.userMeals objectAtIndex:indexPath.row];
     
-    cell.mealTitle.text = meal.title;
-    cell.mealDay.text = meal.eatenDay;
-    cell.mealMonth.text = meal.eatenMonth;
-    cell.mealYear.text = meal.eatenYear;
-    [cell.mealPhoto setImageWithURL:[NSURL URLWithString:meal.photoSquareURL] placeholderImage:nil];
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    
+    UIImageView *cellImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height)];
+    [cellImage setImageWithURL:[NSURL URLWithString:meal.photoSquareURL] placeholderImage:[UIImage imageNamed:@"meal_photo-placeholder.png"]];
+    
+    [cell addSubview:cellImage];
     
     return cell;
 }
 
-- (void)openWebsiteAccountDetails:(id)sender
-{
-    NSString* launchUrl = @"https://kaleweb.herokuapp.com/account-details";
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: launchUrl]];
+- (void)collectionView:(UICollectionView *)colView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+
+    // Make a KAMealViewController, set the data, push it on the nav controller.
+    KAMealViewController *mealViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"mealDetail"];
+    NSLog(@"Selected cell #%ld", (long)indexPath.row);
+    KAMeal *meal = [userMeals objectAtIndex:[indexPath row]];
+    [mealViewController setMeal:meal];
+    NSLog(@"Selected meal: %@", meal.title);
+    
+    [colView deselectItemAtIndexPath:indexPath animated:YES];
+    [mealViewController setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:mealViewController animated:YES];
 }
 
-- (void)showAccountView
-{
-    KASettingsNavigationController *snvc = [self.storyboard instantiateViewControllerWithIdentifier:@"settingsNavigationViewController"];
-    [snvc setDelegate:self];
-    [self presentViewController:snvc animated:YES completion:nil];
+- (UICollectionReusableView *)collectionView: (UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    header = [collectionView dequeueReusableSupplementaryViewOfKind:kind
+                                                withReuseIdentifier:@"profileCollectionHeader"
+                                                       forIndexPath:indexPath];
+    return header;
 }
+
 
 #pragma mark - Pull to Refresh
 
@@ -322,6 +311,23 @@
     [navigationController setValue:[[KAMainNavigationBar alloc] init]
                         forKeyPath:@"navigationBar"];
     [navigationController setNavigationBarHidden:NO animated:YES];
+}
+
+#pragma mark - UINavigationBar backButtonItem
+
+- (void)setBackButton
+{
+    UIButton *backButton =  [UIButton buttonWithType:UIButtonTypeCustom];
+    [backButton setImage:[UIImage imageNamed:@"controls-nav-back-arrow.png"] forState:UIControlStateNormal];
+    [backButton addTarget:self action:@selector(backButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [backButton setFrame:CGRectMake(0, 0, 36.0, 18.0f)];
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+}
+
+- (void)backButtonTapped:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 

@@ -9,21 +9,19 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
+#import "KAUser.h"
 #import "SSPullToRefresh.h"
 #import "UIImageView+LBBlurredImage.h"
 
 
-@interface KAProfileViewController : UIViewController <SSPullToRefreshViewDelegate, UIActionSheetDelegate, UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate>
+@interface KAProfileViewController : UIViewController <SSPullToRefreshViewDelegate, UIActionSheetDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UINavigationControllerDelegate>
 {
 
-    __weak IBOutlet UILabel *numberOfMeals;
-    __weak IBOutlet UILabel *username;
-    __weak IBOutlet UIView *profileContainer;
 }
 
-@property (weak, nonatomic) IBOutlet UIImageView *profilePhoto;
+@property (strong, nonatomic) KAUser *user;
 @property (strong, nonatomic) NSArray *userMeals;
-@property (strong, nonatomic) IBOutlet UITableView *mealsTable;
-@property (weak, nonatomic) IBOutlet UIImageView *lastMealPhoto;
+@property (weak, nonatomic) IBOutlet UICollectionView *mealsCollection;
+
 
 @end

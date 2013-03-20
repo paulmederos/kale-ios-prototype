@@ -9,7 +9,9 @@
 #import "KAProfileNavigationController.h"
 
 @interface KAProfileNavigationController ()
+{
 
+}
 @end
 
 @implementation KAProfileNavigationController
@@ -43,7 +45,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

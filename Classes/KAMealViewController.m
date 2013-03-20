@@ -13,9 +13,12 @@
 #import "KAComment.h"
 #import "MBProgressHUD.h"
 #import "KAFeedMealCell.h"
+#import "KAProfileViewController.h"
 
 @interface KAMealViewController ()
-
+{
+    __weak IBOutlet UIButton *userProfileButton;
+}
 @end
 
 @implementation KAMealViewController
@@ -46,6 +49,8 @@
     
     [commentsTable setDataSource:self];
     [commentsTable setDelegate:self];
+    
+    [userProfileButton addTarget:self action:@selector(showUser:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -141,6 +146,16 @@
                                       NSLog(@"%@", error);
                                       [MBProgressHUD hideHUDForView:self.view animated:YES];
                                   }];
+}
+
+- (void)showUser:(id)sender
+{
+    KAProfileViewController *pvc = [self.storyboard instantiateViewControllerWithIdentifier:@"userProfileView"];
+    [pvc setHidesBottomBarWhenPushed:YES];
+    KAUser *user = [[KAUser alloc] init];
+    user.serverID = meal.ownerID;
+    [pvc setUser:user];
+    [self.navigationController pushViewController:pvc animated:YES];
 }
 
 #pragma mark - UITableViewDataSource
