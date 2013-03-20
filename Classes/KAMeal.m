@@ -14,6 +14,7 @@
 @implementation KAMeal
 
 @synthesize ownerUsername,
+            ownerDisplayName,
             ownerID,
             ownerAvatarSquareURL,
             ownerAvatarThumbURL,
@@ -96,6 +97,7 @@
 
 - (void)updateFromJSON:(NSDictionary *)dictionary {
     self.ownerUsername = [dictionary objectForKey:@"owner_username"];
+    self.ownerDisplayName = [dictionary objectForKey:@"owner_name"];
     self.ownerID = [dictionary objectForKey:@"owner_id"];
     self.ownerAvatarSquareURL = [dictionary objectForKey:@"owner_avatar_square"];
     self.ownerAvatarThumbURL = [dictionary objectForKey:@"owner_avatar_thumb"];

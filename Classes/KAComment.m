@@ -12,7 +12,7 @@
 
 @implementation KAComment
 
-@synthesize serverID, content, ownerID, ownerUsername, ownerAvatarThumbURL, createdAt;
+@synthesize serverID, content, ownerID, ownerUsername, ownerDisplayName, ownerAvatarThumbURL, createdAt;
 
 - (id)init
 {
@@ -37,6 +37,7 @@
     self.content = [dictionary objectForKey:@"content"];
     self.ownerID = [dictionary objectForKey:@"owner_id"];
     self.ownerUsername = [dictionary objectForKey:@"owner_username"];
+    self.ownerDisplayName = [dictionary objectForKey:@"owner_name"];
     self.ownerAvatarThumbURL = [dictionary objectForKey:@"owner_thumb_url"];
     self.createdAt = [dictionary objectForKey:@"created_at"];
 }

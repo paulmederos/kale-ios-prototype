@@ -37,7 +37,7 @@
     [mealTitle setLineBreakMode:NSLineBreakByWordWrapping];
     mealTitle.text = meal.title;
     mealDate.text = meal.eatenAt;
-    mealUser.text = meal.ownerUsername;
+    mealUser.text = meal.ownerDisplayName;
     mealCommentCount.text = meal.commentCount;
     
     [mealPhoto setImageWithURL:[NSURL URLWithString:meal.photoSquareURL] placeholderImage:[UIImage imageNamed:@"meal_photo-placeholder"]];

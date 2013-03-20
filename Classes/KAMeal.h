@@ -11,6 +11,7 @@
 @interface KAMeal : NSObject
 
 @property (nonatomic, copy) NSString *ownerUsername;
+@property (nonatomic, copy) NSString *ownerDisplayName;
 @property (nonatomic, copy) NSString *ownerID;
 @property (nonatomic, copy) NSString *ownerAvatarSquareURL;
 @property (nonatomic, copy) NSString *ownerAvatarThumbURL;

@@ -21,6 +21,7 @@
 @property (nonatomic, copy) NSString *content;
 @property (nonatomic, copy) NSString *ownerID;
 @property (nonatomic, copy) NSString *ownerUsername;
+@property (nonatomic, copy) NSString *ownerDisplayName;
 @property (nonatomic, copy) NSString *ownerAvatarThumbURL;
 @property (nonatomic, copy) NSString *createdAt;
 

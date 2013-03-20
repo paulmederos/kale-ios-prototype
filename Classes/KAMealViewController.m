@@ -185,7 +185,7 @@
     
     cell.commentContent.text = comment.content;
     cell.commentDate.text = comment.createdAt;
-    cell.commentOwner.text = comment.ownerUsername;
+    cell.commentOwner.text = comment.ownerDisplayName;
     [cell.commentOwnerAvatar setImageWithURL:[NSURL URLWithString:comment.ownerAvatarThumbURL] placeholderImage:nil];
     [cell.commentContent sizeToFit];
     
